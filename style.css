@@ -1,0 +1,36 @@
+body {
+    background-color: lightgray;
+    padding: 10%;
+
+}
+
+h1 {
+    color: gray;
+    font-family: Helvetica, sans-serif;
+    font-size: 30em;
+    text-align: center;
+}
+
+h2 {
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+
+h3 {
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+footer {
+    background-color: black;
+    border: 50;
+    text-align: center;
+    color: white;
+}
