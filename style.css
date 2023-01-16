@@ -1,6 +1,5 @@
 body {
     background-color: white;
-    padding: 0%;
 }
 
 /*** BANNER ***/
@@ -12,7 +11,7 @@ body {
   width: 10px;
   height: 900px;
   border-left:2px solid;
-  
+  padding-top: 100px;
   
   
 }
@@ -24,6 +23,10 @@ body {
    border-left:2px solid;
    margin-right:30px; 
     
+}
+
+.bannerList {
+  margin-left: -30px;
 }
 
 
@@ -85,6 +88,41 @@ p {
     text-decoration-color: black;
   }
 
+/*** NAV-BAR ***/
+  .nav {
+   line-height: 2em;
+  }
+
+  .nav-link {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    list-style-type: none;
+  }
+
+  /*** SECTIONS ***/
+
+  .section-eins {
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-bottom:50px;
+    margin: auto;
+    width: 500px;
+    text-align: left; 
+}
+
+.section-zwei {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom:50px;
+  margin: auto;
+  width: 80%;
+  text-align: left; 
+}
 
 /*** ACCORDION ***/
 
@@ -114,7 +152,6 @@ p {
   }
 
 
-
   /*** FOOTER ***/
 
   .footer-element {
@@ -122,28 +159,18 @@ p {
     display: inline;
   }
 
-  footer {
-    padding: 10px;
+  .footer {
+    position: fixed;
     left: 0;
     bottom: 0;
+    bottom: 0px;
     width: 100%;
-    background-color: white;
     text-align: center; 
-    height: 3em;   
-    margin: 40px, 30px, 30px, 30px;
+    height: 3em; 
+    padding: 10px;
   }
 
-/*** SECTIONS ***/
 
 
-  .section-eins {
-    margin-top: 100px;
-    margin-left: 50px;
-    margin-bottom:50px;
-    margin: auto;
-    width: 500px;
-    text-align: left;
-    
-}
 
 
