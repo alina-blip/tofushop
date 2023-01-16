@@ -1,36 +1,112 @@
 body {
-    background-color: lightgray;
+    background-color: white;
     padding: 10%;
-
 }
 
+
+/*** FONTS ***/ 
+
 h1 {
-    color: gray;
-    font-family: Helvetica, sans-serif;
-    font-size: 30em;
-    text-align: center;
+    color: black;
+    font-family: jeanne-moderno-ultra,  serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 5em;
+    text-align: left;
+    line-height: 5%;
+}
+
+.special {
+ font-family: Helvetica, sans-serif;
+ line-height: 50%;
 }
 
 h2 {
     font-family: Helvetica, sans-serif;
     font-size: 3em;
-    text-align: center;
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
 }
-
 
 h3 {
     font-family: Helvetica, sans-serif;
     font-size: 2em;
-    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
 }
 
 p {
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Helvetica, sans-serif;
+    line-height: 170%; 
+    text-align: left;
 }
 
-footer {
-    background-color: black;
-    border: 50;
-    text-align: center;
-    color: white;
+
+/*** LINKS ***/
+
+
+  a {
+    color: black;
+    font-family: monospace;
+    text-underline-offset: var(--offset, 0.2em);
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0);
+    transition: --offset 400ms, text-decoration-color 400ms;
+  }
+  
+  a:hover,
+  a:focus {
+    --offset: 0.4em;
+    text-decoration-color: black;
+  }
+
+
+/*** ACCORDION ***/
+
+.accordion {
+    background-color: white;
+    border: 0;
+    padding: 10px;
+    width: 100%;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+  }
+
+  .active, .accordion:hover {
+    border-bottom: 1px solid black;
+    transition: 1s;
 }
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+
+
+
+  /*** FOOTER ***/
+
+  .footer-element {
+    margin: 8px;
+    display: inline;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    text-align: center; 
+    height: 3em;   
+    margin: 40px, 30px, 30px, 30px;
+  }
+
