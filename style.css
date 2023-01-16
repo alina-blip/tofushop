@@ -146,4 +146,22 @@ p {
     
 }
 
+.container{
+  border:1px solid black;
+  border-radius: 3%;
+  margin:auto;
+  margin-top: 15em;
+  width: 40%;
+  height: 600px;
+
+}
+
+.register{
+  border-bottom: 1px solid grey;
+  padding-left:10%;
+  padding-top: 1em;
+  padding-bottom:1em;
+
+}
+
 
