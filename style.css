@@ -1,6 +1,29 @@
 body {
     background-color: white;
-    padding: 10%;
+    padding: 0%;
+}
+
+/*** BANNER ***/
+
+.banner{
+       
+  background-color: black;
+  float: left;
+  width: 10px;
+  height: 900px;
+  border-left:2px solid;
+  
+  
+  
+}
+.banner:hover  {
+   transition: 1s;
+   background-color: #B4C4B2;
+   width: 130px;
+   height: 900px;
+   border-left:2px solid;
+   margin-right:30px; 
+    
 }
 
 
@@ -8,12 +31,11 @@ body {
 
 h1 {
     color: black;
-    font-family: jeanne-moderno-ultra,  serif;
-    font-weight: 300;
-    font-style: normal;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
     font-size: 5em;
-    text-align: left;
-    line-height: 5%;
+    margin-left: 50px;
+    margin-bottom: 100px;
 }
 
 .special {
@@ -39,6 +61,7 @@ h3 {
 
 p {
     font-family: Helvetica, sans-serif;
+    font-size: 1.2em;
     line-height: 170%; 
     text-align: left;
 }
@@ -49,7 +72,7 @@ p {
 
   a {
     color: black;
-    font-family: monospace;
+    font-family: Helvetica, sans-serif;
     text-underline-offset: var(--offset, 0.2em);
     text-decoration: underline;
     text-decoration-color: rgba(0,0,0,0);
@@ -109,4 +132,18 @@ p {
     height: 3em;   
     margin: 40px, 30px, 30px, 30px;
   }
+
+/*** SECTIONS ***/
+
+
+  .section-eins {
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-bottom:50px;
+    margin: auto;
+    width: 500px;
+    text-align: left;
+    
+}
+
 
