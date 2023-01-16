@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hilfe</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
+  </head>
+  <body>
+    <h1>Hilfe</h1>
+    <!-- <h1 class="special">Hilfe</h1>-->
+
+    <button class="accordion">FAQs</button>
+    <div class="panel">
+      <p>
+        Wo ist meine Bestellung? Gute Nachricht: Damit du immer auf dem
+        Laufenden bist, schicken wir dir zwei E-Mails mit deiner
+        Sendungsverfolgung. Sobald du eine Bestellung aufgegeben hast, erhältst
+        du eine Bestätigungsmail, mit der du jeden Schritt deiner Bestellung
+        verfolgen kannst, von der Produktion bis zur Lieferung. Sobald deine
+        Bestellung unser Lager verlässt, schicken wir eine separate
+        Versandbestätigung mit der Sendungsverfolgungsnummer, damit du den Weg
+        deines Pakets nachverfolgen kannst. Solltest du keine E-Mails von uns
+        erhalten haben, überprüfe bitte auch den Spam-Ordner. Wenn die
+        Sendungsverfolgung nicht korrekt ist oder sich nicht zu ändern scheint,
+        mach' dir keine Sorgen: Unser Customer Service Team kümmert sich gerne
+        um dein Anliegen!
+      </p>
+    </div>
+
+    <button class="accordion">Versand</button>
+    <div class="panel">
+      <p>
+        Wir liefern in folgende 19 europäischen Länder: Deutschland, Belgien,
+        Dänemark, Finnland, Frankreich, Griechenland, Irland, Italien,
+        Luxemburg, Niederlande, Österreich, Polen, Portugal, Schweden, Spanien,
+        Tschechien, Ungarn und das Vereinigte Königreich. Über unsere Schweizer
+        Domain juniqe.ch verschicken wir auch in die Schweiz. Die Höhe der
+        Versandkosten hängt von dem Versandland und den Maßen der Bestellung ab.
+        Solltest du verschiedene Größen bestellen, berechnen wir einmalig die
+        Versandgebühr für das größte Produkt. Die Preise für einen Versand in
+        alle anderen genannten Länder können leicht variieren. Bitte checke den
+        tatsächlichen Preis einfach beim Bestellen in deinem Warenkorb.
+      </p>
+    </div>
+
+    <button class="accordion">Zahlungsmöglichkeiten</button>
+    <div class="panel">
+      <h3>Paypal</h3>
+      <p>
+        Bei der Paypal-Zahlung wirst du direkt zu Paypal weitergeleitet. Wenn du
+        bereits Paypal-Kunde bist, kannst du dich über deine Benutzerdaten
+        anmelden und begleichen. Deine Bestellung geht dann sofort in
+        Produktion. Im Falle einer Rücksendung erfolgt die Rückerstattung auf
+        das mit Paypal verknüpfte Konto oder die Kreditkarte.
+      </p>
+    </div>
+
+    <button class="accordion">Retouren</button>
+    <div class="panel">
+      <p>
+        Um deine Artikel zurückzusenden und deine Rückerstattung zu erhalten,
+        bitte kontaktiere uns über das
+        <a class="link" href="#">Kontaktformular</a>.
+      </p>
+    </div>
+  </body>
+  <footer>
+    <div class="footer-element">
+      <a class="link" href="./Hilfe.html">Hilfe</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Webshop.html">Impressum</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Webshop.html">Kontakt</a>
+    </div>
+  </footer>
+
+  <!-- Javascript für Akkordeon-->
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        /* Toggle between adding and removing the "active" class,
+          to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+</html>
