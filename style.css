@@ -204,7 +204,7 @@ p {
 
 .parallax-one {
 
-  background-image: url("bild-04.png");
+  background-image: url("bild-04-white.png");
 
   min-height: 400px; 
 
@@ -213,3 +213,36 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.imgage {
+transition: opacity 400ms ease-in-out;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    transition-property: opacity;
+  }
+
+
+  /*** LOGIN / REGISTER NAV-BAR ***/
+
+  .nav-container {
+    float: right;
+  }
+
+  .login-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 0.8em;
+    border: none;
+    width: 100px;
+  }
+
+  .login-container button, .register-container button {
+    color: black;
+    background-color: white;
+    border: none;
+    width: 100px;
+    padding: 6px;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+  }
