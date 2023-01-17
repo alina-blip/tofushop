@@ -33,15 +33,6 @@
     <div class="container">
         <form action="/action_page.php" method="post">
            <p>
-            <div class="register">
-                <label for="vorname"><b>Vorname</b></label>
-                <input type="text" placeholder="Vorname" name="vorname" required>
-            </div>
-
-            <div class="register">
-                <label for="nachname"><b>Nachname</b></label>
-                <input type="text" placeholder="Nachname" name="nachname" required>
-            </div>
 
             <div class="register">
                 <label for="anrede"><b>Anrede</b></label>
@@ -53,30 +44,36 @@
             </div>
 
             <div class="register">
-                <label for="email"><b>E-mail</b></label>
+                <input type="text" placeholder="Vorname" name="vorname" required>
+            </div>
+
+            <div class="register">
+                <input type="text" placeholder="Nachname" name="nachname" required>
+            </div>
+
+            <div class="register">
                 <input type="email" placeholder="e-mail" name="email" required>
             </div>
 
             <div class="register">
-                <label for="ort"><b>Ort</b></label>
                 <input type="text" placeholder="Ort" name="ort" required>
             </div>
             
             <div class="register">
-                <label for="straße"><b>Straße</b></label>
                 <input type="text" placeholder="Straße" name="straße" required>
             </div>
 
             <div class="register">
-                <label for="nummer"><b>Hausnummer</b></label>
                 <input type="number" placeholder="Hausnummer" name="nummer" required>
             </div>
 
             <div class="register">
-                <label for="plz"><b>Postleitzahl</b></label>
                 <input type="number" placeholder="Postleitzahl" name="plz" required>
-            </div>     
-               
+            </div>
+            
+            <div class="register">
+            <input type="submit" value="Submit">
+            </div>
            </p> 
         </form>
     
