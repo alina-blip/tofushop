@@ -1,27 +1,30 @@
 body {
    background-image:url("background.jpg") ;
+   box-sizing: border-box ;
 }
 
 /*** BANNER ***/
 
 .banner{
-       
+  box-sizing: border-box;  
   background-color: black;
   float: left;
   width: 10px;
-  height: 900px;
+  height: 100%;
   border-left:2px solid;
-  padding-top: 100px;
+ 
   
   
 }
 .banner:hover  {
+   box-sizing: border-box;   
    transition: 1s;
    background-color: #B4C4B2;
    width: 130px;
-   height: 900px;
+   height: 100%;
    border-left:2px solid;
    margin-right:30px; 
+   
     
 }
 
@@ -33,12 +36,14 @@ body {
 /*** FONTS ***/ 
 
 h1 {
+    position:sticky;
     color: black;
     font-family: Helvetica, sans-serif;
     font-weight: 800;
     font-size: 3em;
     margin-left: 50px;
     margin-bottom: 30px;
+    margin-top:0;
     
 }
 
@@ -101,11 +106,13 @@ p {
   }
 
   .nav-link {
+    
     float: right;
     padding: 6px;
     margin-top: 8px;
     margin-right: 16px;
     font-size: 17px;
+    height: 3em;
     border: none;
     cursor: pointer;
     list-style-type: none;
@@ -162,19 +169,19 @@ p {
   /*** FOOTER ***/
 
   .footer-element {
-    margin: 8px;
+    font-size: 0.8em;
     display: inline;
+    padding-left:1em;
   }
 
   .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    bottom: 0px;
+    padding-top: 1em;
+    background-color: white;
     width: 100%;
     text-align: center; 
-    height: 3em; 
-    padding: 10px;
+    height: 2em; 
+    bottom: 0;
+    
   }
 
 
@@ -187,7 +194,7 @@ p {
   
   border-radius: 2%;
   margin:auto;
-  margin-top: 15em;
+  margin-top: 8em;
   width: 40%;
   height: 100%;
 }
