@@ -36,9 +36,10 @@ h1 {
     color: black;
     font-family: Helvetica, sans-serif;
     font-weight: 800;
-    font-size: 5em;
+    font-size: 3em;
     margin-left: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+    
 }
 
 .special {
@@ -69,9 +70,15 @@ p {
     text-align: left;
 }
 
+.bildtext {
+  font-size: 0.9em;
+  font-weight: 100;
+  background-color: transparent;
+}
+
+
 
 /*** LINKS ***/
-
 
   a {
     color: black;
@@ -193,4 +200,16 @@ p {
   
 }
 
+/***PARALLAX***/
 
+.parallax-one {
+
+  background-image: url("bild-04.png");
+
+  min-height: 400px; 
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
