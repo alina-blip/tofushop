@@ -39,7 +39,7 @@ h1 {
     font-size: 3em;
     margin-left: 50px;
     margin-bottom: 30px;
-    
+    margin-top: 0px;
 }
 
 .special {
@@ -236,22 +236,32 @@ transition: opacity 400ms ease-in-out;
 
   .nav-container {
     float: right;
+    
   }
 
   .login-container input[type=text] {
-    padding: 6px;
+    padding: 0px;
     margin-top: 8px;
-    font-size: 0.8em;
+    font-size: 0.7em;
     border: none;
-    width: 100px;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(132, 149, 132);
   }
 
   .login-container button, .register-container button {
-    color: black;
+    color: rgb(132, 149, 132);
     background-color: white;
     border: none;
-    width: 100px;
-    padding: 6px;
-    margin-top: 10px; 
-    margin-bottom: 10px;
+    border-radius: 40px;
+    width: 100%;
+    padding: 7px;
+    margin-top: 15px; 
+    font-size: 0.7em;
+  }
+
+  .register-container button {
+    color: white;
+    background-color:rgb(132, 149, 132);
+    font-size: 0.6em;
   }
