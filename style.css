@@ -179,7 +179,8 @@ p {
   margin:auto;
   margin-top: 15em;
   width: 40%;
-  height: 600px;
+  height: 632px;
+  
 
 }
 
@@ -188,7 +189,8 @@ p {
   padding-left:10%;
   padding-top: 1em;
   padding-bottom:1em;
-
+  font-size: 1.5em;
+  
 }
 
 
