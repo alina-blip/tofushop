@@ -4,80 +4,88 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hilfe</title>
+    <title>Tofu</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
   </head>
   <body>
-    <nav>
-      <div class="banner">
-        <a href="homepage.html"
-          ><img class="nav-link" height="50px" src="logo.png"
-        /></a>
-        <ul class="bannerList">
-          <li class="nav-link">
-            <a class="nav" href="homepage.html">Tofu</a>
-          </li>
-          <li class="nav-link">
-            <a class="nav" href="homepage.html">Shop</a>
-          </li>
-          <li class="nav-link">
-            <a class="nav" href="homepage.html">Über&nbsp;Tofu</a>
-          </li>
-          
-          <li class="nav-link">
-            <div class="nav-container">
-              <div class="login-container">
-                <form action="/action_page.php">  
-                  <input type="text" placeholder="Username" name="username" /> <!-- pro html seite muss id eindeutig sein - ist für CSS, bei formularübermittlung wird der name übermittelt - ist case sensitive-->
-                  <input type="text" placeholder="Password" name="psw" />
-                  <button type="submit">Login</button>
-                </form>
-              </div>
-             <!-- <div class="register-container">-->
-                <form action="/Anmeldeformular.html">
-                  <button type="link">Registrierung</button>
-                </form>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div id="page-container">
+      <div id="content-wrap">
+        <nav>
+          <div class="banner">
+            <a href="homepage.html"
+              ><img class="nav-link" height="50px" src="logo.png"
+            /></a>
+            <ul class="bannerList">
+              <li class="nav-link">
+                <a class="nav" href="homepage.html">Tofu</a>
+              </li>
+              <li class="nav-link">
+                <a class="nav" href="homepage.html">Shop</a>
+              </li>
+              <li class="nav-link">
+                <a class="nav" href="homepage.html">Über&nbsp;Tofu</a>
+              </li>
 
-    <h1>TOFU</h1>
-    <div class="parallax-one"></div>
+              <li class="nav-link">
+                <div class="nav-container">
+                  <div class="login-container">
+                    <form action="/action_page.php">
+                      <input
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                      />
+                      <!-- pro html seite muss id eindeutig sein - ist für CSS, bei formularübermittlung wird der name übermittelt - ist case sensitive-->
+                      <input type="text" placeholder="Password" name="psw" />
+                      <button type="submit">Login</button>
+                    </form>
+                  </div>
+                  <div class="register-container">
+                    <form action="/Anmeldeformular.html">
+                      <button type="link">Registrierung</button>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-    <section class="section-zwei">
-      <img class="image" alt="bild-03" src="bild-03.jpeg" />
-      <div class="bildtext">
-        <p><strong>meru</strong> <i>2019</i></p>
-      </div>
-      <div class="parallax-one"></div>
+        <h1>TOFU</h1>
+        <div class="parallax-one"></div>
 
-      <img alt="bild-02" src="bild-02.jpeg" />
-      <div class="bildtext">
-        <p><strong>ria</strong> <i>2019</i></p>
-      </div>
-      <div class="parallax-one"></div>
+        <section class="section-zwei">
+          <img class="image" alt="bild-03" src="bild-03.jpeg" />
+          <div class="bildtext">
+            <p><strong>meru</strong> <i>2019</i></p>
+          </div>
+          <div class="parallax-one"></div>
 
-      <img alt="bild-01" src="bild-01.jpeg" />
-      <div class="bildtext">
-        <p><strong>nyx</strong> <i>2019</i></p>
+          <img alt="bild-02" src="bild-02.jpeg" />
+          <div class="bildtext">
+            <p><strong>ria</strong> <i>2019</i></p>
+          </div>
+          <div class="parallax-one"></div>
+
+          <img alt="bild-01" src="bild-01.jpeg" />
+          <div class="bildtext">
+            <p><strong>nyx</strong> <i>2019</i></p>
+          </div>
+        </section>
+        <div class="parallax-one"></div>
       </div>
-    </section>
-    <div class="parallax-one"></div>
+      <footer class="footer">
+        <div class="footer-element">
+          <a class="link" href="./Hilfe.html">Hilfe</a>
+        </div>
+        <div class="footer-element">
+          <a class="link" href="Impressum.html">Impressum</a>
+        </div>
+        <div class="footer-element">
+          <a class="link" href="Homepage.html">Kontakt</a>
+        </div>
+      </footer>
+    </div>
   </body>
-
-  <footer class="footer">
-    <div class="footer-element">
-      <a class="link" href="./Hilfe.html">Hilfe</a>
-    </div>
-    <div class="footer-element">
-      <a class="link" href="Impressum.html">Impressum</a>
-    </div>
-    <div class="footer-element">
-      <a class="link" href="Homepage.html">Kontakt</a>
-    </div>
-  </footer>
 </html>

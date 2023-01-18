@@ -1,6 +1,13 @@
+html {
+  height: 100vh;
+}
+
 body {
    background-image:url("background.jpg") ;
    box-sizing: border-box ;
+   margin: 0;
+   height: 100vh;
+
 }
 
 /*** BANNER ***/
@@ -168,23 +175,7 @@ p {
   }
 
 
-  /*** FOOTER ***/
-
-  .footer-element {
-    font-size: 0.8em;
-    display: inline;
-    padding-left:1em;
-  }
-
-  .footer {
-    padding-top: 1em;
-    background-color: white;
-    width: 100%;
-    text-align: center; 
-    height: 2em; 
-    bottom: 0;
-    
-  }
+  
 
 
 
@@ -275,5 +266,34 @@ transition: opacity 400ms ease-in-out;
     font-size: 0.6em;
   }
 
+
+
+  /*** FOOTER ***/
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+
+  .footer-element {           /* Text in Footer Layout */
+    font-size: 0.8em;
+    display: inline;
+    padding-left:1em;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+    background-color: white;
+    text-align: center; 
+    padding-top: 1em;
+
+  }
 
   
