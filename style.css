@@ -19,22 +19,40 @@ body {
   float: left;
   width: 10px;
   height: 100%;
-  border-left:2px solid;
- 
-  
-  
+  border-left:2px solid;  
 }
+
 .banner:hover  {
-   box-sizing: border-box;   
-   transition: 1s;
-   background-color: #B4C4B2;
-   width: 130px;
-   height: 100%;
-   border-left:2px solid;
-   margin-right:30px; 
-   
+  box-sizing: border-box;   
+  transition: 1s;
+  background-color: #B4C4B2;
+  width: 20vh;
+  height: 100%;
+  border-left:2px solid;
+  margin-right:30px;   
+}
+
+
+.ban {
+  box-sizing: border-box;  
+  background-color: transparent;
+  float: left;
+  width: 10px;
+  height: 100vh;
     
 }
+  .ban:hover {
+   box-sizing: border-box;   
+   transition: 1s;
+   background-color: transparent;
+   width: 18vh;
+   height: 10vh;
+   
+   margin-right:30px;   
+}
+
+
+
 
 .bannerList {
   margin-left: -30px;
@@ -115,16 +133,17 @@ p {
   }
 
   .nav-link {
-    
     float: right;
     padding: 6px;
     margin-top: 8px;
-    margin-right: 16px;
+    margin-right: 20px;
     font-size: 17px;
     height: 3em;
     border: none;
     cursor: pointer;
     list-style-type: none;
+
+    
   }
   
   
