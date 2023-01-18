@@ -13,6 +13,7 @@ body {
 /*** BANNER ***/
 
 .banner{
+  position:fixed;
   box-sizing: border-box;  
   background-color: black;
   float: left;
@@ -43,7 +44,8 @@ body {
 /*** FONTS ***/ 
 
 h1 {
-    position:sticky;
+    
+    
     color: black;
     font-family: Helvetica, sans-serif;
     font-weight: 800;
