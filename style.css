@@ -58,6 +58,12 @@ body {
   margin-left: -30px;
 }
 
+/*** IMAGE ***/ 
+
+.image {
+  max-width: 100%;
+}
+
 
 /*** FONTS ***/ 
 
