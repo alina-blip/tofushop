@@ -11,8 +11,27 @@ body {
 }
 
 /*** BANNER ***/
+@media only screen and (max-width: 600px) {
+  .banner{
+
+    visibility: hidden;
+  }
+  .banner:hover{
+    visibility: hidden;
+  }
+  .ban{
+    visibility: hidden;
+  }
+  .ban:hover{
+    visibility: hidden;
+  }
+  .bannerList{
+    visibility: hidden;
+  }
+}
 
 .banner{
+  
   position:fixed;
   box-sizing: border-box;  
   background-color: black;
@@ -23,6 +42,7 @@ body {
 }
 
 .banner:hover  {
+  
   box-sizing: border-box;   
   transition: 1s;
   background-color: #B4C4B2;
@@ -34,6 +54,7 @@ body {
 
 
 .ban {
+  
   box-sizing: border-box;  
   background-color: transparent;
   float: left;
@@ -42,6 +63,7 @@ body {
     
 }
   .ban:hover {
+    
    box-sizing: border-box;   
    transition: 1s;
    background-color: transparent;
@@ -55,8 +77,10 @@ body {
 
 
 .bannerList {
+  
   margin-left: -30px;
 }
+
 
 /*** IMAGE ***/ 
 
@@ -68,8 +92,6 @@ body {
 /*** FONTS ***/ 
 
 h1 {
-    
-    
     color: black;
     font-family: Helvetica, sans-serif;
     font-weight: 800;
@@ -135,11 +157,15 @@ p {
   }
 
 /*** NAV-BAR ***/
+
+
   .nav {
+  
    line-height: 2em;
   }
 
   .nav-link {
+    
     float: right;
     padding: 6px;
     margin-top: 8px;
@@ -149,15 +175,13 @@ p {
     border: none;
     cursor: pointer;
     list-style-type: none;
-
-    
   }
-  
-  
+
 
   /*** SECTIONS ***/
 
   .section-eins {
+    
     margin-top: 100px;
     margin-left: 50px;
     margin-bottom:50px;
@@ -167,6 +191,7 @@ p {
 }
 
 .section-zwei {
+  
   margin-top: 100px;
   margin-left: 50px;
   margin-bottom:50px;
@@ -324,4 +349,87 @@ transition: opacity 400ms ease-in-out;
 
   }
 
+  /** Navabar Phone**/
+
+  @media only screen and (max-width: 600px) {
+
+    h1 {
+      color: black;
+      font-family: Helvetica, sans-serif;
+      font-weight: 800;
+      font-size: 2.5em;
+      margin-left: 50px;
+      margin-bottom: 30px;
+      margin-top:0;
+      
+  }
   
+  .special {
+   font-family: Helvetica, sans-serif;
+   line-height: 50%;
+  }
+
+  .line{
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  }
+ 
+
+
+  .button-menu {
+float:right;
+margin-right:0.25em;
+margin-top:0.25em;
+background-color: transparent;
+border-color:transparent;
+
+  }
+  .button-menu:hover{
+   transform:rotate(-180deg);
+    transition-duration: 0.5s;
+  }
+ 
+  .modal-body{
+    padding:20vh;
+  }
+
+  .nav-bar-phone{
+    float:right;
+  }
+  
+  .container-phone {
+   box-sizing: border-box;
+  }
+  .container-phone{
+    font-size:2em;
+    font-weight: bold;
+  }
+
+  .modal-title{
+    font-size:2em;
+    font-weight: bold;
+    margin:auto;
+
+  }
+  
+}
+
+@media only screen and (min-width: 600px) {
+
+  .line{
+    visibility: hidden;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    }
+  
+    .button-menu {
+      visibility: hidden;
+  float:right;
+  margin-right:0.25em;
+  margin-top:0.25em;
+    }
+  }
