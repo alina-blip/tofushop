@@ -62,8 +62,41 @@ body {
 
 .image {
   max-width: 100%;
+  
 }
 
+.image-full {
+    /* Set rules to fill background */
+    min-height: auto;
+    min-width: 100%;
+    
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0
+}
+
+/**** FLOATING IMAGES ***/ 
+
+.image-float {
+  max-width: 50%;
+  animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 300px;
+    margin-top: -200px;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+}
 
 /*** FONTS ***/ 
 
@@ -111,7 +144,7 @@ p {
 .bildtext {
   font-size: 0.9em;
   font-weight: 100;
-  background-color: transparent;
+  background-color: white;
 
   
 }
@@ -157,7 +190,8 @@ p {
 
   /*** SECTIONS ***/
 
-  .section-eins {
+  .section-fullscreen
+   {
     margin-top: 100px;
     margin-left: 50px;
     margin-bottom:50px;
@@ -166,10 +200,10 @@ p {
     text-align: left; 
 }
 
-.section-zwei {
+.section-tight {
   margin-top: 100px;
-  margin-left: 50px;
-  margin-bottom:50px;
+  margin-left: 30px;
+  margin-bottom:30px;
   margin: auto;
   width: 80%;
   text-align: left; 
@@ -241,10 +275,9 @@ input{
 
 .parallax-one {
 
-  background-image: url("bild-04-white.png");
+  background-image: url("images/bild-04-keepmewild-noBG.png");
 
   min-height: 400px; 
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -324,4 +357,85 @@ transition: opacity 400ms ease-in-out;
 
   }
 
+
+  /*** GRID GALLERY ***/ 
+
+  .grid {
+    display: grid;
+    grid-template-rows: 
+      repeat(4, 180px);
+    grid-template-columns: 
+      repeat(3, 1fr);
+    grid-gap: 25px;
+  }
+
+.item:nth-child(1) {
+  grid-row: 1 / 4;
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.item:nth-child(1):hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+}
+
+.item:nth-child(2) {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.item:nth-child(2):hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+}
+
+.item:nth-child(3) {
+  grid-column: 3 / 4;
+  grid-row: 3 / 5;
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.item:nth-child(3):hover {
+  transform: scale(1.3);
+  transition-duration: 1s;
+}
+
+.item:nth-child(4) {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.item:nth-child(4):hover {
+  transform: scale(1.3);
+  transition-duration: 1s;
+}
+
+.item:nth-child(5) {
+  grid-column: 1 / 3;
+  grid-row: 4 / 5;
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.item:nth-child(5):hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+}
+
+
+  /* styling code */
   
+  .grid {
+    margin:20px auto;
+    max-width:1000px;
+  }
+  
+  .grid > .item {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+
+
