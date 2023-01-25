@@ -11,7 +11,7 @@ body {
 }
 
 /*** BANNER ***/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .banner{
 
     visibility: hidden;
@@ -590,7 +590,7 @@ margin: 6px 0;
 
 
 .button-menu {
-display: inline-block;
+display:block;
 float: right;
 margin-right:0.25em;
 margin-top:0.25em;
@@ -626,6 +626,10 @@ border-color:transparent;
   margin:auto;
 }
 
+.container {
+  width: 100%;
+  margin-top:1em;
+}
 
 }
 
@@ -640,7 +644,7 @@ border-color:transparent;
   }
 
   .button-menu {
-    visibility: hidden;
+visibility: hidden;
 float:right;
 margin-right:0.25em;
 margin-top:0.25em;
@@ -652,14 +656,9 @@ margin-top:0.25em;
     width: 70%;
     margin-top:1em;
   }
+
 }
 
-@media only screen and (max-width: 600px) {
 
-.container {
-  width: 100%;
-  margin-top:1em;
-}
-}
 
 
