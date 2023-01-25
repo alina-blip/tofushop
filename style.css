@@ -466,8 +466,9 @@ transition: opacity 400ms ease-in-out;
  /** Navabar Phone**/
 
  @media only screen and (max-width: 600px) {
-
+  
   h1 {
+    display:inline-block;
     color: black;
     font-family: Helvetica, sans-serif;
     font-weight: 800;
@@ -475,6 +476,7 @@ transition: opacity 400ms ease-in-out;
     margin-left: 50px;
     margin-bottom: 30px;
     margin-top:0;
+    
     
 }
 
@@ -493,6 +495,7 @@ margin: 6px 0;
 
 
 .button-menu {
+display: inline-block;
 float:right;
 margin-right:0.25em;
 margin-top:0.25em;
