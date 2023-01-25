@@ -54,7 +54,7 @@ body {
 }
 
 
-.ban {
+.ban  {
   
   box-sizing: border-box;  
   background-color: transparent;
@@ -64,13 +64,15 @@ body {
     
 }
   .ban:hover {
-    
    box-sizing: border-box;   
    transition: 1s;
-   background-color: transparent;
    width: 18vh;
    height: 10vh;
-   margin-right:30px;   
+   margin-right: 30px;   
+   background-color: transparent;
+
+   
+   
 }
 
 
@@ -454,6 +456,7 @@ transition: opacity 400ms ease-in-out;
   .grid {
     margin:20px auto;
     max-width:1000px;
+  
   }
   .grid > .item {
     background-position: center;
