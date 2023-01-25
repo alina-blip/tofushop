@@ -284,6 +284,8 @@ p {
   padding-top: 1em;
   padding-bottom:1em;
   font-size: 1.5em;
+  border:1px solid transparent;
+  transition-duration: 1s;
 }
 
 input{
@@ -293,6 +295,33 @@ input{
   border-bottom: 2px solid grey;
   font-size: 0.8em;
 }
+
+
+
+.register:hover{
+  border:1px solid gainsboro;
+  transition-duration: 1s;
+}
+
+.register input[type=text]:focus {
+  outline:none;
+}
+
+.register input[type=email]:focus {
+  outline:none;
+}
+
+.register input[type=number]:focus {
+  outline:none;
+}
+
+ #choose {
+  background-color: white;
+
+}
+
+
+
 
 
 /***PARALLAX***/
@@ -309,7 +338,7 @@ input{
 }
 
 .imgage {
-transition: opacity 400ms ease-in-out;
+    transition: opacity 400ms ease-in-out;
     transition-duration: 400ms;
     transition-timing-function: ease-in-out;
     transition-delay: 0s;
@@ -350,6 +379,7 @@ transition: opacity 400ms ease-in-out;
     background-color:rgb(132, 149, 132);
     font-size: 0.6em;
   }
+  
 
 
 
@@ -462,7 +492,7 @@ transition: opacity 400ms ease-in-out;
   }
  /** Navabar Phone**/
 
- @media only screen and (max-width: 600px) {
+ @media only screen and (max-width: 700px) {
   
   h1 {
     display:inline-block;
@@ -507,6 +537,7 @@ border-color:transparent;
 
 .modal-body{
   padding:20vh;
+  transition-timing-function: ease-in-out;
 }
 
 .nav-bar-phone{
@@ -532,7 +563,7 @@ border-color:transparent;
 
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
 
 .line{
   visibility: hidden;
@@ -549,3 +580,20 @@ margin-right:0.25em;
 margin-top:0.25em;
   }
 }
+@media only screen and (max-width: 800px) {
+
+  .container {
+    width: 70%;
+    margin-top:1em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+.container {
+  width: 100%;
+  margin-top:1em;
+}
+}
+
+
