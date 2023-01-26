@@ -28,6 +28,7 @@ body {
   .bannerList{
     visibility: hidden;
   }
+  
 }
 
 .banner{
@@ -573,7 +574,7 @@ input{
     font-weight: 800;
     font-size: 2.5em;
     margin-left: 10px;
-    margin-bottom: 30px;
+    margin-bottom:0em;
     margin-top:0;    
 }
 
@@ -605,20 +606,20 @@ border-color:transparent;
 }
 
 .modal-body{
-  padding:20vh;
+  box-sizing: border-box;
+  padding:10vh;
   transition-timing-function: ease-in-out;
 }
 
 .nav-bar-phone{
-  float:right;
+  
 }
 
 .container-phone {
  box-sizing: border-box;
-}
-.container-phone{
-  font-size:2em;
-  font-weight: bold;
+ font-size:2em;
+font-weight: bold;
+
 }
 
 .modal-title{
@@ -626,11 +627,23 @@ border-color:transparent;
   font-weight: bold;
   margin:auto;
 }
-
-
+.nav-link{
+  margin:auto;
 }
 
-@media only screen and (min-width: 700px) {
+.container {
+  width: 95%;
+  margin-top:1em;
+}
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 95%;
+    margin-top:1em;
+  }
+  
+
 
 .line{
   visibility: hidden;
@@ -646,21 +659,10 @@ float:right;
 margin-right:0.25em;
 margin-top:0.25em;
   }
-}
-@media only screen and (max-width: 800px) {
-
-  .container {
-    width: 70%;
-    margin-top:1em;
-  }
+  
 }
 
-@media only screen and (max-width: 600px) {
 
-.container {
-  width: 100%;
-  margin-top:1em;
-}
-}
+
 
 
