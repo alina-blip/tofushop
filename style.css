@@ -610,9 +610,7 @@ border-color:transparent;
   transition-timing-function: ease-in-out;
 }
 
-.nav-bar-phone{
-  
-}
+
 
 .container-phone {
  box-sizing: border-box;
@@ -633,6 +631,7 @@ font-weight: bold;
 .container {
   width: 95%;
   margin-top:1em;
+ 
 }
 }
 
@@ -640,7 +639,9 @@ font-weight: bold;
   .container {
     width: 95%;
     margin-top:1em;
+    
   }
+}
   
 @media only screen and (min-width: 700px) {
 
