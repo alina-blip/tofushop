@@ -237,7 +237,6 @@ p {
   margin: auto;
   width: 80%;
   text-align: left; 
-  display: inline-block;
 }
 
 /*** ACCORDION ***/
@@ -258,14 +257,13 @@ p {
 
   .active, .accordion:hover {
     border-bottom: 1px solid black;
-    transition-duration: 1s;
+    transition: 1s;
 }
   .panel {
     padding: 0 18px;
     background-color: white;
     display: none;
     overflow: hidden;
-    
   }
 
 
@@ -274,6 +272,7 @@ p {
 .container{
   box-sizing: border-box;
   background: white;
+  
   border-radius: 2%;
   margin:auto;
   margin-top: 8em;
@@ -643,7 +642,7 @@ font-weight: bold;
     margin-top:1em;
   }
   
-
+@media only screen and (min-width: 700px) {
 
 .line{
   visibility: hidden;
