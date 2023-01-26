@@ -11,7 +11,7 @@ body {
 }
 
 /*** BANNER ***/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .banner{
 
     visibility: hidden;
@@ -246,6 +246,7 @@ p {
     border: 0;
     padding: 10px;
     width: 100%;
+
     font-family: Helvetica, sans-serif;
     font-size: 3em;
     text-align: left;
@@ -380,8 +381,11 @@ input{
     background-color:rgb(132, 149, 132);
     font-size: 0.6em;
   }
-
   
+
+
+
+  /*** FOOTER ***/
 
   #page-container {
     position: relative;
@@ -389,12 +393,8 @@ input{
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem;    
+    padding-bottom: 2.5rem;    /* Footer height */
   }
-
-
-
-  /*** FOOTER ***/
 
   .footer-element {           /* Text in Footer Layout */
     font-size: 0.8em;
@@ -562,10 +562,6 @@ input{
     background-repeat: no-repeat;
     background-size: cover;
   }
-
-
-
-
  /** Navabar Phone**/
 
  @media only screen and (max-width: 700px) {
@@ -595,7 +591,7 @@ margin: 6px 0;
 
 
 .button-menu {
-display: inline-block;
+display:block;
 float: right;
 margin-right:0.25em;
 margin-top:0.25em;
@@ -612,10 +608,6 @@ border-color:transparent;
   box-sizing: border-box;
   padding:10vh;
   transition-timing-function: ease-in-out;
-}
-
-.nav-bar-phone{
-  
 }
 
 
@@ -639,6 +631,7 @@ font-weight: bold;
 .container {
   width: 95%;
   margin-top:1em;
+ 
 }
 }
 
@@ -646,7 +639,9 @@ font-weight: bold;
   .container {
     width: 95%;
     margin-top:1em;
+    
   }
+}
   
 @media only screen and (min-width: 700px) {
 
@@ -659,15 +654,11 @@ font-weight: bold;
   }
 
   .button-menu {
-    visibility: hidden;
+visibility: hidden;
 float:right;
 margin-right:0.25em;
 margin-top:0.25em;
   }
   
-}
-
-
-
 }
 
