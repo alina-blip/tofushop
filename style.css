@@ -246,7 +246,6 @@ p {
     border: 0;
     padding: 10px;
     width: 100%;
-
     font-family: Helvetica, sans-serif;
     font-size: 3em;
     text-align: left;
@@ -381,11 +380,8 @@ input{
     background-color:rgb(132, 149, 132);
     font-size: 0.6em;
   }
+
   
-
-
-
-  /*** FOOTER ***/
 
   #page-container {
     position: relative;
@@ -393,8 +389,12 @@ input{
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 2.5rem;    
   }
+
+
+
+  /*** FOOTER ***/
 
   .footer-element {           /* Text in Footer Layout */
     font-size: 0.8em;
@@ -562,6 +562,10 @@ input{
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+
+
+
  /** Navabar Phone**/
 
  @media only screen and (max-width: 700px) {
@@ -614,6 +618,8 @@ border-color:transparent;
   
 }
 
+
+
 .container-phone {
  box-sizing: border-box;
  font-size:2em;
@@ -663,5 +669,5 @@ margin-top:0.25em;
 
 
 
-
+}
 
