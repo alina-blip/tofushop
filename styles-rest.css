@@ -1,0 +1,108 @@
+ /*** SECTIONS ***/
+
+ .section-fullscreen
+ {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom:50px;
+  margin: auto;
+  width: 500px;
+  text-align: left; 
+}
+
+.section-tight {
+margin-top: 100px;
+margin-left: 30px;
+margin-bottom:30px;
+margin: auto;
+width: 80%;
+text-align: left; 
+}
+
+/*** ACCORDION ***/
+
+.accordion {
+    background-color: white;
+    border: 0;
+    padding: 10px;
+    width: 100%;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+  }
+
+  .active, .accordion:hover {
+    border-bottom: 1px solid black;
+    transition: 1s;
+}
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+
+/*** Registrierung ***/
+
+.container{
+  box-sizing: border-box;
+  background: white;
+  
+  border-radius: 2%;
+  margin:auto;
+  margin-top: 8em;
+  width: 40%;
+  height: 100%;
+}
+
+.register {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom:1em;
+  font-size: 1.5em;
+  border:1px solid transparent;
+  transition-duration: 1s;
+}
+
+input{
+  width: 100%;
+  height: 2.5em;
+  border: none ;
+  border-bottom: 2px solid grey;
+  font-size: 0.8em;
+}
+
+.register:hover{
+  border:1px solid gainsboro;
+  transition-duration: 1s;
+}
+
+.register input[type=text]:focus {
+  outline:none;
+}
+
+.register input[type=email]:focus {
+  outline:none;
+}
+
+.register input[type=number]:focus {
+  outline:none;
+}
+
+ #choose {
+  background-color: white;
+}
+
+
+
+
+
+
+
+
+

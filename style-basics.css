@@ -1,0 +1,101 @@
+html {
+    height: 100vh;
+  }
+  
+  body {
+     background-image:url("background.jpg") ;
+     box-sizing: border-box ;
+     margin: 0;
+     height: 100vh;
+  }
+
+/*** FONTS ***/ 
+
+h1 {
+    color: black;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 3em;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    margin-top:0;  
+}
+
+
+.special {
+ font-family: Helvetica, sans-serif;
+ line-height: 50%;
+}
+
+h2 {
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    text-align: left;
+    font-style: normal;
+    font-weight: 500;
+}
+
+h3 {
+    font-family: Helvetica, sans-serif;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+}
+
+p {
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2em;
+    line-height: 170%; 
+    text-align: left;
+}
+
+.bildtext {
+  font-size: 0.9em;
+  font-weight: 100;
+  background-color: white;
+}
+
+/*** LINKS ***/
+
+a {
+    color: black;
+    font-family: Helvetica, sans-serif;
+    text-underline-offset: var(--offset, 0.2em);
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0);
+    transition: --offset 400ms, text-decoration-color 400ms;
+  }
+  
+  a:hover,
+  a:focus {
+    --offset: 0.4em;
+    text-decoration-color: black;
+  }
+
+  /*** FOOTER ***/
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+
+  .footer-element {           /* Text in Footer Layout */
+    font-size: 0.8em;
+    display: inline;
+    padding-left:1em;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+    background-color: white;
+    text-align: center; 
+    padding-top: 1em;
+  }
