@@ -183,20 +183,18 @@ font-weight: bold;
   margin:auto;
 }
 
-.container {
-  width: 95%;
-  margin-top:1em;
-    }
+
 }
 
 @media only screen and (max-width: 1000px) {
+
 .container {
-    width: 95%;
+    width: 60%;
     margin-top:1em;   
   }
 }
   
-@media only screen and (min-width: 700px) {
+@media  (min-width: 700px) {
 .line {
   visibility: hidden;
   width: 35px;
