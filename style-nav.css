@@ -112,6 +112,7 @@
     padding: 7px;
     margin-top: 15px; 
     font-size: 0.7em;
+    
   }
 
   .register-container button {
@@ -132,7 +133,7 @@
     font-weight: 800;
     font-size: 2.5em;
     margin-left: 10px;
-    margin-bottom:0em;
+    margin-bottom:1em;
     margin-top:0;    
 }
 
@@ -165,9 +166,13 @@ border-color:transparent;
 .modal-body {
   box-sizing: border-box;
   padding:10vh;
-  transition-timing-function: ease-in-out;
+  margin:auto;
+  background-color: #B4C4B2;
 }
-
+.modal-header{
+  background-color: #B4C4B2;
+  border-color: #61775f;
+}
 .container-phone {
  box-sizing: border-box;
  font-size:2em;
@@ -182,15 +187,19 @@ font-weight: bold;
 .nav-link {
   margin:auto;
 }
-
+.modal-footer{
+  margin-bottom:0;
+}
+.modal-content{
+  background-color: #B4C4B2;
+}
 
 }
 
 @media only screen and (max-width: 1000px) {
 
 .container {
-    width: 60%;
-    margin-top:1em;   
+    width: 80%;
   }
 }
   
@@ -210,4 +219,24 @@ margin-right:0.25em;
 margin-top:0.25em;
   } 
 }
+
+@media only screen and (max-width: 370px) {
+  h1{
+    font-size: 2em;
+  }
+  .container{
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+.container{
+  width:500px;
+}
+}
+@media only screen and (max-width: 450px) {
+.container{
+  width:100%;
+}
+
 
