@@ -1,0 +1,10 @@
+body {
+    background-color: darksalmon;
+}
+
+.product {
+    background-color: indianred;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
