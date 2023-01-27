@@ -19,6 +19,13 @@ width: 80%;
 text-align: left; 
 }
 
+.section-float {
+  margin:1em auto;
+	display: table;
+  width: 50%;
+  text-align: center; 
+  }
+
 /*** ACCORDION ***/
 
 .accordion {
@@ -99,7 +106,27 @@ input{
 }
 
 
+/*** Text Animation ***/
 
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: 1.5s;
+  transition-timing-function: ease;
+}
+
+@media(prefers-reduced-motion){
+  .hidden {
+    transition: none;
+  }
+}
+
+.show {
+opacity: 1;
+filter: blur(0px);
+transform: translateX(0);
+}
 
 
 
