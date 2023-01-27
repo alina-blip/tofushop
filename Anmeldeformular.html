@@ -2,14 +2,25 @@
 <html lang="en">
   <head>
     <title>Anmeldung</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style-basics.css" />
     <link rel="stylesheet" href="./style-grid-images.css" />
     <link rel="stylesheet" href="./style-nav.css" />
     <link rel="stylesheet" href="./style-tofu-word-animation.css" />
     <link rel="stylesheet" href="./styles-rest.css" />
     <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
     <script src="components/navbar/loadNavbar.js" defer></script>
     <script src="components/navbarPhone/loadNavbar.js" defer></script>
   </head>
@@ -19,72 +30,89 @@
         <div id="navbarContainer"></div>
 
         <div id="container-nav-phone"></div>
-    <h1>Registrierung</h1>
-    
+        <h1>Registrierung</h1>
 
-
-    <div class="container">
-        <form action="/action_page.php" method="post">
-           <p>
-
+        <div class="container">
+          <form action="/action_page.php" method="post">
             <div class="register">
-                <label for="anrede" class="choose-anrede"><b>Anrede:</b></label>
-                <select name="anrede" id="choose">
-                    
-                    <option value="frau">Frau</option>
-                    <option value="mann">Mann</option>
-                    <option value="neutral">Divers</option>
-                </select>
+              <label for="anrede" class="choose-anrede"><b>Anrede:</b></label>
+              <select name="anrede" id="choose">
+                <option value="frau">Frau</option>
+                <option value="mann">Mann</option>
+                <option value="neutral">Divers</option>
+              </select>
             </div>
 
             <div class="register">
-                <input type="text" placeholder="Vorname" name="vorname" required>
+              <input
+                type="text"
+                placeholder="Vorname"
+                name="vorname"
+                required
+              />
             </div>
 
             <div class="register">
-                <input type="text" placeholder="Nachname" name="nachname" required>
+              <input
+                type="text"
+                placeholder="Nachname"
+                name="nachname"
+                required
+              />
             </div>
 
             <div class="register">
-                <input type="email" placeholder="e-mail" name="email" required>
+              <input type="email" placeholder="e-mail" name="email" required />
             </div>
 
             <div class="register">
-                <input type="text" placeholder="Ort" name="ort" required>
-            </div>
-            
-            <div class="register">
-                <input type="text" placeholder="Straße" name="straße" required>
+              <input type="text" placeholder="Ort" name="ort" required />
             </div>
 
             <div class="register">
-                <input type="number" placeholder="Hausnummer" name="nummer" required>
+              <input type="text" placeholder="Straße" name="straße" required />
+            </div>
+
+            <div class="register" >
+              <input
+                type="number"
+                placeholder="Hausnummer"
+                name="nummer"
+                required
+              />
             </div>
 
             <div class="register">
-                <input type="number" placeholder="Postleitzahl" name="plz" required>
+              <input
+                type="number"
+                placeholder="Postleitzahl"
+                name="plz"
+                required
+              />
             </div>
-            
+
             <div class="register">
-            <input type="submit" value="Submit">
+              <input type="submit" value="Submit" />
             </div>
-           </p> 
-        </form>
-    
-    </div>    
-  </div>
-  <footer class="footer">
-    <div class="footer-element">
-      <a class="link" href="./Hilfe.html">Hilfe</a>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-element">
+          <a class="link" href="./Hilfe.html">Hilfe</a>
+        </div>
+        <div class="footer-element">
+          <a class="link" href="Impressum.html">Impressum</a>
+        </div>
+        <div class="footer-element">
+          <a class="link" href="Homepage.html">Kontakt</a>
+        </div>
+      </footer>
     </div>
-    <div class="footer-element">
-      <a class="link" href="Impressum.html">Impressum</a>
-    </div>
-    <div class="footer-element">
-      <a class="link" href="Homepage.html">Kontakt</a>
-    </div>
-  </footer>
-</div>  
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
