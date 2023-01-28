@@ -103,17 +103,8 @@ input{
   background-color: white;
 }
 
-.register-container-main button{
-    
-    color: white;
-    background-color:#B4C4B2;
-    border: none;
-    border-radius: 40px;
-    width: 100%;
-    padding: 7px;
-    margin-top: 15px; 
+.register-container.main button{
     font-size: 1em;
-
 }
 
 /*** Text Animation ***/
