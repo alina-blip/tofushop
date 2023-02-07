@@ -81,7 +81,8 @@ a {
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 2.5rem; 
+       /* Footer height */
   }
 
   .footer-element {           /* Text in Footer Layout */
