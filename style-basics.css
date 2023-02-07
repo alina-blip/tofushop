@@ -6,6 +6,7 @@ html {
      background-image:url("background.jpg") ;
      box-sizing: border-box ;
      margin: 0;
+     /*margin-bottom: 170px; */    /*space for footer*/ 
      height: 100vh;
   }
 
@@ -41,6 +42,8 @@ h3 {
     font-style: normal;
     font-weight: 500;
     text-align: left;
+    margin-top: 15px;
+
 }
 
 p {
@@ -48,6 +51,7 @@ p {
     font-size: 1.2em;
     line-height: 170%; 
     text-align: left;
+    margin-top: 15px;
 }
 
 .bildtext {
@@ -105,24 +109,32 @@ a {
   }
   
   #content-wrap {
-    padding-bottom: 2.5rem; 
-       /* Footer height */
+    padding-bottom: 3.5rem;  
+      /* Footer height */
   }
 
-  .footer-element {           /* Text in Footer Layout */
+  .footer-element {           /* Design for Textelements in Footer Layout */
     font-size: 0.8em;
     display: inline;
     padding-left:1em;
+   
   }
-  
+
+ /* .bg-info text-center text-lg-start fixed-bottom {
+    background-color: brown;
+   }*/
+
+
   .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /* Footer height */
+    height: 3.5rem;            /* Footer height */
     background-color: white;
-    text-align: center; 
-    padding-top: 1em;
-    margin-bottom: 30px;
-    margin-top: 10px;
+    text-align: center;
+    padding-top: 1.1em; 
+
   }
+
+  
+

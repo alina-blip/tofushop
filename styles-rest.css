@@ -40,18 +40,41 @@ text-align: left;
     font-style: normal;
     font-weight: 500;
     border-bottom: 1px solid white;
+    transition: 1s;
+   
   }
 
   .active, .accordion:hover {
     border-bottom: 1px solid black;
     transition: 1s;
+    
 }
   .panel {
     padding: 0 18px;
     background-color: white;
-    display: none;
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.3s ease-out;
   }
+
+  .section-accordion {
+    padding-top: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 50px;
+    margin: auto;
+    width: 100%;
+    text-align: left; 
+    position: absolute;
+    }
+
+    @media screen and (max-width: 570px){
+
+      .accordion {
+        font-size: 2em;
+      }
+
+    }
 
 /*** Registrierung ***/
 

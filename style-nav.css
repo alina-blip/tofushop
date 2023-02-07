@@ -27,7 +27,7 @@
     height: 100vh;
     border-left:2px solid;  
     transition-duration: 0.4s;
-    z-index: 1;
+    z-index: 9999;
   
   }
   
@@ -39,7 +39,7 @@
     height: 100vh;
     border-left:2px solid;
     margin-right:30px;   
-    z-index: 1;
+    z-index: 9999;
   }
   
   /*  SLIDING EFFECTS */
@@ -243,3 +243,4 @@ margin-top:0.25em;
 }
 
 
+}
