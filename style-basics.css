@@ -56,22 +56,46 @@ p {
   background-color: white;
 }
 
+.parallax-text {
+  color: white;
+  text-align: center;
+  margin: auto;
+  font-size: 6em;
+  font-weight: 100;
+  padding-top: 140px;
+  transition: 2s;
+}
+
+.parallax-text:hover, .parallax-text:active {
+  font-size: 7em;
+  font-weight: 300;
+}
+
 /*** LINKS ***/
+@property --offset {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0;
+}
 
 a {
     color: black;
     font-family: Helvetica, sans-serif;
-    text-underline-offset: var(--offset, 0.2em);
+    text-underline-offset: var(--offset, -0.8em);
+    --offset: 0.8em;
     text-decoration: underline;
-    text-decoration-color: rgba(0,0,0,0);
-    transition: --offset 400ms, text-decoration-color 400ms;
-  }
-  
+    text-decoration-color: rgba(0, 0, 0, 0);
+    transition: --offset 400ms;
+    }
+
   a:hover,
   a:focus {
     --offset: 0.4em;
     text-decoration-color: black;
   }
+
+
+
 
   /*** FOOTER ***/
 
@@ -99,4 +123,6 @@ a {
     background-color: white;
     text-align: center; 
     padding-top: 1em;
+    margin-bottom: 30px;
+    margin-top: 10px;
   }

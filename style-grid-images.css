@@ -196,7 +196,8 @@
 
     background-image: url("images/bild-04-keepmewild-noBG.png");
   
-    min-height: 400px; 
+    min-height: 200px; 
+    max-height: 400px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -211,4 +212,37 @@
       transition-property: opacity;
     }
 
+
+    /*** FLEXBOX ***/
+
+    .flex-container {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .flex-item {
+      width: 100%;
+      margin: auto;
+    }
+    
+    /* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 700px) {
+  .flex-container {
+    flex-direction: column;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  #myFirstDIV {
+    order: 1;
+  }
+  #mySecondDIV {
+    order: 2;
+  }
+  
+
+}
 

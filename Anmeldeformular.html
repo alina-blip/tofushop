@@ -36,59 +36,42 @@
           <form action="action_page.php" method="post">
             <div class="register">
               <label for="anrede" class="choose-anrede"><b>Anrede:</b></label>
-              <select name="anrede" id="choose">
-                <option value="frau">Frau</option>
-                <option value="mann">Mann</option>
-                <option value="neutral">Divers</option>
+              <select name="anrede" id="anrede">
+                <option value="frau" name="gender">Frau</option>
+                <option value="mann" name="gender">Mann</option>
+                <option value="neutral" name="gender">Divers</option>
               </select>
             </div>
 
             <div class="register">
               <input
-                type="text"
-                placeholder="Vorname"
-                name="vorname"
-                required
-              />
+                type="text" placeholder="Vorname" name="vorname" id="vorname" required />
             </div>
 
             <div class="register">
               <input
-                type="text"
-                placeholder="Nachname"
-                name="nachname"
-                required
+                type="text" placeholder="Nachname" name="nachname" id="nachname" required
               />
             </div>
 
             <div class="register">
-              <input type="email" placeholder="e-mail" name="email" required />
+              <input type="email" placeholder="e-mail" name="email" id="email"required />
             </div>
 
             <div class="register">
-              <input type="text" placeholder="Ort" name="ort" required />
+              <input type="text" placeholder="Ort" name="ort" id="ort"required />
             </div>
 
             <div class="register">
-              <input type="text" placeholder="Straße" name="straße" required />
+              <input type="text" placeholder="Straße" name="straße" id="straße" required />
             </div>
 
             <div class="register">
-              <input
-                type="number"
-                placeholder="Hausnummer"
-                name="nummer"
-                required
-              />
+              <input type="number" placeholder="Hausnummer" name="nummer" id="nummer" required />
             </div>
 
             <div class="register">
-              <input
-                type="number"
-                placeholder="Postleitzahl"
-                name="plz"
-                required
-              />
+              <input type="number" placeholder="Postleitzahl" name="plz" id="plz" required/>
             </div>
 
             <div class="register-container main">
@@ -105,7 +88,7 @@
           <a class="link" href="Impressum.html">Impressum</a>
         </div>
         <div class="footer-element">
-          <a class="link" href="Homepage.html">Kontakt</a>
+          <a class="link" href="Kontakt.html">Kontakt</a>
         </div>
       </footer>
     </div>
