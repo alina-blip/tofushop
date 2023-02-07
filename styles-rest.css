@@ -23,7 +23,7 @@ text-align: left;
   margin:1em auto;
 	display: table;
   width: 50%;
-  text-align: center; 
+  text-align: left; 
   }
 
 /*** ACCORDION ***/
@@ -116,18 +116,28 @@ input{
 
 }
 
-/*** Text Animation ***/
+/*** Text Animation - Li nach Re ***/
+
+
 
 .hidden {
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-100%);
+  transform: translateX(-60%);
+  transition: 1.5s;
+  transition-timing-function: ease;
+}
+
+.hidden-re {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(60%);
   transition: 1.5s;
   transition-timing-function: ease;
 }
 
 @media(prefers-reduced-motion){
-  .hidden {
+  .hidden .hidden-re {
     transition: none;
   }
 }
@@ -135,8 +145,13 @@ input{
 .show {
 opacity: 1;
 filter: blur(0px);
-transform: translateX(0);
+transform: translateX(0%);
 }
+
+/*** RE nach LI ***/
+
+
+
 
 
 
