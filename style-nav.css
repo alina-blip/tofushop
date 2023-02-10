@@ -54,7 +54,7 @@
     transition-duration: 0.7s;  
   }
     .ban:hover {
-      position: relative;
+    position: relative;
      box-sizing: border-box;   
      background-color: transparent;
      transition-duration: 1s;

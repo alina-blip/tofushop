@@ -33,7 +33,6 @@ text-align: left;
     border: 0;
     padding: 10px;
     width: 100%;
-
     font-family: Helvetica, sans-serif;
     font-size: 3em;
     text-align: left;
@@ -137,15 +136,34 @@ input{
   color: gray;
 }
 
-select > option {
-  background-color: red;
-  color: green;
-  font-size: 3em;
-}
-
 .register-container.main button{
     font-size: 1em;
 }
+
+.container-signin {
+  padding-top: 20px;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  color: gray;
+}
+
+.container-signin a {
+  color: gray;
+}
+.container-signin a:hover  {
+  color: gray;
+  text-decoration-color: gray;
+}
+
+.container-signin a:active, a:visited {
+  text-decoration-color:gray;
+
+}
+.container-signin p {
+  text-align: center;
+}
+
+
 
 /*** Text Animation - Li nach Re ***/
 
