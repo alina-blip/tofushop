@@ -123,7 +123,24 @@ input{
 }
 
  #choose {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+}
+
+#anrede {
+  font-size: 0.8em;
+  color: gray;
+  border: none;
+  border-radius: 5px;
+}
+.choose-anrede {
+  font-size: 0.8em;
+  color: gray;
+}
+
+select > option {
+  background-color: red;
+  color: green;
+  font-size: 3em;
 }
 
 .register-container.main button{
@@ -162,7 +179,7 @@ filter: blur(0px);
 transform: translateX(0%);
 }
 
-/*** RE nach LI ***/
+
 
 
 
