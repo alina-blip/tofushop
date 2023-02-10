@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style-basics.css" />
+    <link rel="stylesheet" href="./style-contact.css" />
     <link rel="stylesheet" href="./style-grid-images.css" />
     <link rel="stylesheet" href="./style-nav.css" />
     <link rel="stylesheet" href="./style-tofu-word-animation.css" />
@@ -31,10 +32,49 @@
         <div id="navbarContainer"></div>
         <div id="container-nav-phone"></div>
         <h1>Kontakt</h1>
+        <div class="container-contact">
+          <div style="text-align: center">
+            <h2>Sag Hi!</h2>
+          </div>
+          <div class="row">
+            <div class="column">
+              <img
+                class="image-contact-form"
+                src="images/bild-13-maxwell-mockup2.jpg"
+              />
+            </div>
+            <div class="column">
+              <form action="/action_page.php">
+                <label for="fname"></label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="firstname"
+                  placeholder="Vorname"
+                />
+                <label for="lname"></label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lastname"
+                  placeholder="Nachname"
+                />
+
+                <label for="subject"></label>
+                <textarea
+                  id="subject"
+                  name="subject"
+                  placeholder="Schreib eine Nachricht..."
+            
+                ></textarea>
+                <div class="container-button-centered">
+                <button type="submit" value="submit" >Senden</button></form>
+              </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-
-
       <footer class="footer">
         <div class="footer-element">
           <a class="link" href="./Hilfe.html">Hilfe</a>
