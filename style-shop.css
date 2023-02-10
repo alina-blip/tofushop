@@ -1,15 +1,33 @@
-.container-grid-shop{
 
-    margin-bottom: 5vh;
+.row > * {
+    border:1px solid black;
+    border-left: none;
+    border-right:none;
+    margin-left: 0;
+    margin-right: 0;
+   
+    
 }
 .row {
-    border: 1px solid black;
-    
+    box-sizing: border-box;
+    --bs-gutter-x: none;
+}
+.row.imagetext > * {
+    padding-left:5vh;
 }
 
 .nyx{
-    width: 100%;
-    padding: 0 10vh 0 10vh;
-   
+    width:100%;
+    padding:5vh;
+    
 }
+
+
+.bigImage{
+    width: 100%
+    
+    
+    
+}
+
 
