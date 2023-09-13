@@ -1,172 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Anmeldung</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./style-basics.css" />
-    <link rel="stylesheet" href="./style-grid-images.css" />
-    <link rel="stylesheet" href="./style-nav.css" />
-    <link rel="stylesheet" href="./style-tofu-word-animation.css" />
-    <link rel="stylesheet" href="./styles-rest.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="components/navbar/loadNavbar.js" defer></script>
-    <script src="components/navbarPhone/loadNavbar.js" defer></script>
-  </head>
-  <body>
-    <div id="page-container">
-      <div id="content-wrap">
-        <div id="navbarContainer"></div>
+<head>
+  <title>Anmeldung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./style-basics.css"/>
+  <link rel="stylesheet" href="./style-grid-images.css"/>
+  <link rel="stylesheet" href="./style-nav.css"/>
+  <link rel="stylesheet" href="./style-tofu-word-animation.css"/>
+  <link rel="stylesheet" href="./styles-rest.css"/>
+  <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css"/>
+  <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"
+  ></script>
+  <script src="components/navbar/loadNavbar.js" defer></script>
+  <script src="components/navbarPhone/loadNavbar.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        <div id="container-nav-phone"></div>
-        <h1>Registrierung</h1>
-
-        <div class="container">
-          <form >
-            <div class="register">
-              <label for="anrede" class="choose-anrede">Anrede:</label>
-              <select name="anrede" id="anrede">
-                <option value="frau" name="gender">Frau</option>
-                <option value="mann" name="gender">Mann</option>
-                <option value="neutral" name="gender">Divers</option>
-              </select>
-            </div>
-
-            <div class="register">
-              <input
-                type="text"
-                placeholder="Vorname"
-                name="vorname"
-                id="firstName"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="text"
-                placeholder="Nachname"
-                name="nachname"
-                id="lastName"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="email"
-                placeholder="E-mail"
-                name="email"
-                id="email"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="text"
-                placeholder="Ort"
-                name="ort"
-                id="ort"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="text"
-                placeholder="Straße"
-                name="straße"
-                id="straße"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="number"
-                placeholder="Hausnummer"
-                name="nummer"
-                id="nummer"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="number"
-                placeholder="Postleitzahl"
-                name="plz"
-                id="plz"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="password"
-                placeholder="Passwort"
-                name="password"
-                id="password"
-                required
-              />
-            </div>
-
-            <div class="register">
-              <input
-                type="password"
-                placeholder="Passwort bestätigen"
-                name="password-repeat"
-                id="password-repeat"
-                required
-              />
-            </div>
-
-            <div class="register-container main">
-              <button type="submit" value="Registrieren">Registrierung</button>
-            </div>
-          </form>
+</head>
+<body>
+<div id="page-container">
+  <div id="content-wrap">
+    <div id="navbarContainer"></div>
+    <div id="container-nav-phone"></div>
+    <h1>Registrierung</h1>
+    <div class="container">
+      <form id="registrationForm" action="http://localhost:8080/user" method="POST">
+        <div class="register">
+          <input
+            type="text"
+            placeholder="Vorname"
+            name="name"
+            id="name"
+            required
+          />
         </div>
-      </div>
-      <footer class="footer">
-        <div class="footer-element">
-          <a class="link" href="./Hilfe.html">Hilfe</a>
+        <div class="register">
+          <input
+            type="text"
+            placeholder="Nachname"
+            name="surname"
+            id="surname"
+            required
+          />
         </div>
-        <div class="footer-element">
-          <a class="link" href="Impressum.html">Impressum</a>
+        <div class="register">
+          <input
+            type="email"
+            placeholder="E-mail"
+            name="email"
+            id="email"
+            required
+          />
         </div>
-        <div class="footer-element">
-          <a class="link" href="Kontakt.html">Kontakt</a>
+        <div class="register">
+          <input
+            type="text"
+            placeholder="Ort"
+            name="country"
+            id="country"
+            required
+          />
         </div>
-      </footer>
+        <div class="register">
+          <input
+            type="text"
+            placeholder="Straße"
+            name="street"
+            id="street"
+            required
+          />
+        </div>
+        <div class="register">
+          <input
+            type="number"
+            placeholder="Hausnummer"
+            name="housenumber"
+            id="housenumber"
+            required
+          />
+        </div>
+        <div class="register">
+          <input
+            type="number"
+            placeholder="Postleitzahl"
+            name="postalcode"
+            id="postalcode"
+            required
+          />
+        </div>
+        <div class="register">
+          <input
+            type="password"
+            placeholder="Passwort"
+            name="password"
+            id="password"
+            required
+          />
+        </div>
+<!--        <div class="register">-->
+<!--          <input-->
+<!--            type="password"-->
+<!--            placeholder="Passwort bestätigen"-->
+<!--            name="password-repeat"-->
+<!--            id="password-repeat"-->
+<!--            required-->
+<!--          />-->
+<!--        </div>-->
+        <div class="register-container main">
+          <button type="submit">Registrierung</button>
+        </div>
+      </form>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    >
-  const form = document.querySelector('form');
-form.addEventListener('submit', function(event) {
- // event.preventDefault();
-  console.log('funktioniert');
-});
-const firstName = document.querySelector('#firstName').value;
-const lastName = document.querySelector('#lastName').value;
-const email = document.querySelector('#email').value;
-const password = document.querySelector('#password').value;
+  </div>
+  <footer class="footer">
+    <div class="footer-element">
+      <a class="link" href="./Hilfe.html">Hilfe</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Impressum.html">Impressum</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Kontakt.html">Kontakt</a>
+    </div>
+  </footer>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"
+></script>
+<script>
+    $(document).ready(function () {
+        $('#registrationForm').submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
 
-console.log(firstName);
+            // Serialize the form data into an object
+            var formData = {
+                "id": 0,
+                "name": $("#name").val(),
+                "surname": $("#surname").val(),
+                "street": $("#street").val(),
+                "housenumber": $("#housenumber").val(),
+                "postalcode": $("#postalcode").val(),
+                "country": $("#country").val(),
+                "email": $("#email").val(),
+                "password": $("#password").val()
+            };
+
+            // Convert the form data object to a JSON string
+            var jsonString = JSON.stringify(formData);
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/user',
+                data: jsonString, // Send the form data as JSON
+                contentType: 'application/json', // Set the content type to JSON
+                success: function (response) {
+                    // Handle the response
+                    console.log(response);
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.error(error);
+                }
+            });
+        });
+    });
 </script>
-  </body>
+</body>
 </html>
