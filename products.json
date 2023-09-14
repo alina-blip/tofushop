@@ -1,0 +1,46 @@
+[
+    {
+      "id": 3,
+      "title": "my name is panda",
+      "size": "50 x 50 cm",
+      "material": "cotton candy",
+      "description": "i'm a cotton candy painting ",
+      "price": 300.0,
+      "url": "http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp",
+      "category": "ORIGINAL",
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "title": "this is a panda",
+      "size": "this is a sticker",
+      "material": "plastic",
+      "description": "this is a description",
+      "price": 100.0,
+      "url": "http://res.cloudinary.com/dwrrcohl5/image/upload/v1689157071/images/jld4gpzrwawbtaxxbqzj.jpg",
+      "category": "PRINT",
+      "quantity": 100
+    },
+    {
+      "id": 7,
+      "title": "Panda is now",
+      "size": "30 x 30 cm",
+      "material": "Paper",
+      "description": "This is a cute panda",
+      "price": 500.0,
+      "url": "http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp",
+      "category": "PRINT",
+      "quantity": 10
+    },
+    {
+      "id": 8,
+      "title": "Dragon",
+      "size": "10 x 10",
+      "material": "plastic",
+      "description": "this is a dragon",
+      "price": 20.0,
+      "url": "http://res.cloudinary.com/dwrrcohl5/image/upload/v1689156979/images/l2g60z6vkja2xrlauyyy.jpg",
+      "category": "STICKER",
+      "quantity": 60
+    }
+  ]
