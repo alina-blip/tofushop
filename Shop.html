@@ -33,83 +33,19 @@
         <div id="navbarContainer"></div>
         <div id="container-nav-phone"></div>
         <h1>Shop</h1>
-        
+
+        <div class="text-center mb-4">
+        <div class="btn-group">
+        <button type="button" class="btn btn-outline-secondary" id="all">ALL</button>
+        <button type="button" class="btn btn-outline-secondary" id="original">Original</button>
+        <button type="button" class="btn btn-outline-secondary" id="print">Print</button>
+        <button type="button" class="btn btn-outline-secondary" id="sticker">Sticker</button>
+      </div>
+</div>
 
            <div class="container-grid-shop">
-
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx " src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
+              <div class="row" id="product-container">
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx " src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx " src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx " src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx" src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-12 "> <img class="nyx" src="images\bild-01-nyx.jpeg">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4 ">text</div>
-                  <div class="col-lg-4 col-md-4 ">text</div>
-                  <div class="col-lg-4 col-md-4 ">text</div>
-                </div>
-              </div>
-              <div class="col-lg-8 col-md-12 col-sm-12 "> <img class="bigImage" src="images\bild-27-lucky-fullscreen.png">
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-12 col-sm-12 "> <div class="nextToBigImage" >
-                <div class="row imagetext">
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                  <div class="col-lg-4 col-md-4">text</div>
-                </div>
-              </div>
-        
-
-      
-
-      
-
-  
-
-
-
-
-
-
-
-
-
         </div>
 
 
@@ -129,6 +65,66 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
-    ></script>
+    >
+  </script>
+
+
+
+<script>
+
+$(document).ready(function() {        //nachdem die seite geladen wird führt es das direkt aus 
+  // Pfad zur JSON-Datei
+  var jsonFilePath = 'products.json';
+  var productContainer = $("#product-container");  //es wird eine variabel erstelld die auf die html id product-container verweist
+
+  // AJAX-Anfrage, um die JSON-Daten zu laden (Asynchronous JavaScript and XML) gibt die Daten an die funktion products als weiter.
+  //function(products) {...} ist die Callback-Funktion, die ausgeführt wird, sobald die JSON-Daten erfolgreich geladen wurden. Die geladenen Daten werden in dieser Funktion als products-Parameter übergeben.
+  $.getJSON(jsonFilePath, function(products) {
+
+
+    // Iteriere durch das JSON-Array und füge die Produkte in den HTML-Code ein
+    
+    var alle= $.each(products, function(index, product) { // product ist der name der callback funktion um auf jeden index im array zuzugreifen.
+      var productHTML = `
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <img class="nyx" src="${product.url}">
+          <div class="row imagetext">
+            <div class="col-lg-4 col-md-4">${product.title}</div>
+            <div class="col-lg-4 col-md-4">${product.category}</div>
+            <div class="col-lg-4 col-md-4">${product.price}</div>
+          </div>
+        </div>
+      `;
+
+      //fügt den generierten HTML-Code für jedes Produkt dem productContainer hinzu. Dadurch werden die Produktinformationen im HTML-Dokument angezeigt.
+      productContainer.append(productHTML);
+    });
+    $("#all").click(function() {
+      // Hier kannst du deine gewünschte JavaScript-Funktion aufrufen oder den Code einfügen, den du ausführen möchtest
+      return alle;
+      alert("Der Button 'All' wurde geklickt!");
+    });
+    
+    $("#original").click(function() {
+      // Hier kannst du deine gewünschte JavaScript-Funktion aufrufen oder den Code einfügen, den du ausführen möchtest
+      var originalProducts = products.filter(function(product) {
+  return product.category === "Original";
+});
+      alert("Der Button 'Original' wurde geklickt!");
+    });
+
+
+  });
+});
+
+
+
+    
+
+
+</script>
+
+
+  </script>
   </body>
 </html>
