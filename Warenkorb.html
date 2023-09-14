@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./style-basics.css"/>
+  <link rel="stylesheet" href="./style-contact.css"/>
+  <link rel="stylesheet" href="./style-grid-images.css"/>
+  <link rel="stylesheet" href="./style-nav.css"/>
+  <link rel="stylesheet" href="./style-tofu-word-animation.css"/>
+  <link rel="stylesheet" href="./styles-rest.css"/>
+  <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css"/>
+  <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"
+  ></script>
+  <script src="components/navbar/loadNavbar.js" defer></script>
+  <style>
+      .cart-container {
+          padding-top: 35px;
+      }
+
+      .cart {
+          border: 1px solid #ccc;
+          padding: 25px;
+          max-width: 700px;
+          margin: 7px auto auto;
+      }
+
+      .cart h2 {
+          text-align: center;
+      }
+
+      .cart-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 15px;
+          margin-top: 20px;
+          border-bottom: 1px solid #ccc;
+      }
+
+      /* Media query for screens smaller than 768px (sm) */
+      @media screen and (max-width: 1200px) {
+          .cart-item {
+              display: block; /* Display items in a single column on smaller screens */
+          }
+      }
+
+      .cart-item img {
+          max-width: 100vh;
+          max-height: 100px;
+          margin-right: 10px;
+      }
+
+      .cart-item button {
+          padding: 5px 10px;
+          cursor: pointer;
+          margin-bottom: 15px;
+          width: 25px;
+          height: 25px;
+      }
+
+      .cart-total {
+          text-align: right;
+          margin-top: 10px;
+      }
+
+      .container-grid-shop {
+          padding: 30px;
+          max-width: 1300px;
+          margin: auto;
+      }
+      .small-info {
+          font-size: 0.8em;
+          text-align: right;
+          margin: 0;
+          padding: 0;
+
+      ;
+      }
+
+  </style>
+</head>
+<body>
+<div id="page-container">
+  <div id="content-wrap">
+    <div id="navbarContainer"></div>
+    <div id="container-nav-phone"></div>
+    <div class="container-grid-shop">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+          <div class="cart-container">
+            <div class="cart">
+              <h3>Persönliche Daten</h3>
+              <p>Name: Alina Sorger</p>
+              <p>E-mail: alina@alina.com</p>
+              <p>Adresse: Stadt 123</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+          <div class="cart-container">
+            <div class="cart">
+              <h2>Shopping Cart</h2>
+              <div class="cart-item">
+                <img src="product1.jpg" alt="Product 1">
+                <p>Product 1</p>
+                <p>$19.99</p>
+                <p>1 Stk</p>
+                <div class="register-container">
+                  <button>X</button>
+                </div>
+              </div>
+              <div class="cart-item">
+                <img src="product2.jpg" alt="Product 2">
+                <p>Product 2</p>
+                <p>$24.99</p>
+                <p>5 Stk</p>
+                <div class="register-container">
+                  <button>X</button>
+                </div>
+              </div>
+              <p class="small-info">Alle Preise inkl. MwSt.</p>
+            </div>
+          </div>
+          <div class="cart">
+            <div class="cart-total">
+              Total: $44.98
+            </div>
+            <div class="register-container">
+              <button>Bestellen</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <footer class="footer">
+            <div class="footer-element">
+              <a class="link" href="./Hilfe.html">Hilfe</a>
+            </div>
+            <div class="footer-element">
+              <a class="link" href="Impressum.html">Impressum</a>
+            </div>
+            <div class="footer-element">
+              <a class="link" href="Kontakt.html">Kontakt</a>
+            </div>
+          </footer>
+        </div>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+          crossorigin="anonymous"
+        ></script>
+</body>
+</html>
