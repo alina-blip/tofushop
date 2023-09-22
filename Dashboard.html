@@ -91,192 +91,430 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 ">
           <div class="cart-container">
-            <h2>Registrierte Nutzer</h2>
-            <div class="cart">
-              <p>ID: 229933</p>
-              <p>Vorname: Alina</p>
-              <p>Nachname: Sorger</p>
-              <p>Straße: Straße</p>
-              <p>Hausnummer: 123</p>
-              <p>Stadt: Graz</p>
-              <p>PLZ: 10200 </p>
-              <p>E-mail: alina@alina.com</p>
-              <div class="register-container">
-                <button>Name ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Passwort ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Deaktivieren</button>
-              </div>
-            </div>
+            <div class="register-button"><button id="showUsersButton">Registrierte Benutzer</button></div>
+            <div class="register-button"><button id="showOrdersButton">Bestellungen</button></div>
+              <div class="register-button"><button id="showProductsButton">Produkte</button></div>
+            <h2>Ansicht auswählen</h2>
 
-            <div class="cart">
-              <p>ID: 229933</p>
-              <p>Vorname: Alina</p>
-              <p>Nachname: Sorger</p>
-              <p>Straße: Straße</p>
-              <p>Hausnummer: 123</p>
-              <p>Stadt: Graz</p>
-              <p>PLZ: 10200 </p>
-              <p>E-mail: alina@alina.com</p>
-              <div class="register-container">
-                <button>Name ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Passwort ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Deaktivieren</button>
-              </div>
-            </div>
+            <span id="userList"></span>
+            <span id="ordersList">
 
-            <div class="cart">
-              <p>ID: 229933</p>
-              <p>Vorname: Alina</p>
-              <p>Nachname: Sorger</p>
-              <p>Straße: Straße</p>
-              <p>Hausnummer: 123</p>
-              <p>Stadt: Graz</p>
-              <p>PLZ: 10200 </p>
-              <p>E-mail: alina@alina.com</p>
-              <div class="register-container">
-                <button>Name ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Passwort ändern</button>
-              </div>
-              <div class="register-container">
-                <button>Deaktivieren</button>
-              </div>
-            </div>
+
+            </span>
+            <span id="productsList"></span>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 ">
-          <div class="cart-container">
-            <h2>Bestellungen</h2>
-            <div class="cart">
-              <div class="register-container">
-                <button>Change Status</button>
-              </div>
-              <p>Status: Sent</p>
-              <p>Rechnungsnummer: 3330004999</p>
-              <p>Kunde: Alina Sorger</p>
-              <div class="cart-item">
-                <img src="product1.jpg" alt="Product 1">
-                <p>Product 1</p>
-                <p>$19.99</p>
-                <p>1 Stk</p>
-              </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$24.99</p>
-                <p>5 Stk</p>
-              </div>
-              <p>Total: 330,00</p>
-            </div>
+
+          <!--          <div class="col-lg-6 col-md-6 col-sm-12 ">-->
+          <!--            <div class="cart-container">-->
+          <!--              <h2>Bestellungen</h2>-->
+          <!--              <div class="cart">-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Change Status</button>-->
+          <!--                </div>-->
+          <!--                <p>Status: Sent</p>-->
+          <!--                <p>Rechnungsnummer: 3330004999</p>-->
+          <!--                <p>Kunde: Alina Sorger</p>-->
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product1.jpg" alt="Product 1">-->
+          <!--                  <p>Product 1</p>-->
+          <!--                  <p>$19.99</p>-->
+          <!--                  <p>1 Stk</p>-->
+          <!--                </div>-->
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product2.jpg" alt="Product 2">-->
+          <!--                  <p>Product 2</p>-->
+          <!--                  <p>$24.99</p>-->
+          <!--                  <p>5 Stk</p>-->
+          <!--                </div>-->
+          <!--                <p>Total: 330,00</p>-->
+          <!--              </div>-->
 
 
-            <div class="cart">
-              <div class="register-container">
-                <button>Change Status</button>
-              </div>
-              <p>Status: Ordered</p>
-              <p>Rechnungsnummer: 3330004999</p>
-              <p>Kunde: Mazl</p>
+          <!--              <div class="cart">-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Change Status</button>-->
+          <!--                </div>-->
+          <!--                <p>Status: Ordered</p>-->
+          <!--                <p>Rechnungsnummer: 3330004999</p>-->
+          <!--                <p>Kunde: Mazl</p>-->
 
-              <div class="cart-item">
-                <img src="product1.jpg" alt="Product 1">
-                <p>Product 1</p>
-                <p>$19.99</p>
-                <p>1 Stk</p>
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product1.jpg" alt="Product 1">-->
+          <!--                  <p>Product 1</p>-->
+          <!--                  <p>$19.99</p>-->
+          <!--                  <p>1 Stk</p>-->
+          <!--                </div>-->
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product2.jpg" alt="Product 2">-->
+          <!--                  <p>Product 2</p>-->
+          <!--                  <p>$24.99</p>-->
+          <!--                  <p>5 Stk</p>-->
+          <!--                </div>-->
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product2.jpg" alt="Product 2">-->
+          <!--                  <p>Product 2</p>-->
+          <!--                  <p>$24.99</p>-->
+          <!--                  <p>5 Stk</p>-->
+          <!--                </div>-->
+          <!--                <div class="cart-item">-->
+          <!--                  <img src="product2.jpg" alt="Product 2">-->
+          <!--                  <p>Product 2</p>-->
+          <!--                  <p>$24.99</p>-->
+          <!--                  <p>5 Stk</p>-->
+          <!--                </div>-->
+          <!--                <p>Total: 330,00</p>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </div>-->
+
+
+          <!--          <div class="cart-container">-->
+          <!--            <h2>Produkte</h2>-->
+          <!--            <div class="register-container">-->
+          <!--              <button>Produkt hinzufügen</button>-->
+          <!--            </div>-->
+          <!--            <div class="product">-->
+          <!--              <div class="cart-item">-->
+          <!--                <img src="product1.jpg" alt="Product 1">-->
+          <!--                <p>Product 1</p>-->
+          <!--                <p>$19.99</p>-->
+          <!--                <p>Verfügbar: 1 Stk</p>-->
+          <!--                <p>Kategorie: Original</p>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Entfernen</button>-->
+          <!--                </div>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Bearbeiten</button>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="cart-item">-->
+          <!--                <img src="product2.jpg" alt="Product 2">-->
+          <!--                <p>Product 2</p>-->
+          <!--                <p>$24.99</p>-->
+          <!--                <p>Verfügbar: 1 Stk</p>-->
+          <!--                <p>Kategorie: Sticker</p>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Entfernen</button>-->
+          <!--                </div>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Bearbeiten</button>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--              <div class="cart-item">-->
+          <!--                <img src="product2.jpg" alt="Product 2">-->
+          <!--                <p>Product 3</p>-->
+          <!--                <p>$27.99</p>-->
+          <!--                <p>Verfügbar: 10 Stk</p>-->
+          <!--                <p>Kategorie: Print</p>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Entfernen</button>-->
+          <!--                </div>-->
+          <!--                <div class="register-container">-->
+          <!--                  <button>Bearbeiten</button>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <div>
+            <footer class="footer">
+              <div class="footer-element">
+                <a class="link" href="./Hilfe.html">Hilfe</a>
               </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$24.99</p>
-                <p>5 Stk</p>
+              <div class="footer-element">
+                <a class="link" href="Impressum.html">Impressum</a>
               </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$24.99</p>
-                <p>5 Stk</p>
+              <div class="footer-element">
+                <a class="link" href="Kontakt.html">Kontakt</a>
               </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$24.99</p>
-                <p>5 Stk</p>
-              </div>
-              <p>Total: 330,00</p>
-            </div>
+            </footer>
           </div>
-        </div>
-          <div class="cart-container">
-            <h2>Produkte</h2>
-            <div class="register-container">
-              <button>Produkt hinzufügen</button>
-            </div>
-            <div class="product">
-              <div class="cart-item">
-                <img src="product1.jpg" alt="Product 1">
-                <p>Product 1</p>
-                <p>$19.99</p>
-                <p>Verfügbar: 1 Stk</p>
-                <p>Kategorie: Original</p>
-                <div class="register-container">
-                  <button>Entfernen</button>
-                </div>
-                <div class="register-container">
-                  <button>Bearbeiten</button>
-                </div>
-              </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 2</p>
-                <p>$24.99</p>
-                <p>Verfügbar: 1 Stk</p>
-                <p>Kategorie: Sticker</p>
-                <div class="register-container">
-                  <button>Entfernen</button>
-                </div>
-                <div class="register-container">
-                  <button>Bearbeiten</button>
-                </div>
-              </div>
-              <div class="cart-item">
-                <img src="product2.jpg" alt="Product 2">
-                <p>Product 3</p>
-                <p>$27.99</p>
-                <p>Verfügbar: 10 Stk</p>
-                <p>Kategorie: Print</p>
-                <div class="register-container">
-                  <button>Entfernen</button>
-                </div>
-                <div class="register-container">
-                  <button>Bearbeiten</button>
-                </div>
-              </div>
-        <div>
-          <footer class="footer">
-            <div class="footer-element">
-              <a class="link" href="./Hilfe.html">Hilfe</a>
-            </div>
-            <div class="footer-element">
-              <a class="link" href="Impressum.html">Impressum</a>
-            </div>
-            <div class="footer-element">
-              <a class="link" href="Kontakt.html">Kontakt</a>
-            </div>
-          </footer>
-        </div>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-          crossorigin="anonymous"
-        ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"
+          ></script>
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        // Initial state: Show "Registrierte Benutzer" section by default
+        $('#userList').show();
+        $('.cart-container h2').text('Registrierte Benutzer');
+
+        // Function to show "Registrierte Benutzer" section
+        function showUsers() {
+            $('#userList').show();
+            $('#ordersList').hide();
+            $('#productsList').hide();
+            $('.cart-container h2').text('Registrierte Benutzer');
+        }
+
+        // Function to show "Bestellungen" section
+        function showOrders() {
+            $('#userList').hide();
+            $('#ordersList').show();
+            $('#productsList').hide();
+            $('.cart-container h2').text('Bestellungen');
+        }
+
+        // Function to show "Produkte" section
+        function showProducts() {
+            $('#userList').hide();
+            $('#ordersList').hide();
+            $('#productsList').show();
+            $('.cart-container h2').text('Produkte');
+        }
+
+        // Set up button click handlers
+        $('#showUsersButton').click(showUsers);
+        $('#showOrdersButton').click(showOrders);
+        $('#showProductsButton').click(showProducts);
+    });
+
+</script>
+<script>
+    $(document).ready(function () {
+        // Make an AJAX request to get the list of users
+        $.ajax({
+            url: 'http://localhost:8080/user', // Replace with the actual API endpoint
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Iterate through the user data and create elements for each user
+                data.forEach(function (user) {
+                    var userDiv = $('<div class="cart"></div>');
+                    userDiv.append('<p>ID: ' + user.id + '</p>');
+                    userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
+                    userDiv.append('<p>Vorname: ' + user.surname + '</p>');
+                    userDiv.append('<p>Straße: ' + user.street + '</p>');
+                    userDiv.append('<p>Hausnummer: ' + user.housenumber + '</p>');
+                    userDiv.append('<p>PLZ: ' + user.postalcode + '</p>');
+                    userDiv.append('<p>Ort: ' + user.country + '</p>');
+                    userDiv.append('<p>E-mail: ' + user.email + '</p>');
+
+                    // Create buttons
+                    var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
+                    var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
+                    var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
+
+                    // // Append buttons to the userDiv
+                    userDiv.append('').append(changeNameButton);
+                    userDiv.append('').append(changePasswordButton);
+                    userDiv.append('').append(deactivateButton);
+                    //
+                    // Append the userDiv to the #userList container
+                    $('#userList').append(userDiv);
+
+                    deactivateButton.click(function () {
+                        var newUserData = {
+                            id: user.id,
+                        };
+
+                        console.log(newUserData);
+
+                        $.ajax({
+                            url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                            method: 'DELETE',
+                            success: function (response) {
+                                // Handle a successful response from the backend
+                                console.log('User deleted successfully');
+                                // You can display a success message or take further actions here
+
+                                // After deleting, you might want to update the UI accordingly
+                                // You can remove the user's details from the UI or perform any other necessary actions
+                                location.reload(); // Refresh the page to reflect the updated user list
+                            },
+                            error: function (xhr, status, error) {
+                                // Handle errors here
+                                console.error('Error deleting user:', xhr, status, error);
+                                // Display an error message or take appropriate actions
+                            }
+                        });
+                    });
+                    changePasswordButton.click(function () {
+                        // Create an input field for the new password
+                        var passwordInput = $('<input type="password">');
+                        var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
+
+                        // Replace the existing content with the password input and save button
+                        userDiv.empty()
+                            .append('<p>ID: ' + user.id + '</p>')
+                            .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
+                            .append('<p>Vorname: ' + user.surname + '</p>')
+                            .append('<p>Straße: ' + user.street + '</p>')
+                            .append('<p>Hausnummer: ' + user.housenumber + '</p>')
+                            .append('<p>PLZ: ' + user.postalcode + '</p>')
+                            .append('<p>Ort: ' + user.country + '</p>')
+                            .append('<p>E-mail: ' + user.email + '</p>')
+                            .append(passwordInput) // Add the password input
+                            .append(savePasswordButton); // Add a button for saving the password
+
+                        // Handle saving the new password here
+                        savePasswordButton.click(function () {
+                            var newPassword = passwordInput.val();
+                            // Perform an AJAX request to update the password in the backend
+                            var newUserData = {
+                                id: user.id,
+                                password: newPassword,
+                                name: user.name,
+                                surname: user.surname,
+                                street: user.street,
+                                housenumber: user.housenumber,
+                                postalcode: user.postalcode,
+                                country: user.country,
+                                email: user.email,
+                            };
+
+                            $.ajax({
+                                url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                method: 'PUT',
+                                dataType: 'json',
+                                contentType: 'application/json',
+                                data: JSON.stringify(newUserData),
+                                success: function (response) {
+                                    // Handle a successful response from the backend
+                                    console.log('Password updated successfully:', response);
+                                    // You can display a success message or take further actions here
+
+                                    // After updating, you might want to revert back to the original user details view
+                                    // You can reload the user details or reset the UI as needed
+                                    location.reload();
+                                    window.alert('Passwort wurde geändert.');
+                                },
+                                error: function (xhr, status, error) {
+                                    // Handle errors here
+                                    console.error('Error updating password:', xhr, status, error);
+                                }
+                            });
+                        });
+                    });
+                    // dynamic input field for changing the name
+                    changeNameButton.click(function () {
+                        var nameInput = $('<input type="text">');
+                        var saveButton = $('<button>Speichern</button>');
+                        userDiv.find('.user-name').replaceWith(nameInput);
+                        userDiv.find('#changeNameButton').empty().append(saveButton);
+
+                        saveButton.click(function () {
+                            // Handle saving the new name here
+                            var newName = nameInput.val();
+                            // Perform an AJAX request to update the name in the backend
+                            var newUserData = {
+                                id: user.id, // Include the user's ID
+                                name: newName, // Include the updated name
+                                surname: user.surname,
+                                street: user.street,
+                                housenumber: user.housenumber,
+                                postalcode: user.postalcode,
+                                country: user.country,
+                                email: user.email,
+                                password: user.password,
+                            };
+                            console.log('New User Data:', newUserData);
+
+                            $.ajax({
+                                url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                method: 'PUT', // Use PUT to update an existing resource
+                                dataType: 'json',
+                                contentType: 'application/json', // Set the content type to JSON
+                                data: JSON.stringify(newUserData), // Send the updated user data as JSON
+                                success: function (response) {
+                                    // Handle a successful response from the backend
+                                    console.log('User data updated successfully:', response);
+                                    location.reload();
+                                },
+                                error: function (xhr, status, error) {
+                                    // Handle errors here
+                                    console.error('Error updating user data:', xhr, status, error);
+                                }
+                            });
+
+                        });
+                    });
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr, status, error);
+            }
+        });
+    });
+
+
+</script>
+<script>
+    $(document).ready(function () {
+        // Make an AJAX request to get the list of orders
+        $.ajax({
+            url: 'http://localhost:8080/cart', // Replace with the actual API endpoint for orders
+            method: 'GET',
+            dataType: 'json',
+            success: function (ordersData) {
+                console.log(ordersData);
+                // Inside the success callback of the AJAX request for orders
+                $('#ordersList').empty(); // Clear the existing orders list
+
+                // Iterate through the ordersData and create elements for each order
+                ordersData.forEach(function (order) {
+                    var orderDiv = $('<div class="cart"></div>');
+
+                    // Access and display properties of the order
+                    // orderDiv.append('<p>Status: ' + order.status + '</p>');
+                    orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
+
+                    // Access and display properties of the user
+                    orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
+
+                    // Access and display properties of the original
+                    orderDiv.append('<img src="original.url" alt="product-picture">');
+                    orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
+                    orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+                    orderDiv.append('<p>Material: ' + order.original.material + '</p>');
+                    orderDiv.append('<p>Kategorie: ' + order.original.category + '</p>');
+                    orderDiv.append('<p>Preis: € ' + order.original.price + '</p>');
+                    orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+
+                    orderDiv.append('<p>Total: ' + order.total + '</p>');
+                    $('#ordersList').append(orderDiv);
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching orders:', xhr, status, error);
+                // Handle errors here
+            },
+        });
+    });
+</script>
+<script>
+
+    $(document).ready(function () {
+        // Make an AJAX request to get the list of products
+        $.ajax({
+            url: 'http://localhost:8080/original', // Replace with the actual API endpoint for orders
+            method: 'GET',
+            dataType: 'json',
+            success: function (productsData) {
+                console.log(productsData);
+                // Inside the success callback of the AJAX request for orders
+                $('#productsList').empty(); // Clear the existing orders list
+
+                // Iterate through the ordersData and create elements for each order
+                productsData.forEach(function (original) {
+                    var productDiv = $('<div class="cart"></div>');
+                    ;
+                    productDiv.append('<p>ID: ' + original.id + '</p>');
+                    productDiv.append('<img src="original.url" alt="product-picture">');
+                    productDiv.append('<p>Titel: ' + original.title + '</p>');
+                    productDiv.append('<p>Größe: ' + original.size + '</p>');
+                    productDiv.append('<p>Material: ' + original.material + '</p>');
+                    productDiv.append('<p>Kategorie: ' + original.category + '</p>');
+                    productDiv.append('<p>Preis: € ' + original.price + '</p>');
+                    productDiv.append('<p>Größe: ' + original.size + '</p>');
+
+                    $('#productsList').append(productDiv);
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching orders:', xhr, status, error);
+                // Handle errors here
+            },
+        });
+    });</script>

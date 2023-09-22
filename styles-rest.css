@@ -7,7 +7,7 @@
   margin-bottom:50px;
   margin: auto;
   width: 500px;
-  text-align: left; 
+  text-align: left;
 }
 
 .section-tight {
@@ -16,14 +16,14 @@ margin-left: 30px;
 margin-bottom:30px;
 margin: auto;
 width: 80%;
-text-align: left; 
+text-align: left;
 }
 
 .section-float {
   margin:1em auto;
 	display: table;
   width: 50%;
-  text-align: left; 
+  text-align: left;
   }
 
 /*** ACCORDION ***/
@@ -40,13 +40,13 @@ text-align: left;
     font-weight: 500;
     border-bottom: 1px solid white;
     transition: 1s;
-   
+
   }
 
   .active, .accordion:hover {
     border-bottom: 1px solid black;
     transition: 1s;
-    
+
 }
   .panel {
     padding: 0 18px;
@@ -63,7 +63,7 @@ text-align: left;
     padding-bottom: 50px;
     margin: auto;
     width: 100%;
-    text-align: left; 
+    text-align: left;
     position: absolute;
     }
 
@@ -197,6 +197,22 @@ filter: blur(0px);
 transform: translateX(0%);
 }
 
+
+.register-button button {
+    color: white;
+    background-color: rgb(132, 149, 132);
+    font-size: 0.8em;
+    max-width: 200px;
+    border: none;
+    border-radius: 40px;
+    width: 100%;
+    padding: 7px;
+    margin-top: 15px;
+}
+
+ .register-button  {
+     display: inline;
+ }
 
 
 
