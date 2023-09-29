@@ -67,64 +67,6 @@
       crossorigin="anonymous"
     >
   </script>
-
-
-<!--
-<script>
-
-$(document).ready(function() {        //nachdem die seite geladen wird führt es das direkt aus 
-  // Pfad zur JSON-Datei
-  var jsonFilePath = 'products.json';
-  var productContainer = $("#product-container");  //es wird eine variabel erstelld die auf die html id product-container verweist
-
-  // AJAX-Anfrage, um die JSON-Daten zu laden (Asynchronous JavaScript and XML) gibt die Daten an die funktion products als weiter.
-  //function(products) {...} ist die Callback-Funktion, die ausgeführt wird, sobald die JSON-Daten erfolgreich geladen wurden. Die geladenen Daten werden in dieser Funktion als products-Parameter übergeben.
-  $.getJSON(jsonFilePath, function(products) {
-
-
-    // Iteriere durch das JSON-Array und füge die Produkte in den HTML-Code ein
-    
-    var alle= $.each(products, function(index, product) { // product ist der name der callback funktion um auf jeden index im array zuzugreifen.
-      var productHTML = `
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <img class="nyx" src="${product.url}">
-          <div class="row imagetext">
-            <div class="col-lg-4 col-md-4">${product.title}</div>
-            <div class="col-lg-4 col-md-4">${product.category}</div>
-            <div class="col-lg-4 col-md-4">${product.price}</div>
-          </div>
-        </div>
-      `;
-
-      //fügt den generierten HTML-Code für jedes Produkt dem productContainer hinzu. Dadurch werden die Produktinformationen im HTML-Dokument angezeigt.
-      productContainer.append(productHTML);
-    });
-    $("#all").click(function() {
-      // Hier kannst du deine gewünschte JavaScript-Funktion aufrufen oder den Code einfügen, den du ausführen möchtest
-      return alle;
-      alert("Der Button 'All' wurde geklickt!");
-    });
-    
-    $("#original").click(function() {
-      // Hier kannst du deine gewünschte JavaScript-Funktion aufrufen oder den Code einfügen, den du ausführen möchtest
-      var originalProducts = products.filter(function(product) {
-  return product.category === "Original";
-});
-      alert("Der Button 'Original' wurde geklickt!");
-    });
-
-
-  });
-});
-
-
-
-    
-
-
-</script>
--->
-
 <script>
 var allProducts = []; // Initialisiere allProducts als leeres Array
 
@@ -132,7 +74,6 @@ $(document).ready(function() {
   var productContainer = $("#product-container");
 
   $.get('http://localhost:8080/original', function(products) {
-    console.log(products);
     allProducts = products; // Speichere alle Produkte in allProducts
 
     // Zeige alle Produkte an
@@ -140,7 +81,6 @@ $(document).ready(function() {
   });
 
   $("#all").click(function() {
-    alert("Der Button 'All' wurde geklickt!");
     displayProducts(allProducts); // Zeige alle Produkte an
   });
   
@@ -186,7 +126,7 @@ $(document).ready(function() {
         <div class="col-lg-4 col-md-6 col-sm-12">
           <img class="nyx" src="${product.url}">
           <div class="row imagetext">
-            <div class="col-lg-4 col-md-4">${product.title}</div>
+            <div class="col-lg-4 col-md-4"><a href="Detailpage.html?id=${product.id}">${product.title}</a></div>
             <div class="col-lg-4 col-md-4">${product.category}</div>
             <div class="col-lg-4 col-md-4">${product.price}</div>
           </div>
