@@ -91,17 +91,125 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 ">
           <div class="cart-container">
-            <div class="register-button"><button id="showUsersButton">Registrierte Benutzer</button></div>
-            <div class="register-button"><button id="showOrdersButton">Bestellungen</button></div>
-              <div class="register-button"><button id="showProductsButton">Produkte</button></div>
+            <div class="register-button">
+              <button id="showUsersButton">Registrierte Benutzer</button>
+            </div>
+            <div class="register-button">
+              <button id="showOrdersButton">Bestellungen</button>
+            </div>
+            <div class="register-button">
+              <button id="showProductsButton">Produkte</button>
+            </div>
+            <div class="register-button">
+              <button id="showNewProductButton">Neues Produkt</button>
+            </div>
+
+
             <h2>Ansicht auswählen</h2>
-
-            <span id="userList"></span>
-            <span id="ordersList">
-
-
+            <span id="userList">
+              <div id="noUsersMessage" style="display: none;">
+              <p>No user is registered.</p>
+              </div>
             </span>
-            <span id="productsList"></span>
+            <span id="ordersList">
+            <div id="noOrdersMessage" style="display: none;">
+                No orders received.
+            </div>
+            </span>
+            <span id="productsList">
+               <div id="noProductsMessage" style="display: none;">
+
+</div>
+            </span>
+          </div>
+
+          <div id="addNewProduct">
+            <div class="container">
+              <form id="productForm" action="http://localhost:8080/original" method="POST">
+                <div class="register">
+                  <label for="title">Titel</label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    required
+                  />
+                </div>
+                <div class="register">
+                  <input
+                    type="text"
+                    placeholder="Grösse"
+                    name="size"
+                    id="size"
+                    required
+                  />
+                </div>
+                <div class="register">
+                  <input
+                    type="text"
+                    placeholder="Material"
+                    name="material"
+                    id="material"
+                    required
+                  />
+                </div>
+                <div class="register">
+                  <label for="description">Beschreibung</label>
+                  <input
+                    type="text"
+                    placeholder="Das ist ein Bild von einem ..."
+                    name="description"
+                    id="description"
+                    required
+                  />
+
+                </div>
+                <div class="register">
+
+                  <label for="quantity">Quantität</label>
+                  <input
+                    type="number"
+                    placeholder="25"
+                    name="quantity"
+                    id="quantity"
+                    required
+                  />
+                </div>
+
+                <div class="register">
+                  <label>
+                    <input type="radio" name="category" value="ORIGINAL" required/> Original
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="STICKER" required/> Sticker
+                  </label>
+                  <label>
+                    <input type="radio" name="category" value="PRINT" required/> Print
+                  </label>
+                </div>
+                <div class="register">
+                  <input
+                    type="number"
+                    placeholder="Preis in €"
+                    name="price"
+                    id="price"
+                    required
+                  />
+                </div>
+                <div class="register">
+                  <!--                <input type="file" name="image" id="image" accept="image/*" value="thisistheurl" required/>-->
+                  <input
+                    type="text"
+                    placeholder="url"
+                    name="url"
+                    id="url"
+                  />
+                </div>
+                <div class="register-container main">
+                  <button type="submit">Produkt hinzufügen</button>
+                </div>
+              </form>
+            </div>
           </div>
 
           <!--          <div class="col-lg-6 col-md-6 col-sm-12 ">-->
@@ -213,38 +321,46 @@
           <!--                  <button>Bearbeiten</button>-->
           <!--                </div>-->
           <!--              </div>-->
-          <div>
-            <footer class="footer">
-              <div class="footer-element">
-                <a class="link" href="./Hilfe.html">Hilfe</a>
-              </div>
-              <div class="footer-element">
-                <a class="link" href="Impressum.html">Impressum</a>
-              </div>
-              <div class="footer-element">
-                <a class="link" href="Kontakt.html">Kontakt</a>
-              </div>
-            </footer>
+          <!--          <div>-->
+
+
+
+        </div>
+
+
+        <footer class="footer">
+          <div class="footer-element">
+            <a class="link" href="./Hilfe.html">Hilfe</a>
           </div>
-          <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"
-          ></script>
+          <div class="footer-element">
+            <a class="link" href="Impressum.html">Impressum</a>
+          </div>
+          <div class="footer-element">
+            <a class="link" href="Kontakt.html">Kontakt</a>
+          </div>
+        </footer>
+      </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+      ></script>
 </body>
 </html>
 
 <script>
     $(document).ready(function () {
         // Initial state: Show "Registrierte Benutzer" section by default
-        $('#userList').show();
-        $('.cart-container h2').text('Registrierte Benutzer');
+        // $('#userList').show();
+        // $('.cart-container h2').text('Registrierte Benutzer');
+        showUsers();
 
         // Function to show "Registrierte Benutzer" section
         function showUsers() {
             $('#userList').show();
             $('#ordersList').hide();
             $('#productsList').hide();
+            $('#addNewProduct').hide();
             $('.cart-container h2').text('Registrierte Benutzer');
         }
 
@@ -253,7 +369,9 @@
             $('#userList').hide();
             $('#ordersList').show();
             $('#productsList').hide();
+            $('#addNewProduct').hide();
             $('.cart-container h2').text('Bestellungen');
+
         }
 
         // Function to show "Produkte" section
@@ -261,13 +379,25 @@
             $('#userList').hide();
             $('#ordersList').hide();
             $('#productsList').show();
+            $('#addNewProduct').hide();
             $('.cart-container h2').text('Produkte');
+
+        }
+
+        function showNewProductForm() {
+            $('#userList').hide();
+            $('#ordersList').hide();
+            $('#productsList').hide();
+            $('#addNewProduct').show();
+            $('.cart-container h2').text('Produkt hinzufügen');
         }
 
         // Set up button click handlers
         $('#showUsersButton').click(showUsers);
         $('#showOrdersButton').click(showOrders);
         $('#showProductsButton').click(showProducts);
+        $('#showNewProductButton').click(showNewProductForm);
+
     });
 
 </script>
@@ -279,158 +409,163 @@
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                // Iterate through the user data and create elements for each user
-                data.forEach(function (user) {
-                    var userDiv = $('<div class="cart"></div>');
-                    userDiv.append('<p>ID: ' + user.id + '</p>');
-                    userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
-                    userDiv.append('<p>Vorname: ' + user.surname + '</p>');
-                    userDiv.append('<p>Straße: ' + user.street + '</p>');
-                    userDiv.append('<p>Hausnummer: ' + user.housenumber + '</p>');
-                    userDiv.append('<p>PLZ: ' + user.postalcode + '</p>');
-                    userDiv.append('<p>Ort: ' + user.country + '</p>');
-                    userDiv.append('<p>E-mail: ' + user.email + '</p>');
+                if (data.length === 0) {
+                    // No users are registered, display the message
+                    $('#noUsersMessage').show();
+                } else {
+                    // Iterate through the user data and create elements for each user
+                    data.forEach(function (user) {
+                        var userDiv = $('<div class="cart"></div>');
+                        userDiv.append('<p>ID: ' + user.id + '</p>');
+                        userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
+                        userDiv.append('<p>Vorname: ' + user.surname + '</p>');
+                        userDiv.append('<p>Straße: ' + user.street + '</p>');
+                        userDiv.append('<p>Hausnummer: ' + user.housenumber + '</p>');
+                        userDiv.append('<p>PLZ: ' + user.postalcode + '</p>');
+                        userDiv.append('<p>Ort: ' + user.country + '</p>');
+                        userDiv.append('<p>E-mail: ' + user.email + '</p>');
 
-                    // Create buttons
-                    var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
-                    var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
-                    var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
+                        // Create buttons
+                        var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
+                        var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
+                        var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
 
-                    // // Append buttons to the userDiv
-                    userDiv.append('').append(changeNameButton);
-                    userDiv.append('').append(changePasswordButton);
-                    userDiv.append('').append(deactivateButton);
-                    //
-                    // Append the userDiv to the #userList container
-                    $('#userList').append(userDiv);
+                        // // Append buttons to the userDiv
+                        userDiv.append('').append(changeNameButton);
+                        userDiv.append('').append(changePasswordButton);
+                        userDiv.append('').append(deactivateButton);
+                        //
+                        // Append the userDiv to the #userList container
+                        $('#userList').append(userDiv);
 
-                    deactivateButton.click(function () {
-                        var newUserData = {
-                            id: user.id,
-                        };
-
-                        console.log(newUserData);
-
-                        $.ajax({
-                            url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
-                            method: 'DELETE',
-                            success: function (response) {
-                                // Handle a successful response from the backend
-                                console.log('User deleted successfully');
-                                // You can display a success message or take further actions here
-
-                                // After deleting, you might want to update the UI accordingly
-                                // You can remove the user's details from the UI or perform any other necessary actions
-                                location.reload(); // Refresh the page to reflect the updated user list
-                            },
-                            error: function (xhr, status, error) {
-                                // Handle errors here
-                                console.error('Error deleting user:', xhr, status, error);
-                                // Display an error message or take appropriate actions
-                            }
-                        });
-                    });
-                    changePasswordButton.click(function () {
-                        // Create an input field for the new password
-                        var passwordInput = $('<input type="password">');
-                        var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
-
-                        // Replace the existing content with the password input and save button
-                        userDiv.empty()
-                            .append('<p>ID: ' + user.id + '</p>')
-                            .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
-                            .append('<p>Vorname: ' + user.surname + '</p>')
-                            .append('<p>Straße: ' + user.street + '</p>')
-                            .append('<p>Hausnummer: ' + user.housenumber + '</p>')
-                            .append('<p>PLZ: ' + user.postalcode + '</p>')
-                            .append('<p>Ort: ' + user.country + '</p>')
-                            .append('<p>E-mail: ' + user.email + '</p>')
-                            .append(passwordInput) // Add the password input
-                            .append(savePasswordButton); // Add a button for saving the password
-
-                        // Handle saving the new password here
-                        savePasswordButton.click(function () {
-                            var newPassword = passwordInput.val();
-                            // Perform an AJAX request to update the password in the backend
+                        deactivateButton.click(function () {
                             var newUserData = {
                                 id: user.id,
-                                password: newPassword,
-                                name: user.name,
-                                surname: user.surname,
-                                street: user.street,
-                                housenumber: user.housenumber,
-                                postalcode: user.postalcode,
-                                country: user.country,
-                                email: user.email,
                             };
+
+                            console.log(newUserData);
 
                             $.ajax({
                                 url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
-                                method: 'PUT',
-                                dataType: 'json',
-                                contentType: 'application/json',
-                                data: JSON.stringify(newUserData),
+                                method: 'DELETE',
                                 success: function (response) {
                                     // Handle a successful response from the backend
-                                    console.log('Password updated successfully:', response);
+                                    console.log('User deleted successfully');
                                     // You can display a success message or take further actions here
 
-                                    // After updating, you might want to revert back to the original user details view
-                                    // You can reload the user details or reset the UI as needed
-                                    location.reload();
-                                    window.alert('Passwort wurde geändert.');
+                                    // After deleting, you might want to update the UI accordingly
+                                    // You can remove the user's details from the UI or perform any other necessary actions
+                                    location.reload(); // Refresh the page to reflect the updated user list
                                 },
                                 error: function (xhr, status, error) {
                                     // Handle errors here
-                                    console.error('Error updating password:', xhr, status, error);
+                                    console.error('Error deleting user:', xhr, status, error);
+                                    // Display an error message or take appropriate actions
                                 }
                             });
                         });
-                    });
-                    // dynamic input field for changing the name
-                    changeNameButton.click(function () {
-                        var nameInput = $('<input type="text">');
-                        var saveButton = $('<button>Speichern</button>');
-                        userDiv.find('.user-name').replaceWith(nameInput);
-                        userDiv.find('#changeNameButton').empty().append(saveButton);
+                        changePasswordButton.click(function () {
+                            // Create an input field for the new password
+                            var passwordInput = $('<input type="password">');
+                            var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
 
-                        saveButton.click(function () {
-                            // Handle saving the new name here
-                            var newName = nameInput.val();
-                            // Perform an AJAX request to update the name in the backend
-                            var newUserData = {
-                                id: user.id, // Include the user's ID
-                                name: newName, // Include the updated name
-                                surname: user.surname,
-                                street: user.street,
-                                housenumber: user.housenumber,
-                                postalcode: user.postalcode,
-                                country: user.country,
-                                email: user.email,
-                                password: user.password,
-                            };
-                            console.log('New User Data:', newUserData);
+                            // Replace the existing content with the password input and save button
+                            userDiv.empty()
+                                .append('<p>ID: ' + user.id + '</p>')
+                                .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
+                                .append('<p>Vorname: ' + user.surname + '</p>')
+                                .append('<p>Straße: ' + user.street + '</p>')
+                                .append('<p>Hausnummer: ' + user.housenumber + '</p>')
+                                .append('<p>PLZ: ' + user.postalcode + '</p>')
+                                .append('<p>Ort: ' + user.country + '</p>')
+                                .append('<p>E-mail: ' + user.email + '</p>')
+                                .append(passwordInput) // Add the password input
+                                .append(savePasswordButton); // Add a button for saving the password
 
-                            $.ajax({
-                                url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
-                                method: 'PUT', // Use PUT to update an existing resource
-                                dataType: 'json',
-                                contentType: 'application/json', // Set the content type to JSON
-                                data: JSON.stringify(newUserData), // Send the updated user data as JSON
-                                success: function (response) {
-                                    // Handle a successful response from the backend
-                                    console.log('User data updated successfully:', response);
-                                    location.reload();
-                                },
-                                error: function (xhr, status, error) {
-                                    // Handle errors here
-                                    console.error('Error updating user data:', xhr, status, error);
-                                }
+                            // Handle saving the new password here
+                            savePasswordButton.click(function () {
+                                var newPassword = passwordInput.val();
+                                // Perform an AJAX request to update the password in the backend
+                                var newUserData = {
+                                    id: user.id,
+                                    password: newPassword,
+                                    name: user.name,
+                                    surname: user.surname,
+                                    street: user.street,
+                                    housenumber: user.housenumber,
+                                    postalcode: user.postalcode,
+                                    country: user.country,
+                                    email: user.email,
+                                };
+
+                                $.ajax({
+                                    url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                    method: 'PUT',
+                                    dataType: 'json',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(newUserData),
+                                    success: function (response) {
+                                        // Handle a successful response from the backend
+                                        console.log('Password updated successfully:', response);
+                                        // You can display a success message or take further actions here
+
+                                        // After updating, you might want to revert back to the original user details view
+                                        // You can reload the user details or reset the UI as needed
+                                        location.reload();
+                                        window.alert('Passwort wurde geändert.');
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // Handle errors here
+                                        console.error('Error updating password:', xhr, status, error);
+                                    }
+                                });
                             });
+                        });
+                        // dynamic input field for changing the name
+                        changeNameButton.click(function () {
+                            var nameInput = $('<input type="text">');
+                            var saveButton = $('<button>Speichern</button>');
+                            userDiv.find('.user-name').replaceWith(nameInput);
+                            userDiv.find('#changeNameButton').empty().append(saveButton);
 
+                            saveButton.click(function () {
+                                // Handle saving the new name here
+                                var newName = nameInput.val();
+                                // Perform an AJAX request to update the name in the backend
+                                var newUserData = {
+                                    id: user.id, // Include the user's ID
+                                    name: newName, // Include the updated name
+                                    surname: user.surname,
+                                    street: user.street,
+                                    housenumber: user.housenumber,
+                                    postalcode: user.postalcode,
+                                    country: user.country,
+                                    email: user.email,
+                                    password: user.password,
+                                };
+                                console.log('New User Data:', newUserData);
+
+                                $.ajax({
+                                    url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                    method: 'PUT', // Use PUT to update an existing resource
+                                    dataType: 'json',
+                                    contentType: 'application/json', // Set the content type to JSON
+                                    data: JSON.stringify(newUserData), // Send the updated user data as JSON
+                                    success: function (response) {
+                                        // Handle a successful response from the backend
+                                        console.log('User data updated successfully:', response);
+                                        location.reload();
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // Handle errors here
+                                        console.error('Error updating user data:', xhr, status, error);
+                                    }
+                                });
+
+                            });
                         });
                     });
-                });
+                }
             },
             error: function (xhr, status, error) {
                 console.error(xhr, status, error);
@@ -450,31 +585,36 @@
             success: function (ordersData) {
                 console.log(ordersData);
                 // Inside the success callback of the AJAX request for orders
-                $('#ordersList').empty(); // Clear the existing orders list
+                if (ordersData.length === 0) {
+                    // No users are registered, display the message
+                    $('#noOrdersMessage').show();
+                } else {
+                    $('#ordersList').empty(); // Clear the existing orders list
 
-                // Iterate through the ordersData and create elements for each order
-                ordersData.forEach(function (order) {
-                    var orderDiv = $('<div class="cart"></div>');
+                    // Iterate through the ordersData and create elements for each order
+                    ordersData.forEach(function (order) {
+                        var orderDiv = $('<div class="cart"></div>');
 
-                    // Access and display properties of the order
-                    // orderDiv.append('<p>Status: ' + order.status + '</p>');
-                    orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
+                        // Access and display properties of the order
+                        // orderDiv.append('<p>Status: ' + order.status + '</p>');
+                        orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
 
-                    // Access and display properties of the user
-                    orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
+                        // Access and display properties of the user
+                        orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
 
-                    // Access and display properties of the original
-                    orderDiv.append('<img src="original.url" alt="product-picture">');
-                    orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
-                    orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
-                    orderDiv.append('<p>Material: ' + order.original.material + '</p>');
-                    orderDiv.append('<p>Kategorie: ' + order.original.category + '</p>');
-                    orderDiv.append('<p>Preis: € ' + order.original.price + '</p>');
-                    orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+                        // Access and display properties of the original
+                        orderDiv.append('<img src="original.url" alt="product-picture">');
+                        orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
+                        orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+                        orderDiv.append('<p>Material: ' + order.original.material + '</p>');
+                        orderDiv.append('<p>Kategorie: ' + order.original.category + '</p>');
+                        orderDiv.append('<p>Preis: € ' + order.original.price + '</p>');
+                        orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
 
-                    orderDiv.append('<p>Total: ' + order.total + '</p>');
-                    $('#ordersList').append(orderDiv);
-                });
+                        orderDiv.append('<p>Total: ' + order.total + '</p>');
+                        $('#ordersList').append(orderDiv);
+                    });
+                }
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching orders:', xhr, status, error);
@@ -486,35 +626,94 @@
 <script>
 
     $(document).ready(function () {
+
+        // Add an event listener for the "Edit" button
+        $('#edit-product').click(function () {
+            // Retrieve the product ID from the parent div
+            var productId = $(this).closest('.cart').find('p:contains("ID:")').text().split(':')[1].trim();
+
+            // Perform the edit action here, for example, redirect to an edit page or show an edit form
+            // You can use the productId to identify the product you want to edit
+            console.log('Edit button clicked for product ID: ' + productId);
+        });
+
+
+
         // Make an AJAX request to get the list of products
         $.ajax({
             url: 'http://localhost:8080/original', // Replace with the actual API endpoint for orders
             method: 'GET',
             dataType: 'json',
             success: function (productsData) {
-                console.log(productsData);
-                // Inside the success callback of the AJAX request for orders
-                $('#productsList').empty(); // Clear the existing orders list
+                if (productsData.length === 0) {
+                    // No users are registered, display the message
+                    $('#noProductsMessage').show();
+                } else {
+                    console.log(productsData);
 
-                // Iterate through the ordersData and create elements for each order
-                productsData.forEach(function (original) {
-                    var productDiv = $('<div class="cart"></div>');
-                    ;
-                    productDiv.append('<p>ID: ' + original.id + '</p>');
-                    productDiv.append('<img src="original.url" alt="product-picture">');
-                    productDiv.append('<p>Titel: ' + original.title + '</p>');
-                    productDiv.append('<p>Größe: ' + original.size + '</p>');
-                    productDiv.append('<p>Material: ' + original.material + '</p>');
-                    productDiv.append('<p>Kategorie: ' + original.category + '</p>');
-                    productDiv.append('<p>Preis: € ' + original.price + '</p>');
-                    productDiv.append('<p>Größe: ' + original.size + '</p>');
+                    // Inside the success callback of the AJAX request for orders
+                    $('#productsList').empty(); // Clear the existing orders list
 
-                    $('#productsList').append(productDiv);
-                });
+                    // Iterate through the ordersData and create elements for each order
+                    productsData.forEach(function (original) {
+                        var productDiv = $('<div class="cart"></div>');
+                        productDiv.append('<p>ID: ' + original.id + '</p>');
+                        productDiv.append('<img src="original.url" alt="product-picture">');
+                        productDiv.append('<p>Titel: ' + original.title + '</p>');
+                        productDiv.append('<p>Größe: ' + original.size + '</p>');
+                        productDiv.append('<p>Material: ' + original.material + '</p>');
+                        productDiv.append('<p>Kategorie: ' + original.category + '</p>');
+                        productDiv.append('<p>Preis: € ' + original.price + '</p>');
+                        productDiv.append('<p>Größe: ' + original.size + '</p>');
+                        productDiv.append('<button id="edit-product">Bearbeiten</button>'); // Add Edit button
+
+                        $('#productsList').append(productDiv);
+                    });
+                }
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching orders:', xhr, status, error);
                 // Handle errors here
             },
         });
+
+
+        $('#productForm').submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Serialize the form data into an object
+            var formData = {
+                "id": 0,
+                "title": $("#title").val(),
+                "size": $("#size").val(),
+                "material": $("#material").val(),
+                "description": $("#description").val(),
+                "price": $("#price").val(),
+                "url": $("#url").val(),
+                "category": $('[name="category"]').val(),
+                "quantity": $("#quantity").val()
+            };
+
+            console.log(formData);
+
+            // Convert the form data object to a JSON string
+            var jsonString = JSON.stringify(formData);
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/original',
+                data: jsonString, // Send the form data as JSON
+                contentType: 'application/json', // Set the content type to JSON
+                success: function (response) {
+                    // Handle the response
+                    console.log(response);
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.error(error);
+                }
+            });
+        });
+
+
     });</script>
