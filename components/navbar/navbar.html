@@ -2,7 +2,7 @@
   <div class="ban">
     <div class="banner">
       <a href="homepage.html"
-      ><img class="nav-link" height="50px" src="images/logo-gif.gif"
+        ><img class="nav-link" height="50px" src="images/logo-gif.gif"
       /></a>
       <ul class="bannerList">
         <li class="nav-link">
@@ -23,11 +23,26 @@
         <li class="nav-link">
           <div class="nav-container">
             <div class="login-container">
-              <form id="loginForm" action="http://localhost:8080/user/login" method="post">
-                <input type="email" placeholder="Email" name="email" id="emailLogin"/>
-                <input type="password" placeholder="Passwort" name="password" id="passwordLogin"/>
+              <form
+                id="loginForm"
+                action="http://localhost:8080/user/login"
+                method="post"
+              >
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  id="emailLogin"
+                />
+                <input
+                  type="password"
+                  placeholder="Passwort"
+                  name="password"
+                  id="passwordLogin"
+                />
                 <button type="submit">Login</button>
               </form>
+              <button id="logoutButton">Logout</button>
             </div>
             <div class="register-container">
               <button id="registrationButton">Registrierung</button>
@@ -40,47 +55,84 @@
 </nav>
 
 <script>
-    $(document).ready(function () {
-        $('#loginForm').submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission
 
-            // Get the user's email and password from the form fields
-            var email = $('#emailLogin').val();
-            var password = $('#passwordLogin').val();
 
-            // Create an object to hold the login data
-            var loginData = {
-                email: email,
-                password: password
-            };
-            // Send the login data to the server for authentication
-            $.ajax({
-                type: 'POST',
-                url: 'http://localhost:8080/user/login', // Replace with your login endpoint
-                data: JSON.stringify(loginData), // Send as JSON
-                contentType: 'application/json', // Set the content type to JSON
-                success: function (response) {
-                    // Handle the response from the server
-                    if (response) {
-                        // User successfully authenticated, you can redirect or show a success message
-                        console.log('Login successful', response);
-                    } else {
-                        // Authentication failed, show an error message
-                        console.log('Login failed', response);
-                    }
-                },
-                error: function (error) {
-                    // Handle errors
-                    console.error('Error during login:', error);
-                }
-            });
-        });
+
+$(document).ready(function () {
+  
+  // Überprüfen, ob der Benutzer angemeldet ist, wenn die Seite geladen wird
+  if (document.cookie.indexOf("loggedIn=true") !== -1) {
+    // Der Benutzer ist angemeldet, führen Sie hier die entsprechenden Aktionen aus
+    console.log("Benutzer ist angemeldet");
+
+  } else {
+    // Der Benutzer ist nicht angemeldet
+    console.log("Benutzer ist nicht angemeldet");
+  }
+  
+  // Restlicher Code für Anmeldung, Abmeldung und andere Aktionen
+
+  $("#loginForm").submit(function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the user's email and password from the form fields
+    var email = $("#emailLogin").val();
+    var password = $("#passwordLogin").val();
+
+    // Create an object to hold the login data
+    var loginData = {
+      email: email,
+      password: password,
+    };
+
+    // Send the login data to the server for authentication
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/user/login", // Replace with your login endpoint
+      data: JSON.stringify(loginData), // Send as JSON
+      contentType: "application/json", // Set the content type to JSON
+      success: function (response) {
+        // Handle the response from the server
+        if (response) {
+
+          // Erstellen Sie ein Cookie, um den Benutzer angemeldet zu halten
+          var expireDate = new Date(); // Aktuelles Datum und Uhrzeit
+          expireDate.setDate(expireDate.getDate() + 7); // Cookie läuft in 7 Tagen ab
+          document.cookie =
+            "loggedIn=true; expires=" +
+            expireDate.toUTCString() +
+            "; path=/";
+          console.log("erfolgreich angemeldet");
+
+        } else {
+          // Authentication failed, show an error message
+          console.log("Login failed", response);
+        }
+      },
+      error: function (error) {
+        // Handle errors
+        console.error("Error during login:", error);
+      },
     });
+  });
+
+  // Event-Handler für das Abmelden
+  $("#logoutButton").click(function () {
+    // Lösche das "loggedIn"-Cookie, um den Benutzer abzumelden
+    document.cookie =
+      "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    console.log("Benutzer abgemeldet");
+  });
+});
+
+
 
 
 </script>
 <script>
-    document.getElementById("registrationButton").addEventListener("click", function () {
-        window.location.href = "Anmeldeformular.html";
+  document
+    .getElementById("registrationButton")
+    .addEventListener("click", function () {
+      window.location.href = "Anmeldeformular.html";
     });
 </script>
