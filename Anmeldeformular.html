@@ -116,6 +116,10 @@
 <!--        </div>-->
         <div class="register-container main">
           <button type="submit">Registrierung</button>
+          <div id="custom-alert" style="display: none;">
+            <p>Erfolgreich registriert!</p>
+        </div>
+        
         </div>
       </form>
     </div>
@@ -166,6 +170,7 @@
                 success: function (response) {
                     // Handle the response
                     console.log(response);
+                    $("#custom-alert").show();
                 },
                 error: function (error) {
                     // Handle errors
