@@ -83,35 +83,27 @@ $(document).ready(function() {
   $("#all").click(function() {
     displayProducts(allProducts); // Zeige alle Produkte an
   });
-  
+
+////////////// FILTER ///////////////////
 
   $("#original").click(function() {
-    // Filtere die Produkte nach Kategorie 'ORIGINAL'
     var filteredProducts = $.grep(allProducts, function(product) {
       return product.category === 'ORIGINAL';
     });
-
-    // Zeige die gefilterten Produkte an
     displayProducts(filteredProducts);
   });
 
   $("#sticker").click(function() {
-    // Filtere die Produkte nach Kategorie 'ORIGINAL'
     var filteredProducts = $.grep(allProducts, function(product) {
       return product.category === 'STICKER';
     });
-
-    // Zeige die gefilterten Produkte an
     displayProducts(filteredProducts);
   });
 
   $("#print").click(function() {
-    // Filtere die Produkte nach Kategorie 'ORIGINAL'
     var filteredProducts = $.grep(allProducts, function(product) {
       return product.category === 'PRINT';
     });
-
-    // Zeige die gefilterten Produkte an
     displayProducts(filteredProducts);
   });
 
@@ -120,7 +112,7 @@ $(document).ready(function() {
     // Lösche den Inhalt des productContainer
    productContainer.empty();
 
-    // Füge die Produkte dem productContainer hinzu
+    // Füge die Produkte dem jetzt leeren productContainer hinzu ...
     $.each(products, function(index, product) {
       var productHTML = `
         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -138,6 +130,5 @@ $(document).ready(function() {
 });
 
 </script>
-  
   </body>
 </html>

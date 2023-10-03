@@ -34,7 +34,7 @@
         <div class="nav-bar-phone">
           <a href="homepage.html">
             <img class="nav-link" height="50px" src="images/logo-gif.gif"
-          /></a>
+            /></a>
         </div>
         <div class="container-phone">
           <div class="nav-phone">
@@ -50,7 +50,7 @@
             <a href="Warenkorb.html">Warenkorb</a>
           </div>
           <div class="nav-phone">
-            <a  href="Dashboard.html">Dashboard</a>
+            <a href="Dashboard.html">Dashboard</a>
           </div>
           <div class="notRight">
             <li class="nav-link">
@@ -61,9 +61,10 @@
                     <input type="password" placeholder="Passwort" name="password" id="passwordLog"/>
                     <button type="submit">Login</button>
                   </form>
+                  <button id="logoutBut">Logout</button>
                 </div>
-                  <div class="register-container">
-                    <button id="registrationButton">Registrierung</button>
+                <div class="register-container">
+                  <button id="registrationButton">Registrierung</button>
                 </div>
               </div>
             </li>
@@ -75,43 +76,68 @@
 </div>
 
 <script>
+
+
     $(document).ready(function () {
-        $('#loginFo').submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission
 
-            // Get the user's email and password from the form fields
-            var email = $('#emailLog').val();
-            var password = $('#passwordLog').val();
+        // Überprüfen, ob der Benutzer angemeldet ist, wenn Seite geladen wird
+        if (document.cookie.indexOf("loggedIn=true") !== -1) {
+            console.log("Benutzer ist angemeldet");
 
-            // Create an object to hold the login data
+        } else {
+            console.log("Benutzer ist nicht angemeldet");
+        }
+
+        /////////////////////////////////////////////////////////////////////////
+        ///////////////////// Anmeldung, Abmeldung, ETC /////////////////////
+        /////////////////////////////////////////////////////////////////////////
+
+        $("#loginFo").submit(function (event) {
+            event.preventDefault();
+            var email = $("#emailLog").val();
+            var password = $("#passwordLog").val();
             var loginData = {
                 email: email,
-                password: password
+                password: password,
             };
-            // Send the login data to the server for authentication
+
             $.ajax({
-                type: 'POST',
-                url: 'http://localhost:8080/user/login', // Replace with your login endpoint
-                data: JSON.stringify(loginData), // Send as JSON
-                contentType: 'application/json', // Set the content type to JSON
+                type: "POST",
+                url: "http://localhost:8080/user/login",
+                data: JSON.stringify(loginData),
+                contentType: "application/json",
                 success: function (response) {
-                    // Handle the response from the server
                     if (response) {
-                        // User successfully authenticated, you can redirect or show a success message
-                        console.log('Login successful', response);
+
+                        var expireDate = new Date();
+                        expireDate.setDate(expireDate.getDate() + 7);
+                        document.cookie =
+                            "loggedIn=true; expires=" +
+                            expireDate.toUTCString() +
+                            "; path=/";
+                        console.log("erfolgreich angemeldet");
+                        window.alert("Erfolgreich angemeldet.");
+                        window.location.href = "Warenkorb.html";
+
                     } else {
-                        // Authentication failed, show an error message
-                        console.log('Login failed', response);
+                        console.log("Login failed", response);
+                        window.alert("Anmeldung fehlgeschlagen.");
+
                     }
                 },
                 error: function (error) {
-                    // Handle errors
-                    console.error('Error during login:', error);
-                }
+                    console.error("Error during login:", error);
+                },
             });
         });
-    });
 
+        $("#logoutBut").click(function () {
+            document.cookie =
+                "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+            console.log("Benutzer abgemeldet");
+            window.alert("Benutzer abgemeldet.");
+        });
+    });
 
 </script>
 <script>

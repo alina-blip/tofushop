@@ -1,148 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./style-basics.css" />
-    <link rel="stylesheet" href="./style-grid-images.css" />
-    <link rel="stylesheet" href="./style-nav.css" />
-    <link rel="stylesheet" href="./style-tofu-word-animation.css" />
-    <link rel="stylesheet" href="./styles-rest.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
-    <link rel="stylesheet" href="./style-shop.css" />
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./style-basics.css"/>
+  <link rel="stylesheet" href="./style-grid-images.css"/>
+  <link rel="stylesheet" href="./style-nav.css"/>
+  <link rel="stylesheet" href="./style-tofu-word-animation.css"/>
+  <link rel="stylesheet" href="./styles-rest.css"/>
+  <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css"/>
+  <link rel="stylesheet" href="./style-shop.css"/>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.min.js"
-      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="components/navbar/loadNavbar.js" defer></script>
-    <script src="components/navbarPhone/loadNavbar.js" defer></script>
-  </head>
-  <body>
-    <div id="page-container">
-      <div id="content-wrap">
-        <div id="navbarContainer"></div>
-        <div id="container-nav-phone"></div>
-        
-        <h1 id="product-title"></h1>
+  <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"
+  ></script>
+  <script src="components/navbar/loadNavbar.js" defer></script>
+  <script src="components/navbarPhone/loadNavbar.js" defer></script>
+</head>
+<body>
+<div id="page-container">
+  <div id="content-wrap">
+    <div id="navbarContainer"></div>
+    <div id="container-nav-phone"></div>
 
-        <div class="container-fluid  ">
-          <div class="row">
-              <div class="col-md-6">
-               
-                  <img src="http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp" alt="Beschreibung des Bildes" class="img-fluid">
-                </div>
-              
-              
-              <div class="col-md-6">
-                  <div class="table-responsive pt-5">
-                    
-                      <table class="table">
-                          <tr>
-                              <td class="fw-bold fs-3">Category:</td>
-                              <td id="product-category" class="fs-3"></td>
-                          </tr>
-                          <tr>
-                              <td class="fw-bold fs-3">Size:</td>
-                              <td id="product-size" class="fs-3"></td>
-                          </tr>
-                          <tr>
-                              <td class="fw-bold fs-3">Price:</td>
-                              <td id="product-price" class="fs-3"></td>
-                          </tr>
-                          <tr>
-                              <td class="fw-bold fs-3">Material:</td>
-                              <td id="product-material" class="fs-3"></td>
-                          </tr>
-                          <tr>
-                              <td class="fw-bold fs-3">Quantity:</td>
-                              <td id="product-quantity" class="fs-3"></td>
-                          </tr>
-                          <tr>
-                            <td class="fw-bold fs-3 ">Description</td>
-                            <td id="product-description" class="fs-3"></td>
-                        </tr>
-                      </table>
-                      <div class="d-flex pt-5 pb-5 fw-bold ">
-                        <div class="fs-3">ADD TO BAG</div>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16" class="">
-                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                          </svg>
-                      </div>
-                  </div>
-                  
-              </div>
-              
+    <h1 id="product-title"></h1>
+
+    <div class="container-fluid  ">
+      <div class="row">
+        <div class="col-md-6">
+
+          <img src="http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp"
+               alt="Beschreibung des Bildes" class="img-fluid">
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="table-responsive pt-5">
+
+            <table class="table">
+              <tr>
+                <td class="fw-bold fs-3">Category:</td>
+                <td id="product-category" class="fs-3"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold fs-3">Size:</td>
+                <td id="product-size" class="fs-3"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold fs-3">Price:</td>
+                <td id="product-price" class="fs-3"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold fs-3">Material:</td>
+                <td id="product-material" class="fs-3"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold fs-3">Quantity:</td>
+                <td id="product-quantity" class="fs-3"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold fs-3 ">Description</td>
+                <td id="product-description" class="fs-3"></td>
+              </tr>
+            </table>
+            <div class="d-flex pt-5 pb-5 fw-bold ">
+              <div class="fs-3">ADD TO BAG</div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-plus"
+                   viewBox="0 0 16 16" class="">
+                <path fill-rule="evenodd"
+                      d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                <path
+                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+              </svg>
+            </div>
           </div>
-          
-      </div>
-      
-      
-          
 
-
+        </div>
 
       </div>
-    
 
-    <footer class="footer">
-        <div class="footer-element">
-          <a class="link" href="./Hilfe.html">Hilfe</a>
-        </div>
-        <div class="footer-element">
-          <a class="link" href="Impressum.html">Impressum</a>
-        </div>
-        <div class="footer-element">
-          <a class="link" href="Kontakt.html">Kontakt</a>
-        </div>
-      </footer>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    >
-  </script>
-  
-    <script>
-$(document).ready(function() {
-  // Die Funktion zum Extrahieren der Produkt-ID aus der URL
-  function getProductIdFromURL() {
-    var urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get("id"); // "Id" ist der Parametername in der URL
-  }
-
-  // Produkt-ID aus der URL extrahieren
-  
-  var productId = getProductIdFromURL();
-  console.log(productId)
-
-  $.get(`http://localhost:8080/original/${productId}`, function(productData) {
-var imgurl = 
-    $("#product-title").text(productData.title);
-    $("#product-category").text(productData.category);
-    $("#product-description").text(productData.description);
-    $("#product-price").text(productData.price);
-    $("#product-material").text(productData.material);
-    $("#product-quantity").text(productData.quantity);
-    $("#product-size").text(productData.size);
-    $("#product-url").text(productData.url);
-
- console.log(productData);
-})
-
-});
 
 
-    </script>
-  </body>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer-element">
+      <a class="link" href="./Hilfe.html">Hilfe</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Impressum.html">Impressum</a>
+    </div>
+    <div class="footer-element">
+      <a class="link" href="Kontakt.html">Kontakt</a>
+    </div>
+  </footer>
+</div>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"
+>
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Die Funktion zum Extrahieren der Produkt-ID aus der URL
+        function getProductIdFromURL() {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get("id"); // "Id" ist der Parametername in der URL
+        }
+
+        // Produkt-ID aus der URL extrahieren
+        var productId = getProductIdFromURL();
+        console.log(productId)
+
+        $.get(`http://localhost:8080/original/${productId}`, function (productData) {
+            var imgurl =
+                $("#product-title").text(productData.title);
+            $("#product-category").text(productData.category);
+            $("#product-description").text(productData.description);
+            $("#product-price").text(productData.price);
+            $("#product-material").text(productData.material);
+            $("#product-quantity").text(productData.quantity);
+            $("#product-size").text(productData.size);
+            $("#product-url").text(productData.url);
+            console.log(productData);
+        })
+    });
+</script>
+</body>

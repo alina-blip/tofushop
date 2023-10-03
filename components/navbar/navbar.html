@@ -59,74 +59,70 @@
 
 
 $(document).ready(function () {
-  
-  // Überprüfen, ob der Benutzer angemeldet ist, wenn die Seite geladen wird
+
+  // Überprüfen, ob der Benutzer angemeldet ist -> wenn die Seite geladen wird
   if (document.cookie.indexOf("loggedIn=true") !== -1) {
-    // Der Benutzer ist angemeldet, führen Sie hier die entsprechenden Aktionen aus
     console.log("Benutzer ist angemeldet");
 
   } else {
-    // Der Benutzer ist nicht angemeldet
     console.log("Benutzer ist nicht angemeldet");
   }
-  
-  // Restlicher Code für Anmeldung, Abmeldung und andere Aktionen
 
-  $("#loginForm").submit(function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    /////////////////////////////////////////////////////////////////////////
+    ///////////////////// Anmeldung, Abmeldung, ETC /////////////////////
+    /////////////////////////////////////////////////////////////////////////
 
-    // Get the user's email and password from the form fields
+    $("#loginForm").submit(function (event) {
+    event.preventDefault();
+
+    //  get email and pw from form fields
     var email = $("#emailLogin").val();
     var password = $("#passwordLogin").val();
-
-    // Create an object to hold the login data
     var loginData = {
       email: email,
       password: password,
     };
 
-    // Send the login data to the server for authentication
     $.ajax({
       type: "POST",
-      url: "http://localhost:8080/user/login", // Replace with your login endpoint
-      data: JSON.stringify(loginData), // Send as JSON
-      contentType: "application/json", // Set the content type to JSON
+      url: "http://localhost:8080/user/login",
+      data: JSON.stringify(loginData),
+      contentType: "application/json",
       success: function (response) {
-        // Handle the response from the server
         if (response) {
 
-          // Erstellen Sie ein Cookie, um den Benutzer angemeldet zu halten
-          var expireDate = new Date(); // Aktuelles Datum und Uhrzeit
-          expireDate.setDate(expireDate.getDate() + 7); // Cookie läuft in 7 Tagen ab
+          // COOKIEERSTELLUNG - Benutzer wird so gehalten
+          var expireDate = new Date();
+          expireDate.setDate(expireDate.getDate() + 7);
           document.cookie =
             "loggedIn=true; expires=" +
             expireDate.toUTCString() +
             "; path=/";
           console.log("erfolgreich angemeldet");
+          window.alert("Erfolgreich angemeldet.");
+          window.location.href = "Warenkorb.html";
 
         } else {
-          // Authentication failed, show an error message
           console.log("Login failed", response);
+            window.alert("Anmeldung fehlgeschlagen.");
+
         }
       },
       error: function (error) {
-        // Handle errors
         console.error("Error during login:", error);
       },
     });
   });
 
-  // Event-Handler für das Abmelden
   $("#logoutButton").click(function () {
-    // Lösche das "loggedIn"-Cookie, um den Benutzer abzumelden
+    // Cookie wird gelöscht
     document.cookie =
       "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     console.log("Benutzer abgemeldet");
+      window.alert("Benutzer abgemeldet.");
+
   });
 });
-
-
-
 
 </script>
 <script>
