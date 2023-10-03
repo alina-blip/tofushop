@@ -118,7 +118,7 @@
           <div id="custom-alert" style="display: none;">
             <p>Erfolgreich registriert!</p>
         </div>
-        
+
         </div>
       </form>
     </div>
@@ -143,9 +143,7 @@
 <script>
     $(document).ready(function () {
         $('#registrationForm').submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Serialize the form data into an object
+            event.preventDefault();
             var formData = {
                 "id": 0,
                 "name": $("#name").val(),
@@ -158,21 +156,18 @@
                 "password": $("#password").val()
             };
 
-            // Convert the form data object to a JSON string
             var jsonString = JSON.stringify(formData);
 
             $.ajax({
                 type: 'POST',
                 url: 'http://localhost:8080/user',
-                data: jsonString, // Send the form data as JSON
-                contentType: 'application/json', // Set the content type to JSON
+                data: jsonString,
+                contentType: 'application/json',
                 success: function (response) {
-                    // Handle the response
                     console.log(response);
                     $("#custom-alert").show();
                 },
                 error: function (error) {
-                    // Handle errors
                     console.error(error);
                 }
             });

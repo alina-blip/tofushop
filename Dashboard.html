@@ -311,12 +311,9 @@
 ></script>
 <script>
     $(document).ready(function () {
-        // Initial state: Show "Registrierte Benutzer" section by default
+        // Initial state:  "Registrierte Benutzer"
         // $('#userList').show();
-        // $('.cart-container h2').text('Registrierte Benutzer');
         showUsers();
-
-        // Function to show "Registrierte Benutzer" section
         function showUsers() {
             $('#userList').show();
             $('#ordersList').hide();
@@ -324,8 +321,6 @@
             $('#addNewProduct').hide();
             $('.cart-container h2').text('Registrierte Benutzer');
         }
-
-        // Function to show "Bestellungen" section
         function showOrders() {
             $('#userList').hide();
             $('#ordersList').show();
@@ -334,8 +329,6 @@
             $('.cart-container h2').text('Bestellungen');
 
         }
-
-        // Function to show "Produkte" section
         function showProducts() {
             $('#userList').hide();
             $('#ordersList').hide();
@@ -344,7 +337,6 @@
             $('.cart-container h2').text('Produkte');
 
         }
-
         function showNewProductForm() {
             $('#userList').hide();
             $('#ordersList').hide();
@@ -352,8 +344,6 @@
             $('#addNewProduct').show();
             $('.cart-container h2').text('Produkt hinzufügen');
         }
-
-        // Set up button click handlers
         $('#showUsersButton').click(showUsers);
         $('#showOrdersButton').click(showOrders);
         $('#showProductsButton').click(showProducts);
@@ -364,17 +354,14 @@
 </script>
 <script>
     $(document).ready(function () {
-        // Make an AJAX request to get the list of users
         $.ajax({
-            url: 'http://localhost:8080/user', // Replace with the actual API endpoint
+            url: 'http://localhost:8080/user',
             method: 'GET',
             dataType: 'json',
             success: function (data) {
                 if (data.length === 0) {
-                    // No users are registered, display the message
                     $('#noUsersMessage').show();
                 } else {
-                    // Iterate through the user data and create elements for each user
                     data.forEach(function (user) {
                         var userDiv = $('<div class="cart"></div>');
                         userDiv.append('<p>ID: ' + user.id + '</p>');
@@ -386,17 +373,14 @@
                         userDiv.append('<p>Ort: ' + user.country + '</p>');
                         userDiv.append('<p>E-mail: ' + user.email + '</p>');
 
-                        // Create buttons
                         var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
                         var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
                         var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
 
-                        // // Append buttons to the userDiv
                         userDiv.append('').append(changeNameButton);
                         userDiv.append('').append(changePasswordButton);
                         userDiv.append('').append(deactivateButton);
-                        //
-                        // Append the userDiv to the #userList container
+
                         $('#userList').append(userDiv);
 
                         deactivateButton.click(function () {
@@ -407,30 +391,21 @@
                             console.log(newUserData);
 
                             $.ajax({
-                                url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                url: 'http://localhost:8080/user/' + user.id,
                                 method: 'DELETE',
                                 success: function (response) {
-                                    // Handle a successful response from the backend
                                     console.log('User deleted successfully');
-                                    // You can display a success message or take further actions here
-
-                                    // After deleting, you might want to update the UI accordingly
-                                    // You can remove the user's details from the UI or perform any other necessary actions
-                                    location.reload(); // Refresh the page to reflect the updated user list
+                                    location.reload();
                                 },
                                 error: function (xhr, status, error) {
-                                    // Handle errors here
                                     console.error('Error deleting user:', xhr, status, error);
-                                    // Display an error message or take appropriate actions
                                 }
                             });
                         });
                         changePasswordButton.click(function () {
-                            // Create an input field for the new password
                             var passwordInput = $('<input type="password">');
                             var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
 
-                            // Replace the existing content with the password input and save button
                             userDiv.empty()
                                 .append('<p>ID: ' + user.id + '</p>')
                                 .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
@@ -440,13 +415,11 @@
                                 .append('<p>PLZ: ' + user.postalcode + '</p>')
                                 .append('<p>Ort: ' + user.country + '</p>')
                                 .append('<p>E-mail: ' + user.email + '</p>')
-                                .append(passwordInput) // Add the password input
-                                .append(savePasswordButton); // Add a button for saving the password
+                                .append(passwordInput)
+                                .append(savePasswordButton);
 
-                            // Handle saving the new password here
                             savePasswordButton.click(function () {
                                 var newPassword = passwordInput.val();
-                                // Perform an AJAX request to update the password in the backend
                                 var newUserData = {
                                     id: user.id,
                                     password: newPassword,
@@ -460,29 +433,22 @@
                                 };
 
                                 $.ajax({
-                                    url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
+                                    url: 'http://localhost:8080/user/' + user.id,
                                     method: 'PUT',
                                     dataType: 'json',
                                     contentType: 'application/json',
                                     data: JSON.stringify(newUserData),
                                     success: function (response) {
-                                        // Handle a successful response from the backend
                                         console.log('Password updated successfully:', response);
-                                        // You can display a success message or take further actions here
-
-                                        // After updating, you might want to revert back to the original user details view
-                                        // You can reload the user details or reset the UI as needed
                                         location.reload();
                                         window.alert('Passwort wurde geändert.');
                                     },
                                     error: function (xhr, status, error) {
-                                        // Handle errors here
                                         console.error('Error updating password:', xhr, status, error);
                                     }
                                 });
                             });
                         });
-                        // dynamic input field for changing the name
                         changeNameButton.click(function () {
                             var nameInput = $('<input type="text">');
                             var saveButton = $('<button>Speichern</button>');
@@ -490,12 +456,10 @@
                             userDiv.find('#changeNameButton').empty().append(saveButton);
 
                             saveButton.click(function () {
-                                // Handle saving the new name here
                                 var newName = nameInput.val();
-                                // Perform an AJAX request to update the name in the backend
                                 var newUserData = {
-                                    id: user.id, // Include the user's ID
-                                    name: newName, // Include the updated name
+                                    id: user.id,
+                                    name: newName,
                                     surname: user.surname,
                                     street: user.street,
                                     housenumber: user.housenumber,
@@ -507,18 +471,16 @@
                                 console.log('New User Data:', newUserData);
 
                                 $.ajax({
-                                    url: 'http://localhost:8080/user/' + user.id, // Replace with the actual user's ID
-                                    method: 'PUT', // Use PUT to update an existing resource
+                                    url: 'http://localhost:8080/user/' + user.id,
+                                    method: 'PUT',
                                     dataType: 'json',
-                                    contentType: 'application/json', // Set the content type to JSON
-                                    data: JSON.stringify(newUserData), // Send the updated user data as JSON
+                                    contentType: 'application/json',
+                                    data: JSON.stringify(newUserData),
                                     success: function (response) {
-                                        // Handle a successful response from the backend
                                         console.log('User data updated successfully:', response);
                                         location.reload();
                                     },
                                     error: function (xhr, status, error) {
-                                        // Handle errors here
                                         console.error('Error updating user data:', xhr, status, error);
                                     }
                                 });
@@ -538,32 +500,24 @@
 </script>
 <script>
     $(document).ready(function () {
-        // Make an AJAX request to get the list of orders
         $.ajax({
-            url: 'http://localhost:8080/cart', // Replace with the actual API endpoint for orders
+            url: 'http://localhost:8080/cart',
             method: 'GET',
             dataType: 'json',
             success: function (ordersData) {
                 console.log(ordersData);
-                // Inside the success callback of the AJAX request for orders
                 if (ordersData.length === 0) {
-                    // No users are registered, display the message
                     $('#noOrdersMessage').show();
                 } else {
-                    $('#ordersList').empty(); // Clear the existing orders list
+                    $('#ordersList').empty();
 
-                    // Iterate through the ordersData and create elements for each order
                     ordersData.forEach(function (order) {
                         var orderDiv = $('<div class="cart"></div>');
 
-                        // Access and display properties of the order
-                        // orderDiv.append('<p>Status: ' + order.status + '</p>');
                         orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
-
-                        // Access and display properties of the user
                         orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
 
-                        // Access and display properties of the original
+                        // produkte anzeigen
                         orderDiv.append('<img src="original.url" alt="product-picture">');
                         orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
                         orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
@@ -579,7 +533,6 @@
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching orders:', xhr, status, error);
-                // Handle errors here
             },
         });
     });
@@ -596,20 +549,16 @@
         //////////////////////////////////////////////////////////////
 
         $.ajax({
-            url: 'http://localhost:8080/original', // Replace with the actual API endpoint for orders
+            url: 'http://localhost:8080/original',
             method: 'GET',
             dataType: 'json',
             success: function (productsData) {
                 if (productsData.length === 0) {
-                    // No users are registered, display the message
                     $('#noProductsMessage').show();
                 } else {
                     console.log(productsData);
+                    $('#productsList').empty();
 
-                    // Inside the success callback of the AJAX request for orders
-                    $('#productsList').empty(); // Clear the existing orders list
-
-                    // Iterate through the ordersData and create elements for each order
                     productsData.forEach(function (original) {
                         var productDiv = $('<div class="cart"></div>');
 
@@ -618,7 +567,6 @@
                         var imageInput = $('<input type="url" class="edit-url form-control" value="' + original.url + '" readonly>');
                         productDiv.append(imageInput);
 
-                        // Wrap the title, size, material, description, category, and price in Bootstrap form-group
                         productDiv.append('<div class="form-group"><label>Titel</label><input type="text" class="edit-title form-control" value="' + original.title + '" readonly></div>');
                         productDiv.append('<div class="form-group"><label>Größe</label><input type="text" class="edit-size form-control" value="' + original.size + '" readonly></div>');
                         productDiv.append('<div class="form-group"><label>Material</label><input type="text" class="edit-material form-control" value="' + original.material + '" readonly></div>');
@@ -627,7 +575,6 @@
                         productDiv.append('<div class="form-group"><label>Preis</label><input type="number" class="edit-price form-control" value="' + original.price + '" readonly></div>');
                         productDiv.append('<div class="form-group"><label>Stückzahl</label><input type="text" class="edit-quantity form-control" value="' + original.quantity + '" readonly></div>');
 
-                        // Use Bootstrap's button classes for the Edit, Delete, and Save Changes buttons
                         productDiv.append('<div class="register-container"><button class="btn btn-primary edit-product">Bearbeiten</button></div>');
                         productDiv.append('<div class="register-container"><button class="btn btn-danger delete-product">Löschen</button></div>');
                         productDiv.append('<div class="register-container"><button class="btn btn-success save-changes" style="display: none;">Änderungen speichern</button></div>');
@@ -638,7 +585,6 @@
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching orders:', xhr, status, error);
-                // Handle errors here
             },
         });
 
@@ -648,9 +594,9 @@
 
 
         $('#productForm').submit(function (event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
-            // Serialize the form data into an object
+            // make an object from the form data
             var formData = {
                 "id": 0,
                 "title": $("#title").val(),
@@ -665,20 +611,17 @@
 
             console.log(formData);
 
-            // Convert the form data object to a JSON string
             var jsonString = JSON.stringify(formData);
 
             $.ajax({
                 type: 'POST',
                 url: 'http://localhost:8080/original',
-                data: jsonString, // Send the form data as JSON
-                contentType: 'application/json', // Set the content type to JSON
+                data: jsonString,
+                contentType: 'application/json',
                 success: function (response) {
-                    // Handle the response
                     console.log(response);
                 },
                 error: function (error) {
-                    // Handle errors
                     console.error(error);
                 }
             });
@@ -688,7 +631,7 @@
         ////////////// EDIT PRODUCT /////////////////////
         //////////////////////////////////////////////////////////////
 
-        // Delegated event handler for "Edit" buttons
+        // event handler for edit-button
         $('#productsList').on('click', '.edit-product', function () {
             var $productDiv = $(this).closest('.cart');
             $productDiv.find('.edit-url, .edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-quantity', '.edit-description').prop('readonly', false);
@@ -696,7 +639,7 @@
             $productDiv.find('.save-changes').show();
         });
 
-        // Add an event listener for the "Save Changes" button - DELEGATED
+        // event listener for the Save Changes - Button - with the productList ID to make it work
         $('#productsList').on('click', '.save-changes', function () {
             var $productDiv = $(this).closest('.cart');
             var productId = parseInt($productDiv.find('p:contains("ID:")').text().split(':')[1].trim(), 10);
@@ -710,30 +653,27 @@
                 description: $productDiv.find('.edit-description').val(),
                 price: parseFloat($productDiv.find('.edit-price').val()),
                 quantity: parseInt($productDiv.find('.edit-quantity').val()),
-                // Add other edited fields here
             };
             console.log(editedData);
             var jsonStringEditedData = JSON.stringify(editedData);
             console.log(jsonStringEditedData);
 
 
-            // Perform a PUT request to update the product with productId and editedData
             $.ajax({
                 type: 'PUT',
-                url: 'http://localhost:8080/original/' + productId, // Replace with your API endpoint
+                url: 'http://localhost:8080/original/' + productId,
                 data: jsonStringEditedData,
                 contentType: 'application/json',
                 success: function (response) {
                     // Handle the success response
                     console.log('Product updated:', response);
 
-                    // Disable editing and show the "Edit" button again
+                    // disable the other buttons
                     $productDiv.find('.edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-url, .edit-quantity, .edit-description').prop('readonly', true);
                     $productDiv.find('.edit-product').show();
                     $productDiv.find('.save-changes').hide();
                 },
                 error: function (error) {
-                    // Handle errors
                     console.error('Error updating product:', error);
                 }
             });
@@ -745,26 +685,19 @@
         //////////////////////////////////////////////////////////////
 
 
-        // Add an event listener for the "Delete" button
         $('#productsList').on('click', '.delete-product', function () {
             var $productDiv = $(this).closest('.cart');
             var productId = parseInt($productDiv.find('.id').text().split(':')[1].trim(), 10);
 
-            // Confirm with the user before deleting the product
             if (confirm('Are you sure you want to delete this product?')) {
-                // Send a DELETE request to delete the product with productId
                 $.ajax({
                     type: 'DELETE',
-                    url: 'http://localhost:8080/original/' + productId, // Replace with your API endpoint
+                    url: 'http://localhost:8080/original/' + productId,
                     success: function (response) {
-                        // Handle the success response
                         console.log('Product deleted:', response);
-
-                        // Remove the product's cart div from the list
                         $productDiv.remove();
                     },
                     error: function (error) {
-                        // Handle errors
                         console.error('Error deleting product:', error);
                     }
                 });
