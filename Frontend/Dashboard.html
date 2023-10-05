@@ -11,12 +11,12 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="./style-basics.css"/>
-  <link rel="stylesheet" href="./style-contact.css"/>
-  <link rel="stylesheet" href="./style-grid-images.css"/>
-  <link rel="stylesheet" href="./style-nav.css"/>
-  <link rel="stylesheet" href="./style-tofu-word-animation.css"/>
-  <link rel="stylesheet" href="./styles-rest.css"/>
+  <link rel="stylesheet" href="style-basics.css"/>
+  <link rel="stylesheet" href="style-contact.css"/>
+  <link rel="stylesheet" href="style-grid-images.css"/>
+  <link rel="stylesheet" href="style-nav.css"/>
+  <link rel="stylesheet" href="style-tofu-word-animation.css"/>
+  <link rel="stylesheet" href="styles-rest.css"/>
   <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css"/>
   <script
     src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -292,7 +292,7 @@
 
 <footer class="footer">
   <div class="footer-element">
-    <a class="link" href="./Hilfe.html">Hilfe</a>
+    <a class="link" href="Hilfe.html">Hilfe</a>
   </div>
   <div class="footer-element">
     <a class="link" href="Impressum.html">Impressum</a>
@@ -574,11 +574,9 @@
                         productDiv.append('<div class="form-group"><label>Kategorie</label><input type="text" class="edit-category form-control" value="' + original.category + '" readonly></div>');
                         productDiv.append('<div class="form-group"><label>Preis</label><input type="number" class="edit-price form-control" value="' + original.price + '" readonly></div>');
                         productDiv.append('<div class="form-group"><label>Stückzahl</label><input type="text" class="edit-quantity form-control" value="' + original.quantity + '" readonly></div>');
-
                         productDiv.append('<div class="register-container"><button class="btn btn-primary edit-product">Bearbeiten</button></div>');
                         productDiv.append('<div class="register-container"><button class="btn btn-danger delete-product">Löschen</button></div>');
                         productDiv.append('<div class="register-container"><button class="btn btn-success save-changes" style="display: none;">Änderungen speichern</button></div>');
-
                         $('#productsList').append(productDiv);
                     });
                 }
