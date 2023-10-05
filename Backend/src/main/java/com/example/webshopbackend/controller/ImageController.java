@@ -5,6 +5,7 @@ import com.example.webshopbackend.repository.ImageRepository;
 import com.example.webshopbackend.service.StorageService;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,8 @@ import org.slf4j.LoggerFactory;
 @RequestMapping("/images")
 public class ImageController {
 
+    @Value("${file.upload-dir}") // Inject the property value from application properties
+    private String uploadDir;
     private final StorageService storageService;
     private final ImageRepository imageRepository;
 
@@ -40,7 +43,7 @@ public class ImageController {
     @PostMapping
     @ResponseBody
     public String uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
-        Path storageDirectory = Paths.get("uploads/");
+        Path storageDirectory = Paths.get(uploadDir);
         String filename = file.getOriginalFilename();
 
         // Log the paths for debugging
@@ -50,6 +53,10 @@ public class ImageController {
         // Store the file in the storage directory
         Path filePath = storageDirectory.resolve(filename);
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+        Image image = new Image();
+        image.setPath(filePath.toString());
+        imageRepository.save(image);
 
         return "successfully uploaded";
     }

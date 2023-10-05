@@ -3,6 +3,7 @@ package com.example.webshopbackend.service;
 import com.example.webshopbackend.exception.StorageException;
 import com.example.webshopbackend.exception.StorageFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class StorageServiceImpl implements StorageService {
 
     @Autowired
     public StorageServiceImpl() {
-        this.storageDirectory = Paths.get("uploads"); // Set your storage directory
+        this.storageDirectory = Paths.get("/Users/alinasorger/Projects/tofushop/Backend/uploads"); // Set your storage directory
         init();
     }
 
