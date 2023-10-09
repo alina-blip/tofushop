@@ -90,41 +90,4 @@ import java.util.stream.Collectors;
             user.setRole(UserRole.valueOf(userDTO.getRole().toString())); // Assuming role is an enum
             return user;
         }
-
-
-
-
-/*private final UserRepository repository;
-    @Autowired
-    UserServiceImpl(UserRepository repository) {
-        this.repository = repository;
-    }
-
-    @Override
-    public User save(User user) {
-        String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-        user.setPassword(hashedPassword);
-        return repository.save(user);
-    }
-    @Override
-    public List<User> findAll() {
-        return repository.findAll();
-    }
-    @Override
-    public User findByEmail(String email) {
-        return repository.findByEmail(email);
-    }
-
-    @Override
-    public Optional<User> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    public void delete(User user) {
-        repository.delete(user);
-    }*/
-
-
-
 }
