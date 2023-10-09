@@ -61,9 +61,6 @@ public class ImageController {
     }
 
 
-
-
-
     @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Resource> serveImage(@PathVariable int id) {

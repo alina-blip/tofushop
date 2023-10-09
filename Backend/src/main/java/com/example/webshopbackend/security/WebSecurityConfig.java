@@ -19,19 +19,32 @@ public class WebSecurityConfig {
     public SecurityFilterChain applicationSecurity(HttpSecurity http) throws Exception {
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-       http
-               .cors().disable()
-               .csrf().disable()
-               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-               .formLogin().disable()
-               .securityMatcher("/**")
-               .authorizeHttpRequests(registry -> registry
-                       .requestMatchers("/user").permitAll()
-                               .requestMatchers("/user/login").permitAll()
-                               .requestMatchers("/user/auth/login").permitAll()
-                               .requestMatchers("/login").permitAll()
-                               .anyRequest().authenticated()
-                       );
+        http
+                .cors().disable()
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .formLogin().disable()
+                .securityMatcher("/**")
+                .authorizeHttpRequests(registry -> {
+                    try {
+                        registry
+                                .requestMatchers("/user/**").permitAll()
+                                .requestMatchers("/user/login").permitAll()
+                                .requestMatchers("/user/auth/login").permitAll()
+                                .requestMatchers("/secured").permitAll()
+                                .requestMatchers("/images/1").permitAll()
+                                .requestMatchers("/images/**").permitAll()
+                                .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/dashboard/**").hasAuthority("ADMIN")
+                                .anyRequest().authenticated()
+                                .and()
+                                .exceptionHandling()
+                                .accessDeniedPage("/access-denied");
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                );
 
         return http.build();
     }

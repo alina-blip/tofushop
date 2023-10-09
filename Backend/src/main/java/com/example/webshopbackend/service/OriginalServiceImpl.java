@@ -46,7 +46,6 @@ class OriginalServiceImpl implements OriginalService {
         repository.delete(original);
     }
 
-
     private Original convertToEntity(OriginalDTO originalDTO) {
         Original original = new Original();
         original.setId(originalDTO.getId());
