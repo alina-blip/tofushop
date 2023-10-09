@@ -1,7 +1,7 @@
 package com.example.webshopbackend.controller;
 import com.example.webshopbackend.dto.UserDTO;
-import com.example.webshopbackend.model.Original;
-import com.example.webshopbackend.model.User;
+import com.example.webshopbackend.model.UserRole;
+import com.example.webshopbackend.security.JwtIssuer;
 import com.example.webshopbackend.service.UserService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    private final JwtIssuer jwtIssuer;
     private final UserService service;
     @Autowired
-    UserController(UserService service) {
+    UserController(JwtIssuer jwtIssuer, UserService service) {
+        this.jwtIssuer = jwtIssuer;
         this.service = service;
     }
 
@@ -29,19 +30,26 @@ public class UserController {
 
     @PostMapping("")
     public UserDTO save(@RequestBody UserDTO userDTO) {
+        userDTO.setRole(UserRole.USER);
         return service.save(userDTO);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserDTO userDTO) {
+    @PostMapping("/auth/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody UserDTO userDTO) {
         UserDTO existingUser = service.findByEmail(userDTO.getEmail());
         if (existingUser != null) {
             // Compare the provided login password with the stored hashed password
             if (BCrypt.checkpw(userDTO.getPassword(), existingUser.getPassword())) {
-                return ResponseEntity.ok("{\"message\": \"Login successful\"}");
+
+                var token = jwtIssuer.issue(1, userDTO.getEmail(), List.of("USER"));
+                return ResponseEntity.ok(LoginResponse.builder()
+                        .accessToken(token)
+                        .build());
+
             }
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Invalid credentials\"}");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoginResponse.builder()
+                .build());
     }
 
     @PutMapping("/{id}")
