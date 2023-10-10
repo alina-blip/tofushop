@@ -7,7 +7,10 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +44,11 @@ public class UserController {
             // Compare the provided login password with the stored hashed password
             if (BCrypt.checkpw(userDTO.getPassword(), existingUser.getPassword())) {
 
-                var token = jwtIssuer.issue(1, userDTO.getEmail(), List.of("USER"));
+                // Include user roles as a claim in the JWT token
+                List<String> userRoles = Collections.singletonList(existingUser.getRole().toString());
+
+                var token = jwtIssuer.issue(1, userDTO.getEmail(), userRoles); // Pass userRoles to include in the token
+
                 return ResponseEntity.ok(LoginResponse.builder()
                         .accessToken(token)
                         .build());
@@ -51,7 +58,6 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoginResponse.builder()
                 .build());
     }
-
     @PutMapping("/{id}")
     public UserDTO update(@PathVariable long id, @RequestBody UserDTO updatedUserDTO) {
         Optional<UserDTO> userOptional = service.findById(id);
@@ -71,9 +77,11 @@ public class UserController {
             throw new RuntimeException("User not found with id: " + id);
         }
     }
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
+
+
         Optional<UserDTO> userOptional = service.findById(id);
         if (userOptional.isPresent()) {
             service.delete(userOptional.get());

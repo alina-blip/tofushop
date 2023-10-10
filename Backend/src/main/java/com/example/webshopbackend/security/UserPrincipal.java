@@ -1,5 +1,6 @@
 package com.example.webshopbackend.security;
 
+import com.example.webshopbackend.model.UserRole;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,6 +14,8 @@ public class UserPrincipal implements UserDetails {
     private final Long userId;
 
     private final String email;
+
+    private final UserRole role;
 
     public Collection<? extends GrantedAuthority> authorities;
 
@@ -50,4 +53,5 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
