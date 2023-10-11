@@ -21,7 +21,6 @@ public class JwtIssuer {
                 .withClaim("e", email)
                 .withClaim("a", roles)
                 .sign(Algorithm.HMAC256(properties.getSecretKey()));
-        //
     }
 
 }

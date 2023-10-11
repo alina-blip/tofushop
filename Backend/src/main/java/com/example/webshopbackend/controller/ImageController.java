@@ -16,6 +16,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -29,15 +31,13 @@ public class ImageController {
     private String uploadDir;
     private final StorageService storageService;
     private final ImageRepository imageRepository;
+    private final Logger logger = LoggerFactory.getLogger(ImageController.class);
 
     @Autowired
     public ImageController(StorageService storageService, ImageRepository imageRepository) {
         this.storageService = storageService;
         this.imageRepository = imageRepository;
     }
-
-
-    private final Logger logger = LoggerFactory.getLogger(ImageController.class);
 
     @PostMapping
     @ResponseBody
@@ -75,10 +75,22 @@ public class ImageController {
                     .contentType(MediaType.IMAGE_JPEG)
                     .body(file);
         } else {
-            // Handle the case where the image with the given id does not exist
-            // You can return a 404 response or handle it as needed
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/all")
+    public List<String> getAllImagePaths() {
+        List<String> imagePaths = new ArrayList<>();
+
+        // Retrieve all images from the database or storage
+        List<Image> images = imageRepository.findAll();
+
+        for (Image image : images) {
+            imagePaths.add(image.getPath());
+        }
+
+        return imagePaths;
     }
 
 }
