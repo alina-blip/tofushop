@@ -181,6 +181,7 @@ $(document).ready(function () {
             description: $productDiv.find('.edit-description').val(),
             price: parseFloat($productDiv.find('.edit-price').val()),
             quantity: parseInt($productDiv.find('.edit-quantity').val()),
+            imageId: parseInt($productDiv.find('.edit-imageId').val()),
         };
         console.log(editedData);
         var jsonStringEditedData = JSON.stringify(editedData);
