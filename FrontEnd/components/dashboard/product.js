@@ -70,7 +70,6 @@ $(document).ready(function () {
                 productsData.forEach(function (original) {
                     var productDiv = $('<div class="cart"></div>');
                     productDiv.append('<p class="id text-center">ID: ' + original.id + '</p');
-
                     var imageDiv = $('<div class="product-image"></div>');
                     productDiv.append(imageDiv);
                     var imageName ='';
@@ -181,6 +180,7 @@ $(document).ready(function () {
             description: $productDiv.find('.edit-description').val(),
             price: parseFloat($productDiv.find('.edit-price').val()),
             quantity: parseInt($productDiv.find('.edit-quantity').val()),
+            imageId: parseInt($productDiv.find('.edit-imageId').val()),
         };
         console.log(editedData);
         var jsonStringEditedData = JSON.stringify(editedData);
