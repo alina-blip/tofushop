@@ -2,6 +2,8 @@ package com.example.webshopbackend.service;
 
 import com.example.webshopbackend.exception.StorageException;
 import com.example.webshopbackend.exception.StorageFileNotFoundException;
+import com.example.webshopbackend.model.Image;
+import com.example.webshopbackend.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -15,14 +17,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
 public class StorageServiceImpl implements StorageService {
 
     private final Path storageDirectory;
 
+    private final ImageRepository repository;
+
     @Autowired
-    public StorageServiceImpl() {
+    public StorageServiceImpl(ImageRepository repository) {
+        this.repository = repository;
         this.storageDirectory = Paths.get("../Backend/uploads");
         init();
     }
@@ -35,6 +41,12 @@ public class StorageServiceImpl implements StorageService {
         } catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);
         }
+    }
+
+    @Override
+    public List<Image> findAll() {
+        List<Image> images = repository.findAll();
+        return images;
     }
 
     @Override

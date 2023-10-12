@@ -41,6 +41,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         return Optional.empty();
     }
-
-
 }
