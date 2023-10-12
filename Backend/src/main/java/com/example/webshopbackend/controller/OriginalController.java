@@ -1,11 +1,13 @@
 package com.example.webshopbackend.controller;
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
 import com.example.webshopbackend.dto.OriginalDTO;
-import com.example.webshopbackend.dto.UserDTO;
-import com.example.webshopbackend.model.Original;
+import com.example.webshopbackend.model.Image;
+import com.example.webshopbackend.repository.ImageRepository;
 import com.example.webshopbackend.service.OriginalService;
+import com.example.webshopbackend.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,12 @@ import org.springframework.web.bind.annotation.*;
 public class OriginalController {
 
     private final OriginalService service;
+    private final StorageService storageService;
 
     @Autowired
-    OriginalController(OriginalService service) {
+    OriginalController(OriginalService service, StorageService storageService) {
         this.service = service;
+        this.storageService = storageService;
     }
     @PostMapping("")
     public OriginalDTO save(@RequestBody OriginalDTO originalDTO) {
@@ -50,6 +54,7 @@ public class OriginalController {
             originalDTO.setQuantity(updatedOriginalDTO.getQuantity());
             originalDTO.setTitle(updatedOriginalDTO.getTitle());
             originalDTO.setUrl(updatedOriginalDTO.getUrl());
+            originalDTO.setImageId(updatedOriginalDTO.getImageId());
             return service.save(originalDTO);
         } else {
             throw new RuntimeException("Original not found with id: " + id);

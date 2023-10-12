@@ -57,6 +57,7 @@ class OriginalServiceImpl implements OriginalService {
         original.setUrl(originalDTO.getUrl());
         original.setCategory(Category.valueOf(originalDTO.getCategory()));
         original.setQuantity(originalDTO.getQuantity());
+        original.setImageId(originalDTO.getImageId());
         return original;
     }
 
@@ -71,6 +72,7 @@ class OriginalServiceImpl implements OriginalService {
         originalDTO.setUrl(original.getUrl());
         originalDTO.setCategory(original.getCategory().toString());
         originalDTO.setQuantity(original.getQuantity());
+        originalDTO.setImageId(original.getImageId());
         return originalDTO;
     }
 

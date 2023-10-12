@@ -3,9 +3,9 @@ package com.example.webshopbackend.controller;
 import com.example.webshopbackend.model.Image;
 import com.example.webshopbackend.repository.ImageRepository;
 import com.example.webshopbackend.service.StorageService;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +23,13 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.example.webshopbackend.service.StorageServiceImpl.uploadDir;
+
 @RestController
 @RequestMapping("/images")
 public class ImageController {
 
-    @Value("${file.upload-dir}") // Inject the property value from application properties
-    private String uploadDir;
+
     private final StorageService storageService;
     private final ImageRepository imageRepository;
     private final Logger logger = LoggerFactory.getLogger(ImageController.class);
@@ -41,7 +42,7 @@ public class ImageController {
 
     @PostMapping
     @ResponseBody
-    public String uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
+    public Image uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
         Path storageDirectory = Paths.get(uploadDir);
         String filename = file.getOriginalFilename();
 
@@ -54,26 +55,23 @@ public class ImageController {
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
         Image image = new Image();
-        image.setPath(filePath.toString());
+        image.setPath(filename);
         imageRepository.save(image);
 
-        return "successfully uploaded";
+        return image;
     }
 
 
     @GetMapping("/{id}")
-    @ResponseBody
-    public ResponseEntity<Resource> serveImage(@PathVariable int id) {
+    public ResponseEntity<Image> serveImage(@PathVariable int id) {
         Optional<com.example.webshopbackend.model.Image> optionalImage = imageRepository.findById(id);
 
         if (optionalImage.isPresent()) {
             Image image = optionalImage.get();
-            Resource file = (Resource) storageService.loadAsResource(image.getPath());
 
             return ResponseEntity
                     .ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .body(file);
+                    .body(image);
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -89,7 +87,6 @@ public class ImageController {
         for (Image image : images) {
             imagePaths.add(image.getPath());
         }
-
         return imagePaths;
     }
 
