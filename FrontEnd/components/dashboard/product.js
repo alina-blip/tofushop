@@ -145,7 +145,7 @@ $(document).ready(function () {
             contentType: 'application/json',
             success: function (response) {
                 console.log(response);
-                window.alert("Produkt erfolgreich hinzugefügt!");
+                window.alert("Produkt erfolgreich hinzugefügt!!");
             },
             error: function (error) {
                 console.error(error);
