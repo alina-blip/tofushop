@@ -70,7 +70,6 @@ $(document).ready(function () {
                 productsData.forEach(function (original) {
                     var productDiv = $('<div class="cart"></div>');
                     productDiv.append('<p class="id text-center">ID: ' + original.id + '</p');
-
                     var imageDiv = $('<div class="product-image"></div>');
                     productDiv.append(imageDiv);
                     var imageName ='';

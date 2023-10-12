@@ -36,12 +36,10 @@
     <div class="container-fluid  ">
       <div class="row">
         <div class="col-md-6">
-          <img src="http://res.cloudinary.com/dwrrcohl5/image/upload/v1688987629/images/vd09oiun8izmg5n1gfc9.webp"
-               alt="Beschreibung des Bildes" class="img-fluid">
+          <img id="product-image" alt="Produktbild" class="img-fluid">
         </div>
         <div class="col-md-6">
           <div class="table-responsive pt-5">
-
             <table class="table">
               <tr>
                 <td class="fw-bold fs-3">Category:</td>
@@ -79,16 +77,10 @@
               </svg>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
-
-
   <footer class="footer">
     <div class="footer-element">
       <a class="link" href="Hilfe.html">Hilfe</a>
@@ -104,8 +96,7 @@
 <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-  crossorigin="anonymous"
->
+  crossorigin="anonymous">
 </script>
 
 <script>
@@ -118,7 +109,26 @@
 
         // Produkt-ID aus der URL extrahieren
         var productId = getProductIdFromURL();
-        console.log(productId)
+        console.log(productId);
+
+        // GET the correct IMAGE
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8080/images/' + productId,
+            success: function (imageData) {
+                if (imageData) {
+                    console.log("imageId and imageDatapath is there and success")
+                    console.log(imageData);
+                    var imageName = imageData.path;
+                    // Set the src attribute of the img element
+                    $("#product-image").attr('src', 'images/upload-images/' + imageName);
+                }
+            },
+            error: function (error) {
+                console.error('Error fetching image data:', error);
+            }
+        });
+
 
         $.get(`http://localhost:8080/original/${productId}`, function (productData) {
             var imgurl =
