@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.webshopbackend.WebshopBackendApplicationTests" time="0.637" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.webshopbackend.controller.UserControllerTest" time="4.615" tests="3" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -58,5 +58,92 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.webshopbackend.WebshopBackendApplicationTests" time="0.002"/>
+  <testcase name="testDeleteUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.328">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;404&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.example.webshopbackend.controller.UserControllerTest.testDeleteUserEndpoint(UserControllerTest.java:68)
+]]></failure>
+    <system-out><![CDATA[15:57:02.637 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [UserControllerTest]: using SpringBootContextLoader
+15:57:02.640 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.webshopbackend.controller.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:57:02.641 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.webshopbackend.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:57:02.676 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [UserControllerTest]: [ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+15:57:02.756 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/alinasorger/Projects/tofushop/Backend/target/classes/com/example/webshopbackend/WebshopBackendApplication.class]
+15:57:02.757 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.webshopbackend.WebshopBackendApplication for test class com.example.webshopbackend.controller.UserControllerTest
+15:57:02.842 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [UserControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+15:57:02.843 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [UserControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-10-12T15:57:03.090+02:00  INFO 70013 --- [           main] c.e.w.controller.UserControllerTest      : Starting UserControllerTest using Java 20.0.1 with PID 70013 (started by alinasorger in /Users/alinasorger/Projects/tofushop/Backend)
+2023-10-12T15:57:03.091+02:00  INFO 70013 --- [           main] c.e.w.controller.UserControllerTest      : No active profile set, falling back to 1 default profile: "default"
+2023-10-12T15:57:03.625+02:00  INFO 70013 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-12T15:57:03.688+02:00  INFO 70013 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2023-10-12T15:57:04.125+02:00  INFO 70013 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-12T15:57:04.166+02:00  INFO 70013 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-10-12T15:57:04.287+02:00  WARN 70013 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-10-12T15:57:04.382+02:00  INFO 70013 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-10-12T15:57:04.702+02:00  INFO 70013 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ef8e623
+2023-10-12T15:57:04.704+02:00  INFO 70013 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-10-12T15:57:04.751+02:00  INFO 70013 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-10-12T15:57:05.565+02:00  INFO 70013 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-12T15:57:05.574+02:00  INFO 70013 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-12T15:57:05.979+02:00  WARN 70013 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-12T15:57:06.236+02:00  WARN 70013 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2f8864f5-efee-45de-8683-025ecb24fa36
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-12T15:57:06.328+02:00  INFO 70013 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Or [Mvc [pattern='/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@659e003e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f3c866c, org.springframework.security.web.context.SecurityContextHolderFilter@2165d4ab, org.springframework.security.web.header.HeaderWriterFilter@2111d7b9, org.springframework.security.web.authentication.logout.LogoutFilter@63d14dbf, com.example.webshopbackend.security.JwtAuthenticationFilter@1e09c0b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a8ab98f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d529bc0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16e0afab, org.springframework.security.web.session.SessionManagementFilter@260f05ee, org.springframework.security.web.access.ExceptionTranslationFilter@c3a1d7f, org.springframework.security.web.access.intercept.AuthorizationFilter@66cb9a63]
+2023-10-12T15:57:06.510+02:00  INFO 70013 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-12T15:57:06.511+02:00  INFO 70013 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-12T15:57:06.512+02:00  INFO 70013 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-10-12T15:57:06.527+02:00  INFO 70013 --- [           main] c.e.w.controller.UserControllerTest      : Started UserControllerTest in 3.648 seconds (process running for 4.514)
+Generated Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5IiwiZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiYSI6WyJBRE1JTiJdLCJleHAiOjE2OTcyMDU0MjZ9.f8HSF05ZslB4nvSwTbbE3340HbxFjmdL-D2pPtm0pqY
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /user/9
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5IiwiZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiYSI6WyJBRE1JTiJdLCJleHAiOjE2OTcyMDU0MjZ9.f8HSF05ZslB4nvSwTbbE3340HbxFjmdL-D2pPtm0pqY"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.webshopbackend.controller.UserController
+           Method = com.example.webshopbackend.controller.UserController#delete(long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=ISO-8859-1", Content-Length:"25", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/plain;charset=ISO-8859-1
+             Body = User not found with id: 9
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="testSaveUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.167"/>
+  <testcase name="testAllUsersEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.057"/>
 </testsuite>
