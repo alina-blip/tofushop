@@ -1,8 +1,10 @@
 package com.example.webshopbackend.service;
 
+import com.example.webshopbackend.dto.UserDTO;
 import com.example.webshopbackend.exception.StorageException;
 import com.example.webshopbackend.exception.StorageFileNotFoundException;
 import com.example.webshopbackend.model.Image;
+import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -18,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StorageServiceImpl implements StorageService {
@@ -26,10 +29,12 @@ public class StorageServiceImpl implements StorageService {
 
     private final ImageRepository repository;
 
+    public static String uploadDir = "/Users/alinasorger/Projects/tofushop/Frontend/images/upload-images";
+
     @Autowired
     public StorageServiceImpl(ImageRepository repository) {
         this.repository = repository;
-        this.storageDirectory = Paths.get("../Backend/uploads");
+        this.storageDirectory = Paths.get(uploadDir);
         init();
     }
 
@@ -47,6 +52,12 @@ public class StorageServiceImpl implements StorageService {
     public List<Image> findAll() {
         List<Image> images = repository.findAll();
         return images;
+    }
+
+    @Override
+    public Optional<Image> findById(Long id) {
+        Optional<Image> image = repository.findById(id);
+        return image;
     }
 
     @Override

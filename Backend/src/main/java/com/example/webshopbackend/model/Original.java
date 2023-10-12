@@ -24,6 +24,9 @@ public class Original {
 
     private long quantity;
 
+    private long imageId;
+
+
     public long getId() {
         return id;
     }
@@ -95,5 +98,12 @@ public class Original {
         this.quantity = quantity;
     }
 
+    public long getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(long imageId) {
+        this.imageId = imageId;
+    }
 }
 
