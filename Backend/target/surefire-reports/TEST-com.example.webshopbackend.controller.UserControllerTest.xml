@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.webshopbackend.controller.UserControllerTest" time="4.386" tests="3" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.example.webshopbackend.controller.UserControllerTest" time="4.306" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/20.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/alinasorger/Projects/tofushop/Backend/target/surefire/surefirebooter6879402951741219575.jar /Users/alinasorger/Projects/tofushop/Backend/target/surefire 2023-10-13T13-24-28_879-jvmRun1 surefire7691298983297213299tmp surefire_0900066354693205396tmp"/>
+    <property name="sun.java.command" value="/Users/alinasorger/Projects/tofushop/Backend/target/surefire/surefirebooter4779892535150264082.jar /Users/alinasorger/Projects/tofushop/Backend/target/surefire 2023-10-13T14-43-56_849-jvmRun1 surefire5719229227752532616tmp surefire_05190709418905950025tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/alinasorger/Projects/tofushop/Backend/target/test-classes:/Users/alinasorger/Projects/tofushop/Backend/target/classes:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.0.1/spring-boot-starter-security-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter/3.0.1/spring-boot-starter-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot/3.0.1/spring-boot-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.0.1/spring-boot-autoconfigure-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.0.1/spring-boot-starter-logging-3.0.1.jar:/Users/alinasorger/.m2/repository/ch/qos/logback/logback-classic/1.4.5/logback-classic-1.4.5.jar:/Users/alinasorger/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar:/Users/alinasorger/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.19.0/log4j-to-slf4j-2.19.0.jar:/Users/alinasorger/.m2/repository/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar:/Users/alinasorger/.m2/repository/org/slf4j/jul-to-slf4j/2.0.6/jul-to-slf4j-2.0.6.jar:/Users/alinasorger/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/alinasorger/.m2/repository/org/yaml/snakeyaml/1.33/snakeyaml-1.33.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-aop/6.0.3/spring-aop-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-beans/6.0.3/spring-beans-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/security/spring-security-config/6.0.1/spring-security-config-6.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/security/spring-security-core/6.0.1/spring-security-core-6.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/security/spring-security-crypto/6.0.1/spring-security-crypto-6.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-context/6.0.3/spring-context-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/security/spring-security-web/6.0.1/spring-security-web-6.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-expression/6.0.3/spring-expression-6.0.3.jar:/Users/alinasorger/.m2/repository/com/auth0/java-jwt/4.4.0/java-jwt-4.4.0.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar:/Users/alinasorger/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.0.1/spring-boot-starter-web-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.0.1/spring-boot-starter-json-3.0.1.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.14.1/jackson-datatype-jdk8-2.14.1.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.14.1/jackson-datatype-jsr310-2.14.1.jar:/Users/alinasorger/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.14.1/jackson-module-parameter-names-2.14.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.0.1/spring-boot-starter-tomcat-3.0.1.jar:/Users/alinasorger/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.4/tomcat-embed-core-10.1.4.jar:/Users/alinasorger/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.4/tomcat-embed-websocket-10.1.4.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-web/6.0.3/spring-web-6.0.3.jar:/Users/alinasorger/.m2/repository/io/micrometer/micrometer-observation/1.10.2/micrometer-observation-1.10.2.jar:/Users/alinasorger/.m2/repository/io/micrometer/micrometer-commons/1.10.2/micrometer-commons-1.10.2.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-webmvc/6.0.3/spring-webmvc-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.0.1/spring-boot-starter-test-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-test/3.0.1/spring-boot-test-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.0.1/spring-boot-test-autoconfigure-3.0.1.jar:/Users/alinasorger/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar:/Users/alinasorger/.m2/repository/net/minidev/json-smart/2.4.8/json-smart-2.4.8.jar:/Users/alinasorger/.m2/repository/net/minidev/accessors-smart/2.4.8/accessors-smart-2.4.8.jar:/Users/alinasorger/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:/Users/alinasorger/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar:/Users/alinasorger/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/Users/alinasorger/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/Users/alinasorger/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/Users/alinasorger/.m2/repository/net/bytebuddy/byte-buddy/1.12.20/byte-buddy-1.12.20.jar:/Users/alinasorger/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/alinasorger/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.1/junit-jupiter-5.9.1.jar:/Users/alinasorger/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/Users/alinasorger/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/alinasorger/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/Users/alinasorger/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/alinasorger/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/Users/alinasorger/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/Users/alinasorger/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/Users/alinasorger/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/Users/alinasorger/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.20/byte-buddy-agent-1.12.20.jar:/Users/alinasorger/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/alinasorger/.m2/repository/org/mockito/mockito-junit-jupiter/4.8.1/mockito-junit-jupiter-4.8.1.jar:/Users/alinasorger/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/alinasorger/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-core/6.0.3/spring-core-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-jcl/6.0.3/spring-jcl-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-test/6.0.3/spring-test-6.0.3.jar:/Users/alinasorger/.m2/repository/org/xmlunit/xmlunit-core/2.9.0/xmlunit-core-2.9.0.jar:/Users/alinasorger/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/alinasorger/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/alinasorger/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.0.1/spring-boot-starter-validation-3.0.1.jar:/Users/alinasorger/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.4/tomcat-embed-el-10.1.4.jar:/Users/alinasorger/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.0.Final/hibernate-validator-8.0.0.Final.jar:/Users/alinasorger/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/alinasorger/.m2/repository/org/jboss/logging/jboss-logging/3.5.0.Final/jboss-logging-3.5.0.Final.jar:/Users/alinasorger/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/Users/alinasorger/.m2/repository/org/mindrot/jbcrypt/0.4/jbcrypt-0.4.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.0.1/spring-boot-starter-data-jpa-3.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.0.1/spring-boot-starter-aop-3.0.1.jar:/Users/alinasorger/.m2/repository/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar:/Users/alinasorger/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.0.1/spring-boot-starter-jdbc-3.0.1.jar:/Users/alinasorger/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-jdbc/6.0.3/spring-jdbc-6.0.3.jar:/Users/alinasorger/.m2/repository/org/hibernate/orm/hibernate-core/6.1.6.Final/hibernate-core-6.1.6.Final.jar:/Users/alinasorger/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/alinasorger/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/alinasorger/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.2.Final/hibernate-commons-annotations-6.0.2.Final.jar:/Users/alinasorger/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/Users/alinasorger/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.1/jaxb-runtime-4.0.1.jar:/Users/alinasorger/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.1/jaxb-core-4.0.1.jar:/Users/alinasorger/.m2/repository/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0.jar:/Users/alinasorger/.m2/repository/org/glassfish/jaxb/txw2/4.0.1/txw2-4.0.1.jar:/Users/alinasorger/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar:/Users/alinasorger/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.0/jakarta.inject-api-2.0.0.jar:/Users/alinasorger/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/Users/alinasorger/.m2/repository/org/springframework/data/spring-data-jpa/3.0.0/spring-data-jpa-3.0.0.jar:/Users/alinasorger/.m2/repository/org/springframework/data/spring-data-commons/3.0.0/spring-data-commons-3.0.0.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-orm/6.0.3/spring-orm-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-tx/6.0.3/spring-tx-6.0.3.jar:/Users/alinasorger/.m2/repository/org/springframework/spring-aspects/6.0.3/spring-aspects-6.0.3.jar:/Users/alinasorger/.m2/repository/com/mysql/mysql-connector-j/8.0.31/mysql-connector-j-8.0.31.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/alinasorger/Projects/tofushop/Backend/target/surefire/surefirebooter6879402951741219575.jar"/>
+    <property name="surefire.real.class.path" value="/Users/alinasorger/Projects/tofushop/Backend/target/surefire/surefirebooter4779892535150264082.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="20.0.1"/>
@@ -58,93 +58,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="testDeleteUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.288">
-    <failure message="Status expected:&lt;200&gt; but was:&lt;404&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<404>
-	at com.example.webshopbackend.controller.UserControllerTest.testDeleteUserEndpoint(UserControllerTest.java:81)
-]]></failure>
-    <system-out><![CDATA[13:24:29.515 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [UserControllerTest]: using SpringBootContextLoader
-13:24:29.518 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.webshopbackend.controller.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-13:24:29.519 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.webshopbackend.controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:24:29.548 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [UserControllerTest]: [ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer]
-13:24:29.617 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/alinasorger/Projects/tofushop/Backend/target/classes/com/example/webshopbackend/WebshopBackendApplication.class]
-13:24:29.618 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.webshopbackend.WebshopBackendApplication for test class com.example.webshopbackend.controller.UserControllerTest
-13:24:29.691 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [UserControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
-13:24:29.692 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [UserControllerTest], class annotated with @DirtiesContext [false] with mode [null]
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.0.1)
-
-2023-10-13T13:24:29.909+02:00  INFO 72661 --- [           main] c.e.w.controller.UserControllerTest      : Starting UserControllerTest using Java 20.0.1 with PID 72661 (started by alinasorger in /Users/alinasorger/Projects/tofushop/Backend)
-2023-10-13T13:24:29.910+02:00  INFO 72661 --- [           main] c.e.w.controller.UserControllerTest      : No active profile set, falling back to 1 default profile: "default"
-2023-10-13T13:24:30.407+02:00  INFO 72661 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-13T13:24:30.465+02:00  INFO 72661 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 4 JPA repository interfaces.
-2023-10-13T13:24:30.885+02:00  INFO 72661 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-13T13:24:30.925+02:00  INFO 72661 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-10-13T13:24:31.039+02:00  WARN 72661 --- [           main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-10-13T13:24:31.129+02:00  INFO 72661 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-10-13T13:24:31.460+02:00  INFO 72661 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ef8e623
-2023-10-13T13:24:31.461+02:00  INFO 72661 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-10-13T13:24:31.506+02:00  INFO 72661 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-10-13T13:24:32.298+02:00  INFO 72661 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-13T13:24:32.305+02:00  INFO 72661 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-13T13:24:32.710+02:00  WARN 72661 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-13T13:24:32.944+02:00  WARN 72661 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 7bd551d9-3526-4974-bfdd-ab7d4ea889f7
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2023-10-13T13:24:33.027+02:00  INFO 72661 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure Or [Mvc [pattern='/**']] with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e111aeb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55a5eea3, org.springframework.security.web.context.SecurityContextHolderFilter@429dde4d, org.springframework.security.web.header.HeaderWriterFilter@4afdb05e, org.springframework.security.web.authentication.logout.LogoutFilter@7cc7e441, com.example.webshopbackend.security.JwtAuthenticationFilter@4edd8a0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ef48b08, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a1878d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46ab8e4b, org.springframework.security.web.session.SessionManagementFilter@7f9b851c, org.springframework.security.web.access.ExceptionTranslationFilter@260f05ee, org.springframework.security.web.access.intercept.AuthorizationFilter@5f3c866c]
-2023-10-13T13:24:33.208+02:00  INFO 72661 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-10-13T13:24:33.208+02:00  INFO 72661 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-10-13T13:24:33.209+02:00  INFO 72661 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-10-13T13:24:33.234+02:00  INFO 72661 --- [           main] c.e.w.controller.UserControllerTest      : Started UserControllerTest in 3.515 seconds (process running for 4.222)
-{"id": 1}
-Generated Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiYSI6WyJBRE1JTiJdLCJleHAiOjE2OTcyODI2NzN9.m3cia4XHgWV1p7fNen61GoSbTfnaJKJ3KQpMbFdFIh8
-
-MockHttpServletRequest:
-      HTTP Method = DELETE
-      Request URI = /user/1
-       Parameters = {}
-          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZSI6ImFkbWluQGV4YW1wbGUuY29tIiwiYSI6WyJBRE1JTiJdLCJleHAiOjE2OTcyODI2NzN9.m3cia4XHgWV1p7fNen61GoSbTfnaJKJ3KQpMbFdFIh8", Content-Length:"9"]
-             Body = {"id": 1}
-    Session Attrs = {}
-
-Handler:
-             Type = com.example.webshopbackend.controller.UserController
-           Method = com.example.webshopbackend.controller.UserController#delete(long)
-
-Async:
-    Async started = false
-     Async result = null
-
-Resolved Exception:
-             Type = null
-
-ModelAndView:
-        View name = null
-             View = null
-            Model = null
-
-FlashMap:
-       Attributes = null
-
-MockHttpServletResponse:
-           Status = 404
-    Error message = null
-          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"text/plain;charset=ISO-8859-1", Content-Length:"25", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
-     Content type = text/plain;charset=ISO-8859-1
-             Body = User not found with id: 1
-    Forwarded URL = null
-   Redirected URL = null
-          Cookies = []
-]]></system-out>
-  </testcase>
-  <testcase name="testSaveUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.169"/>
-  <testcase name="testAllUsersEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.054"/>
+  <testcase name="testGetUsersEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.243"/>
+  <testcase name="testDeleteUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.246"/>
+  <testcase name="testSaveUserEndpoint" classname="com.example.webshopbackend.controller.UserControllerTest" time="0.08"/>
 </testsuite>

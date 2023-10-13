@@ -5,7 +5,6 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.example.webshopbackend.dto.UserDTO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -32,9 +30,8 @@ public class UserControllerTest {
     private MockMvc mockMvc;
     @Test
     @Order(2)
-    void testAllUsersEndpoint() throws Exception {
+    void testGetUsersEndpoint() throws Exception {
 
-        System.out.println("THIS IS THE GET METHOD");
         mockMvc.perform(MockMvcRequestBuilders.get("/user")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -55,7 +52,7 @@ public class UserControllerTest {
         userDTO.setStreet("Getreidegasse");
         userDTO.setPostalcode("1030");
 
-        System.out.println("THIS IS THE ID I POST IN THE DATABASE!!!" + userDTO.getId());
+        System.out.println("THIS IS THE ID I POST IN THE DATABASE" + userDTO.getId());
 
         mockMvc.perform(MockMvcRequestBuilders.post("/user")
                         .contentType(MediaType.APPLICATION_JSON)
