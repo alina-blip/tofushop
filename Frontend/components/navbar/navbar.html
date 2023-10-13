@@ -5,6 +5,7 @@
         ><img class="nav-link" height="50px" src="images/logo-gif.gif"
       /></a>
       <ul class="bannerList">
+        </li>
         <li class="nav-link">
           <a class="nav" href="homepage.html">Tofu</a>
         </li>
@@ -20,6 +21,8 @@
         <li class="nav-link">
           <a class="nav" href="Dashboard.html">Dashboard</a>
         </li>
+        <li class="nav-link"><div id="userWelcome" style="display: none"></div>
+        
         <li class="nav-link">
           <div class="nav-container">
             <div class="login-container">
@@ -42,7 +45,7 @@
                 />
                 <button type="submit">Login</button>
               </form>
-              <button id="logoutButton">Logout</button>
+              <button id="logoutButton" style="display: none">Logout</button>
             </div>
             <div class="register-container">
               <button id="registrationButton">Registrierung</button>
@@ -54,79 +57,7 @@
   </div>
 </nav>
 
-<script>
-
-
-
-$(document).ready(function () {
-
-  // Überprüfen, ob der Benutzer angemeldet ist -> wenn die Seite geladen wird
-  if (document.cookie.indexOf("loggedIn=true") !== -1) {
-    console.log("Benutzer ist angemeldet");
-
-  } else {
-    console.log("Benutzer ist nicht angemeldet");
-  }
-
-    /////////////////////////////////////////////////////////////////////////
-    ///////////////////// Anmeldung, Abmeldung, ETC /////////////////////
-    /////////////////////////////////////////////////////////////////////////
-
-    $("#loginForm").submit(function (event) {
-    event.preventDefault();
-
-    //  get email and pw from form fields
-    var email = $("#emailLogin").val();
-    var password = $("#passwordLogin").val();
-    var loginData = {
-      email: email,
-      password: password,
-    };
-
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:8080/user/login",
-      data: JSON.stringify(loginData),
-      contentType: "application/json",
-      success: function (response) {
-        if (response) {
-
-          // COOKIEERSTELLUNG - Benutzer wird so gehalten
-          var expireDate = new Date();
-          expireDate.setDate(expireDate.getDate() + 7);
-          document.cookie =
-            "loggedIn=true; expires=" +
-            expireDate.toUTCString() +
-            "; path=/";
-          console.log("erfolgreich angemeldet");
-          window.alert("Erfolgreich angemeldet.");
-          window.location.href = "Warenkorb.html";
-
-        } else {
-          console.log("Login failed", response);
-            window.alert("Anmeldung fehlgeschlagen.");
-
-        }
-      },
-      error: function (error) {
-        console.error("Error during login:", error);
-          window.alert("Anmeldung fehlgeschlagen.");
-
-      },
-    });
-  });
-
-  $("#logoutButton").click(function () {
-    // Cookie wird gelöscht
-    document.cookie =
-      "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    console.log("Benutzer abgemeldet");
-      window.alert("Benutzer abgemeldet.");
-
-  });
-});
-
-</script>
+<script src="./components/navbar/tokenLogin.js"></script>
 <script>
   document
     .getElementById("registrationButton")

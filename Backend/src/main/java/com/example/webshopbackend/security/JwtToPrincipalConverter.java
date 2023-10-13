@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+
+//nimmt ein decodiertes Jwt und konventiert es in ein UserPrincipal Objekt mit benutzerdaten um
 public class JwtToPrincipalConverter {
     public UserPrincipal convert(DecodedJWT jwt) {
      return UserPrincipal.builder()
@@ -15,7 +17,7 @@ public class JwtToPrincipalConverter {
              .authorities(extractAuthoritysFromClaim(jwt))
              .build();
 }
-
+    // benutzerrollen werden aus dem JWT extrahiert und in eine Liste (SimpleGrantedAuthority) gespeichert
 private List<SimpleGrantedAuthority> extractAuthoritysFromClaim(DecodedJWT jwt){
         var claim = jwt.getClaim ("a");
         if (claim.isNull() || claim.isMissing()) return List.of();

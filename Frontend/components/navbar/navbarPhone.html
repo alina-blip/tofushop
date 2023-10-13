@@ -34,7 +34,7 @@
         <div class="nav-bar-phone">
           <a href="homepage.html">
             <img class="nav-link" height="50px" src="images/logo-gif.gif"
-            /></a>
+          /></a>
         </div>
         <div class="container-phone">
           <div class="nav-phone">
@@ -56,15 +56,29 @@
             <li class="nav-link">
               <div class="nav-container">
                 <div class="login-container">
-                  <form id="loginFo" action="http://localhost:8080/user/login" method="post">
-                    <input type="email" placeholder="Email" name="email" id="emailLog"/>
-                    <input type="password" placeholder="Passwort" name="password" id="passwordLog"/>
+                  <form
+                    id="loginFo"
+                    action="http://localhost:8080/user/login"
+                    method="post"
+                  >
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      id="emailLog"
+                    />
+                    <input
+                      type="password"
+                      placeholder="Passwort"
+                      name="password"
+                      id="passwordLog"
+                    />
                     <button type="submit">Login</button>
                   </form>
-                  <button id="logoutBut">Logout</button>
+                  <button id="logoutBut" style="display: none">Logout</button>
                 </div>
                 <div class="register-container">
-                  <button id="registrationButton">Registrierung</button>
+                  <button id="registrationBut">Registrierung</button>
                 </div>
               </div>
             </li>
@@ -75,75 +89,11 @@
   </div>
 </div>
 
+<script src="./components/navbar/tokenLoginPhone.js"></script>
 <script>
-
-
-    $(document).ready(function () {
-
-        // Überprüfen, ob der Benutzer angemeldet ist, wenn Seite geladen wird
-        if (document.cookie.indexOf("loggedIn=true") !== -1) {
-            console.log("Benutzer ist angemeldet");
-
-        } else {
-            console.log("Benutzer ist nicht angemeldet");
-        }
-
-        /////////////////////////////////////////////////////////////////////////
-        ///////////////////// Anmeldung, Abmeldung, ETC /////////////////////
-        /////////////////////////////////////////////////////////////////////////
-
-        $("#loginFo").submit(function (event) {
-            event.preventDefault();
-            var email = $("#emailLog").val();
-            var password = $("#passwordLog").val();
-            var loginData = {
-                email: email,
-                password: password,
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/user/login",
-                data: JSON.stringify(loginData),
-                contentType: "application/json",
-                success: function (response) {
-                    if (response) {
-
-                        var expireDate = new Date();
-                        expireDate.setDate(expireDate.getDate() + 7);
-                        document.cookie =
-                            "loggedIn=true; expires=" +
-                            expireDate.toUTCString() +
-                            "; path=/";
-                        console.log("erfolgreich angemeldet");
-                        window.alert("Erfolgreich angemeldet.");
-                        window.location.href = "Warenkorb.html";
-
-                    } else {
-                        console.log("Login failed", response);
-                        window.alert("Anmeldung fehlgeschlagen.");
-
-                    }
-                },
-                error: function (error) {
-                    console.error("Error during login:", error);
-                    window.alert("Anmeldung fehlgeschlagen.");
-
-                },
-            });
-        });
-
-        $("#logoutBut").click(function () {
-            document.cookie =
-                "loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-            console.log("Benutzer abgemeldet");
-            window.alert("Benutzer abgemeldet.");
-        });
-    });
-
-</script>
-<script>
-    document.getElementById("registrationButton").addEventListener("click", function () {
-        window.location.href = "Anmeldeformular.html";
+  document
+    .getElementById("registrationButton")
+    .addEventListener("click", function () {
+      window.location.href = "Anmeldeformular.html";
     });
 </script>

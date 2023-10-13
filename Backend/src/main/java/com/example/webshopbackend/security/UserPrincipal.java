@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+//hier wird der authentifizierte  Benutzer dargestellt // passwort bleibt null weil von Jwt Token erstellt wird
 @Getter
 @Builder
 public class UserPrincipal implements UserDetails {

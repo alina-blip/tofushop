@@ -22,25 +22,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtToPrincipalConverter jwtToPrincipalConverter;
 
+//wird aufgerufen wenn http andfrage verarbeitet wird
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         extractTokenFromRequest(request)
-                .map(jwtDecoder::decode)        // method reference  from .map(str -> jwtDecoder.decode(str))
+                .map(jwtDecoder::decode)        // method reference  from .map(str -> jwtDecoder.decode(str)) //methode decode von jwtDecoder wird aufgerufen
                 .map(jwtToPrincipalConverter::convert)
-                .map(UserPrincipalAuthenticationToken::new)
+                .map(UserPrincipalAuthenticationToken::new)//erstellt neues Objekt mit dem zuvor erstellten UserPrincipal
                 .ifPresent(authentication -> SecurityContextHolder.getContext().setAuthentication(authentication));
 
         filterChain.doFilter(request,response);
     }
-
+    //wird aufgerufen, um das JWT aus dem Request-Header zu extrahieren
     private Optional<String> extractTokenFromRequest(HttpServletRequest request) {
 
         var token = request.getHeader("Authorization");
         if (StringUtils.hasText(token) && token.startsWith("Bearer ")) {
             return Optional.of(token.substring(7));         //Bearer has 7 characters with the space
         }
+
         return Optional.empty();
     }
-
-
 }

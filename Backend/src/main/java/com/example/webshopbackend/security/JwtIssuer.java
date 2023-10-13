@@ -15,12 +15,13 @@ import java.util.List;
 public class JwtIssuer {
     private final JwtProperties properties;
     public String issue(long userId, String email, List<String> roles){
+        //JWT wird mit verschiedenen einstellungen und ansprüchen(Claims) erstellt
         return JWT.create()
                 .withSubject(String.valueOf(userId))
                 .withExpiresAt(Instant.now().plus(Duration.of(1, ChronoUnit.DAYS)))
                 .withClaim("e", email)
                 .withClaim("a", roles)
-                .sign(Algorithm.HMAC256(properties.getSecretKey()));
+                .sign(Algorithm.HMAC256(properties.getSecretKey())); // JWT wird mit Algorithm.HMAC256 signiert und als zeichenkette zurückgegeben
         //
     }
 

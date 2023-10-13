@@ -101,9 +101,38 @@
           <div class="cart-container">
             <div class="cart">
               <h3>Persönliche Daten</h3>
-              <p id="benutzerName"></p>
-              <p>E-mail: alina@alina.com</p>
-              <p>Adresse: Stadt 123</p>
+              
+              
+
+              <div class="container">
+                <div class="row fs-5 ml-0">
+                    <div class="col-sm-4">
+                        
+                        <ul class="list-unstyled">
+                            <li>Email:</li>
+                            <li>Vorname:</li>
+                            <li>Nachname:</li>
+                            <li>Ort:</li>
+                            <li>Straße:</li>
+                            <li>Postleitzahl:</li>
+                            <li>Hausnummer</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-7">
+                    
+                      <ul class="list-unstyled">
+                            <li id="email"></li>
+                            <li id="name"></li>
+                            <li id="surname"></li>
+                            <li id="country"></li>
+                            <li id="street"></li>
+                            <li id="postalcode"></li>
+                            <li id="housenumber"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -155,6 +184,43 @@
           </footer>
         </div>
         <script>
+$(document).ready(function() {
+  var localStorageToken = localStorage.getItem("localStorageToken");
+
+  if (localStorageToken) {
+    // Den Token decodieren, um die Informationen zu erhalten
+    var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
+    var email = tokenData.e;
+    console.log("Benutzer-E-Mail: " + email);
+
+    // Eine GET-Anfrage senden, um Benutzerdaten abzurufen
+    $.get('http://localhost:8080/user', function(users) {
+      // Benutzerdaten abrufen
+      var loggedInUser = $.grep(users, function(user) {
+        return user.email === email;
+      });
+
+      if (loggedInUser.length > 0) {
+        // Auf das erste Element im Array zugreifen
+        var user = loggedInUser[0];
+        
+        // E-Mail-Adresse in das "email"-Element einfügen
+        $("#name").text(user.name);
+        $("#email").text(user.email);
+        $("#surname").text(user.surname);
+        $("#country").text(user.country);
+        $("#street").text(user.street);
+        $("#postalcode").text(user.postalcode);
+        $("#housenumber").text(user.housenumber);
+        
+
+      }
+    });
+  }
+});
+
+
+         
 
         </script>
         <script

@@ -34,6 +34,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/secured").permitAll()
                                 .requestMatchers("/images/1").permitAll()
                                 .requestMatchers("/images/**").permitAll()
+                                .requestMatchers("/original/**").permitAll()
                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                 .requestMatchers("/dashboard/**").hasAuthority("ADMIN")
                                 .anyRequest().authenticated()
