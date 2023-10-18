@@ -30,11 +30,12 @@ public class WebSecurityConfig {
                         registry
                                 .requestMatchers("/user/**").permitAll()
                                 .requestMatchers("/user/login").permitAll()
-                                .requestMatchers("/user/auth/login").permitAll()
+                                .requestMatchers("/user/auth/login/**").permitAll()
                                 .requestMatchers("/secured").permitAll()
                                 .requestMatchers("/images/1").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/original/**").permitAll()
+                                .requestMatchers("/cart/**").permitAll()
                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                 .requestMatchers("/dashboard/**").hasAuthority("ADMIN")
                                 .anyRequest().authenticated()
