@@ -30,7 +30,11 @@ public class HelloController {
 
     @GetMapping("/admin")
     public String admin(@AuthenticationPrincipal UserPrincipal principal){
-        return "if you see this, then you logged in as " +principal.getEmail()
+        List<String> authorities = principal.getAuthorities()
+                .stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+        return "if you see this, then you logged in as "  +authorities.get(0)+ " with the Mail: " + principal.getEmail()
                 + " User Id: " + principal.getUserId();
     }
 }

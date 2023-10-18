@@ -1,34 +1,36 @@
 package com.example.webshopbackend.dto;
 
+import com.example.webshopbackend.model.Original;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class CartDTO {
 
-    private long id;
+    private long cart_id;
     private long userId; // Instead of User object, userId is stored - its better
-    private long originalId; // Instead of Original object - originalId
-    private int count;
+    private List<Original> originals; // List of products
     private LocalDate date;
 
-    // Constructors, getters, and setters
 
-    public CartDTO() {
-    } //constructor empty
-
-    public CartDTO(long id, long userId, long originalId, String category, String size, int count, LocalDate date) {
-        this.id = id;
+    public CartDTO(long cart_id, long userId, List<Original> originals, LocalDate date) {
+        this.cart_id = cart_id;
         this.userId = userId;
-        this.originalId = originalId;
-        this.count = count;
+        this.originals = originals;
         this.date = date;
     }
 
-    public long getId() {
-        return id;
+    public CartDTO() {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
+
+    public long getCart_id() {
+        return cart_id;
+    }
+
+    public void setCart_id(long cart_id) {
+        this.cart_id = cart_id;
     }
 
     public long getUserId() {
@@ -39,20 +41,11 @@ public class CartDTO {
         this.userId = userId;
     }
 
-    public long getOriginalId() {
-        return originalId;
+    public List<Original> getOriginals() {
+        return originals;
     }
-
-    public void setOriginalId(long originalId) {
-        this.originalId = originalId;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
+    public void setOriginals(List<Original> originals) {
+        this.originals = originals;
     }
 
     public LocalDate getDate() {

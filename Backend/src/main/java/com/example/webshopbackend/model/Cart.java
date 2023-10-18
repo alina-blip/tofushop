@@ -1,30 +1,32 @@
 package com.example.webshopbackend.model;
+
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Cart {
 
     @Id
     @GeneratedValue
-    private long id;
+    private long cart_id;
 
     @ManyToOne
     private User user;
-    @ManyToOne
-    private Original original;
 
-    private int count;
+    @OneToMany
+    private List<Original> originals;
+
     private LocalDate date;
 
 
-
-    public long getId() {
-        return id;
+    public long getCart_id() {
+        return cart_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCart_id(long cart_id) {
+        this.cart_id = cart_id;
     }
 
     public User getUser() {
@@ -35,21 +37,12 @@ public class Cart {
         this.user = user;
     }
 
-    public Original getOriginal() {
-        return original;
+    public List<Original> getOriginals() {
+        return originals;
     }
 
-    public void setOriginal(Original original) {
-        this.original = original;
-    }
-
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
+    public void setOriginals(List<Original> originals) {
+        this.originals = originals;
     }
 
     public LocalDate getDate() {
@@ -59,6 +52,8 @@ public class Cart {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
 }
+
+
+
 

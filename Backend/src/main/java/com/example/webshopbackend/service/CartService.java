@@ -8,4 +8,5 @@ import java.util.List;
 public interface CartService {
     CartDTO save(CartDTO cartDTO);
     List<CartDTO> findAll();
+    CartDTO update(Long cartId, CartDTO cartDTO);
 }

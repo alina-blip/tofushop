@@ -29,13 +29,16 @@ public class WebSecurityConfig {
                     try {
                         registry
                                 .requestMatchers("/user/**").permitAll()
+                                .requestMatchers("/cart/**").permitAll()
                                 .requestMatchers("/user/login").permitAll()
                                 .requestMatchers("/user/auth/login/**").permitAll()
+                                .requestMatchers("/original/**").permitAll()
                                 .requestMatchers("/secured").permitAll()
-                                .requestMatchers("/images/1").permitAll()
+                                .requestMatchers("/uploads/panda-4.jpg").permitAll()
                                 .requestMatchers("/images/**").permitAll()
                                 .requestMatchers("/original/**").permitAll()
                                 .requestMatchers("/cart/**").permitAll()
+                                .requestMatchers("/uploads/**").permitAll()
                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                 .requestMatchers("/dashboard/**").hasAuthority("ADMIN")
                                 .anyRequest().authenticated()

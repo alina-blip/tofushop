@@ -1,5 +1,8 @@
 package com.example.webshopbackend.dto;
 
+import com.example.webshopbackend.model.Image;
+import jakarta.persistence.OneToOne;
+
 public class OriginalDTO {
 
     private long id;
@@ -11,13 +14,10 @@ public class OriginalDTO {
     private String url;
     private String category;
     private long quantity;
+    private long imageId;
 
 
-
-    public OriginalDTO() {
-    }
-
-    public OriginalDTO(long id, String title, String size, String material, String description, float price, String url, String category, long quantity) {
+    public OriginalDTO(long id, String title, String size, String material, String description, float price, String url, String category, long quantity, long imageId) {
         this.id = id;
         this.title = title;
         this.size = size;
@@ -27,6 +27,11 @@ public class OriginalDTO {
         this.url = url;
         this.category = category;
         this.quantity = quantity;
+        this.imageId = imageId;
+    }
+
+    public OriginalDTO() {
+
     }
 
     public long getId() {
@@ -99,5 +104,13 @@ public class OriginalDTO {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
+    }
+
+    public long getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(long imageId) {
+        this.imageId = imageId;
     }
 }
