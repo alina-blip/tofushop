@@ -1,4 +1,22 @@
 $(document).ready(function () {
+
+  var localStorageToken = localStorage.getItem("localStorageToken");
+  if (localStorageToken) {
+
+
+    /////Der Token besteht normalerweise aus einem Header, Payload und einer Signatur, die durch Punkte voneinander getrennt sind.//////
+    //// [1] gibt den zweiten Teil an, der das Payload enthält.////////
+    // Den Token decodieren, um die Informationen zu erhalten///////
+    var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
+    var role = tokenData.a;
+    if(role === "ADMIN"){
+      $("#dashboard").show();
+    }
+    else{
+      $("#dashboard").hide();
+    }
+
+  }
   
     
     var localStorageToken = localStorage.getItem("localStorageToken");
@@ -13,9 +31,6 @@ $(document).ready(function () {
       $(this).hide();
 
     });
-
-  
-
 
 
     /////// die benachrichtigung das der token noch da ist nachdem die Seite neu geladen wurde

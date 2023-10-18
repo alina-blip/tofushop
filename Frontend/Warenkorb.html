@@ -142,7 +142,7 @@
               <h2>Shopping Cart</h2>
               <div class="cart-item">
                 <img src="product1.jpg" alt="Product 1">
-                <p>Product 1</p>
+                <p id="productIds"></p>
                 <p>$19.99</p>
                 <p>1 Stk</p>
                 <div class="register-container">
@@ -186,8 +186,13 @@
         <script>
 $(document).ready(function() {
   var localStorageToken = localStorage.getItem("localStorageToken");
-
+  
   if (localStorageToken) {
+
+    // Lade die Zeichenfolge aus dem localStorage
+
+
+
     // Den Token decodieren, um die Informationen zu erhalten
     var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
     var email = tokenData.e;
@@ -205,6 +210,9 @@ $(document).ready(function() {
         var user = loggedInUser[0];
         
         // E-Mail-Adresse in das "email"-Element einfügen
+        
+        localStorage.setItem("UserID", user.id);
+        
         $("#name").text(user.name);
         $("#email").text(user.email);
         $("#surname").text(user.surname);
@@ -216,11 +224,9 @@ $(document).ready(function() {
 
       }
     });
+
   }
 });
-
-
-         
 
         </script>
         <script

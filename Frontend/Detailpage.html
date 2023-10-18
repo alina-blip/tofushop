@@ -74,14 +74,8 @@
               </tr>
             </table>
             <div class="d-flex pt-5 pb-5 fw-bold ">
-              <div class="fs-3">ADD TO BAG</div>
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-plus"
-                   viewBox="0 0 16 16" class="">
-                <path fill-rule="evenodd"
-                      d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
-                <path
-                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-              </svg>
+              <button type="button" class="btn btn-outline-secondary" id="addToBag">ADD TO BAG</button>
+              
             </div>
           </div>
 
@@ -115,29 +109,80 @@
 </script>
 
 <script>
-    $(document).ready(function () {
-        // Die Funktion zum Extrahieren der Produkt-ID aus der URL
-        function getProductIdFromURL() {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get("id"); // "Id" ist der Parametername in der URL
-        }
+   $(document).ready(function () {
+    // Die Funktion zum Extrahieren der Produkt-ID aus der URL
+    function getProductIdFromURL() {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("id"); // "Id" ist der Parametername in der URL
+    }
 
-        // Produkt-ID aus der URL extrahieren
-        var productId = getProductIdFromURL();
-        console.log(productId)
+    // Produkt-ID aus der URL extrahieren
+    var productId = getProductIdFromURL();
+    console.log(productId);
 
-        $.get(`http://localhost:8080/original/${productId}`, function (productData) {
-            var imgurl =
-                $("#product-title").text(productData.title);
-            $("#product-category").text(productData.category);
-            $("#product-description").text(productData.description);
-            $("#product-price").text(productData.price);
-            $("#product-material").text(productData.material);
-            $("#product-quantity").text(productData.quantity);
-            $("#product-size").text(productData.size);
-            $("#product-url").text(productData.url);
-            console.log(productData);
-        })
+    $.get(`http://localhost:8080/original/${productId}`, function (productData) {
+        var imgurl = $("#product-title").text(productData.title);
+        $("#product-category").text(productData.category);
+        $("#product-description").text(productData.description);
+        $("#product-price").text(productData.price);
+        $("#product-material").text(productData.material);
+        $("#product-quantity").text(productData.quantity);
+        $("#product-size").text(productData.size);
+        $("#product-url").text(productData.url);
+
+        // Produkt-ID speichern
+        productId = productData.id;
+        console.log(productData);
     });
+
+    var originalIDs = [];
+     
+    $("#addToBag").click(function () {
+        var localStorageToken = localStorage.getItem("localStorageToken");
+        var userIDStr = localStorage.getItem("UserID");
+        var userID = parseInt(userIDStr);
+        console.log(userID)
+      
+        if (localStorageToken) {
+          var count;
+          var currentDate = new Date(); /////um aktuelles Datum zu erhalten
+            var formattedDate = currentDate.getFullYear() + '-' + 
+                              (currentDate.getMonth() + 1).toString().padStart(2, '0') + '-' + 
+                              currentDate.getDate().toString().padStart(2, '0');
+
+                              originalIDs.push(productId);
+                              console.log(originalIDs)
+          var requestData = {
+                 // Benutzer-ID
+                originalId: productId, 
+                count: 0,
+                date: formattedDate
+          }
+          console.log(requestData);
+            // POST-Anfrage an den "cart"-Endpunkt mit der ausgewählten Produkt-ID
+            event.preventDefault();
+
+            var jsonString = JSON.stringify(requestData);
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/cart',
+                data: jsonString,
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log(response);
+                    $("#custom-alert").show();
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+
+        } else {
+          alert("Bitte melde dich an! ");
+        }
+    });
+});
+
 </script>
 </body>
