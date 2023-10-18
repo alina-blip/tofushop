@@ -17,8 +17,6 @@ $(document).ready(function () {
     }
 
   }
-  
-    
     var localStorageToken = localStorage.getItem("localStorageToken");
 
     ////// beim ausloggen wird der Token gelöscht
