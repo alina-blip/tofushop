@@ -29,6 +29,7 @@ public class WebSecurityConfig {
                     try {
                         registry
                                 .requestMatchers("/user/**").permitAll()
+                                .requestMatchers("/cart/**").permitAll()
                                 .requestMatchers("/user/login").permitAll()
                                 .requestMatchers("/user/auth/login").permitAll()
                                 .requestMatchers("/original/**").permitAll()

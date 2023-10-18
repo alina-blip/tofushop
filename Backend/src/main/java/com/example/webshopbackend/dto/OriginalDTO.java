@@ -16,8 +16,6 @@ public class OriginalDTO {
     private long quantity;
     private long imageId;
 
-    public OriginalDTO() {
-    }
 
     public OriginalDTO(long id, String title, String size, String material, String description, float price, String url, String category, long quantity, long imageId) {
         this.id = id;
@@ -30,6 +28,10 @@ public class OriginalDTO {
         this.category = category;
         this.quantity = quantity;
         this.imageId = imageId;
+    }
+
+    public OriginalDTO() {
+
     }
 
     public long getId() {
