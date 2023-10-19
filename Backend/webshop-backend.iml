@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -60,7 +61,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.23.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.bytebuddy:byte-buddy:1.12.20" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest:2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter:5.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
@@ -79,6 +80,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:6.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:6.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.0" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.13.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:2.1.214" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-validation:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:10.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:8.0.0.Final" level="project" />
