@@ -24,6 +24,11 @@
     crossorigin="anonymous"
   ></script>
   <script src="components/navbar/loadNavbar.js" defer></script>
+  <script src="components/dashboard/product.js" defer></script>
+  <script src="components/dashboard/order.js" defer></script>
+  <script src="components/dashboard/dashboardNavigation.js" defer></script>
+  <script src="components/dashboard/user.js" defer></script>
+
   <style>
       .cart-container {
           padding-top: 35px;
@@ -147,15 +152,13 @@
       <div class="container">
 
 
-        <form id="imageUploadForm">
           <div class="mb-3">
             <input type="file" id="imageFile" name="imageFile" accept="image/*">
           </div>
           <div class="mb-3">
             <button type="button" id="uploadImageBtn" class="btn btn-dark">Upload Image</button>
           </div>
-        </form>
-        
+
 
     <form id="productForm" action="http://localhost:8080/original" method="POST">
       <div class="mb-3">
@@ -265,6 +268,11 @@
           name="url"
         />
       </div>
+      <input
+        type="hidden"
+        id="imageId"
+        name="imageId"
+      />
       <div class="mb-3">
         <button type="submit" class="btn btn-dark">Produkt hinzufügen</button>
       </div>
@@ -323,404 +331,405 @@
   crossorigin="anonymous"
 ></script>
 <script>
-    $(document).ready(function () {
-        // Initial state:  "Registrierte Benutzer"
-        // $('#userList').show();
-        showUsers();
-
-        function showUsers() {
-            $('#userList').show();
-            $('#ordersList').hide();
-            $('#productsList').hide();
-            $('#addNewProduct').hide();
-            $('.cart-container h2').text('Registrierte Benutzer');
-        }
-
-        function showOrders() {
-            $('#userList').hide();
-            $('#ordersList').show();
-            $('#productsList').hide();
-            $('#addNewProduct').hide();
-            $('.cart-container h2').text('Bestellungen');
-
-        }
-
-        function showProducts() {
-            $('#userList').hide();
-            $('#ordersList').hide();
-            $('#productsList').show();
-            $('#addNewProduct').hide();
-            $('.cart-container h2').text('Produkte');
-
-        }
-
-        function showNewProductForm() {
-            $('#userList').hide();
-            $('#ordersList').hide();
-            $('#productsList').hide();
-            $('#addNewProduct').show();
-            $('.cart-container h2').text('Produkt hinzufügen');
-        }
-
-        $('#showUsersButton').click(showUsers);
-        $('#showOrdersButton').click(showOrders);
-        $('#showProductsButton').click(showProducts);
-        $('#showNewProductButton').click(showNewProductForm);
-
-    });
-
-</script>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            url: 'http://localhost:8080/user',
-            method: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                if (data.length === 0) {
-                    $('#noUsersMessage').show();
-                } else {
-                    data.forEach(function (user) {
-                        var userDiv = $('<div class="cart"></div>');
-                        userDiv.append('<p>ID: ' + user.id + '</p>');
-                        userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
-                        userDiv.append('<p>Vorname: ' + user.surname + '</p>');
-                        userDiv.append('<p>Straße: ' + user.street + '</p>');
-                        userDiv.append('<p>Hausnummer: ' + user.housenumber + '</p>');
-                        userDiv.append('<p>PLZ: ' + user.postalcode + '</p>');
-                        userDiv.append('<p>Ort: ' + user.country + '</p>');
-                        userDiv.append('<p>E-mail: ' + user.email + '</p>');
-
-                        var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
-                        var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
-                        var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
-
-                        userDiv.append('').append(changeNameButton);
-                        userDiv.append('').append(changePasswordButton);
-                        userDiv.append('').append(deactivateButton);
-
-                        $('#userList').append(userDiv);
-
-                        deactivateButton.click(function () {
-                            var newUserData = {
-                                id: user.id,
-                            };
-
-                            console.log(newUserData);
-
-                            $.ajax({
-                                url: 'http://localhost:8080/user/' + user.id,
-                                method: 'DELETE',
-                                success: function (response) {
-                                    console.log('User deleted successfully');
-                                    location.reload();
-                                },
-                                error: function (xhr, status, error) {
-                                    console.error('Error deleting user:', xhr, status, error);
-                                }
-                            });
-                        });
-                        changePasswordButton.click(function () {
-                            var passwordInput = $('<input type="password">');
-                            var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
-
-                            userDiv.empty()
-                                .append('<p>ID: ' + user.id + '</p>')
-                                .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
-                                .append('<p>Vorname: ' + user.surname + '</p>')
-                                .append('<p>Straße: ' + user.street + '</p>')
-                                .append('<p>Hausnummer: ' + user.housenumber + '</p>')
-                                .append('<p>PLZ: ' + user.postalcode + '</p>')
-                                .append('<p>Ort: ' + user.country + '</p>')
-                                .append('<p>E-mail: ' + user.email + '</p>')
-                                .append(passwordInput)
-                                .append(savePasswordButton);
-
-                            savePasswordButton.click(function () {
-                                var newPassword = passwordInput.val();
-                                var newUserData = {
-                                    id: user.id,
-                                    password: newPassword,
-                                    name: user.name,
-                                    surname: user.surname,
-                                    street: user.street,
-                                    housenumber: user.housenumber,
-                                    postalcode: user.postalcode,
-                                    country: user.country,
-                                    email: user.email,
-                                };
-
-                                $.ajax({
-                                    url: 'http://localhost:8080/user/' + user.id,
-                                    method: 'PUT',
-                                    dataType: 'json',
-                                    contentType: 'application/json',
-                                    data: JSON.stringify(newUserData),
-                                    success: function (response) {
-                                        console.log('Password updated successfully:', response);
-                                        location.reload();
-                                        window.alert('Passwort wurde geändert.');
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.error('Error updating password:', xhr, status, error);
-                                    }
-                                });
-                            });
-                        });
-                        changeNameButton.click(function () {
-                            var nameInput = $('<input type="text">');
-                            var saveButton = $('<button>Speichern</button>');
-                            userDiv.find('.user-name').replaceWith(nameInput);
-                            userDiv.find('#changeNameButton').empty().append(saveButton);
-
-                            saveButton.click(function () {
-                                var newName = nameInput.val();
-                                var newUserData = {
-                                    id: user.id,
-                                    name: newName,
-                                    surname: user.surname,
-                                    street: user.street,
-                                    housenumber: user.housenumber,
-                                    postalcode: user.postalcode,
-                                    country: user.country,
-                                    email: user.email,
-                                    password: user.password,
-                                };
-                                console.log('New User Data:', newUserData);
-
-                                $.ajax({
-                                    url: 'http://localhost:8080/user/' + user.id,
-                                    method: 'PUT',
-                                    dataType: 'json',
-                                    contentType: 'application/json',
-                                    data: JSON.stringify(newUserData),
-                                    success: function (response) {
-                                        console.log('User data updated successfully:', response);
-                                        location.reload();
-                                    },
-                                    error: function (xhr, status, error) {
-                                        console.error('Error updating user data:', xhr, status, error);
-                                    }
-                                });
-
-                            });
-                        });
-                    });
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error(xhr, status, error);
-            }
-        });
-    });
-
+    // $(document).ready(function () {
+    //     // Initial state:  "Registrierte Benutzer"
+    //     // $('#userList').show();
+    //     showUsers();
+    //
+    //     function showUsers() {
+    //         $('#userList').show();
+    //         $('#ordersList').hide();
+    //         $('#productsList').hide();
+    //         $('#addNewProduct').hide();
+    //         $('.cart-container h2').text('Registrierte Benutzer');
+    //     }
+    //
+    //     function showOrders() {
+    //         $('#userList').hide();
+    //         $('#ordersList').show();
+    //         $('#productsList').hide();
+    //         $('#addNewProduct').hide();
+    //         $('.cart-container h2').text('Bestellungen');
+    //
+    //     }
+    //
+    //     function showProducts() {
+    //         $('#userList').hide();
+    //         $('#ordersList').hide();
+    //         $('#productsList').show();
+    //         $('#addNewProduct').hide();
+    //         $('.cart-container h2').text('Produkte');
+    //
+    //     }
+    //
+    //     function showNewProductForm() {
+    //         $('#userList').hide();
+    //         $('#ordersList').hide();
+    //         $('#productsList').hide();
+    //         $('#addNewProduct').show();
+    //         $('.cart-container h2').text('Produkt hinzufügen');
+    //     }
+    //
+    //     $('#showUsersButton').click(showUsers);
+    //     $('#showOrdersButton').click(showOrders);
+    //     $('#showProductsButton').click(showProducts);
+    //     $('#showNewProductButton').click(showNewProductForm);
+    //
+    // });
 
 </script>
 <script>
-    $(document).ready(function () {
-        $.ajax({
-            url: 'http://localhost:8080/cart',
-            method: 'GET',
-            dataType: 'json',
-            success: function (ordersData) {
-                console.log(ordersData);
-                if (ordersData.length === 0) {
-                    $('#noOrdersMessage').show();
-                } else {
-                    $('#ordersList').empty();
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         url: 'http://localhost:8080/user',
+    //         method: 'GET',
+    //         dataType: 'json',
+    //         success: function (data) {
+    //             if (data.length === 0) {
+    //                 $('#noUsersMessage').show();
+    //             } else {
+    //                 data.forEach(function (user) {
+    //                     var userDiv = $('<div class="cart"></div>');
+    //                     userDiv.append('<p>ID: ' + user.id + '</p>');
+    //                     userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
+    //                     userDiv.append('<p>Vorname: ' + user.surname + '</p>');
+    //                     userDiv.append('<p>Straße: ' + user.street + '</p>');
+    //                     userDiv.append('<p>Hausnummer: ' + user.housenumber + '</p>');
+    //                     userDiv.append('<p>PLZ: ' + user.postalcode + '</p>');
+    //                     userDiv.append('<p>Ort: ' + user.country + '</p>');
+    //                     userDiv.append('<p>E-mail: ' + user.email + '</p>');
+    //
+    //                     var changeNameButton = $('<div class="register-container" id="changeNameButton"><button>Name ändern</button></div>');
+    //                     var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
+    //                     var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
+    //
+    //                     userDiv.append('').append(changeNameButton);
+    //                     userDiv.append('').append(changePasswordButton);
+    //                     userDiv.append('').append(deactivateButton);
+    //
+    //                     $('#userList').append(userDiv);
+    //
+    //                     deactivateButton.click(function () {
+    //                         var newUserData = {
+    //                             id: user.id,
+    //                         };
+    //
+    //                         console.log(newUserData);
+    //
+    //                         $.ajax({
+    //                             url: 'http://localhost:8080/user/' + user.id,
+    //                             method: 'DELETE',
+    //                             success: function (response) {
+    //                                 console.log('User deleted successfully');
+    //                                 location.reload();
+    //                             },
+    //                             error: function (xhr, status, error) {
+    //                                 console.error('Error deleting user:', xhr, status, error);
+    //                             }
+    //                         });
+    //                     });
+    //                     changePasswordButton.click(function () {
+    //                         var passwordInput = $('<input type="password">');
+    //                         var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
+    //
+    //                         userDiv.empty()
+    //                             .append('<p>ID: ' + user.id + '</p>')
+    //                             .append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>')
+    //                             .append('<p>Vorname: ' + user.surname + '</p>')
+    //                             .append('<p>Straße: ' + user.street + '</p>')
+    //                             .append('<p>Hausnummer: ' + user.housenumber + '</p>')
+    //                             .append('<p>PLZ: ' + user.postalcode + '</p>')
+    //                             .append('<p>Ort: ' + user.country + '</p>')
+    //                             .append('<p>E-mail: ' + user.email + '</p>')
+    //                             .append(passwordInput)
+    //                             .append(savePasswordButton);
+    //
+    //                         savePasswordButton.click(function () {
+    //                             var newPassword = passwordInput.val();
+    //                             var newUserData = {
+    //                                 id: user.id,
+    //                                 password: newPassword,
+    //                                 name: user.name,
+    //                                 surname: user.surname,
+    //                                 street: user.street,
+    //                                 housenumber: user.housenumber,
+    //                                 postalcode: user.postalcode,
+    //                                 country: user.country,
+    //                                 email: user.email,
+    //                             };
+    //
+    //                             $.ajax({
+    //                                 url: 'http://localhost:8080/user/' + user.id,
+    //                                 method: 'PUT',
+    //                                 dataType: 'json',
+    //                                 contentType: 'application/json',
+    //                                 data: JSON.stringify(newUserData),
+    //                                 success: function (response) {
+    //                                     console.log('Password updated successfully:', response);
+    //                                     location.reload();
+    //                                     window.alert('Passwort wurde geändert.');
+    //                                 },
+    //                                 error: function (xhr, status, error) {
+    //                                     console.error('Error updating password:', xhr, status, error);
+    //                                 }
+    //                             });
+    //                         });
+    //                     });
+    //                     changeNameButton.click(function () {
+    //                         var nameInput = $('<input type="text">');
+    //                         var saveButton = $('<button>Speichern</button>');
+    //                         userDiv.find('.user-name').replaceWith(nameInput);
+    //                         userDiv.find('#changeNameButton').empty().append(saveButton);
+    //
+    //                         saveButton.click(function () {
+    //                             var newName = nameInput.val();
+    //                             var newUserData = {
+    //                                 id: user.id,
+    //                                 name: newName,
+    //                                 surname: user.surname,
+    //                                 street: user.street,
+    //                                 housenumber: user.housenumber,
+    //                                 postalcode: user.postalcode,
+    //                                 country: user.country,
+    //                                 email: user.email,
+    //                                 password: user.password,
+    //                             };
+    //                             console.log('New User Data:', newUserData);
+    //
+    //                             $.ajax({
+    //                                 url: 'http://localhost:8080/user/' + user.id,
+    //                                 method: 'PUT',
+    //                                 dataType: 'json',
+    //                                 contentType: 'application/json',
+    //                                 data: JSON.stringify(newUserData),
+    //                                 success: function (response) {
+    //                                     console.log('User data updated successfully:', response);
+    //                                     location.reload();
+    //                                 },
+    //                                 error: function (xhr, status, error) {
+    //                                     console.error('Error updating user data:', xhr, status, error);
+    //                                 }
+    //                             });
+    //
+    //                         });
+    //                     });
+    //                 });
+    //             }
+    //         },
+    //         error: function (xhr, status, error) {
+    //             console.error(xhr, status, error);
+    //         }
+    //     });
+    // });
 
-                    ordersData.forEach(function (order) {
-                        var orderDiv = $('<div class="cart"></div>');
 
-                        orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
-                        orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
-
-                        // produkte anzeigen
-                        orderDiv.append('<img src="original.url" alt="product-picture">');
-                        orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
-                        orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
-                        orderDiv.append('<p>Material: ' + order.original.material + '</p>');
-                        orderDiv.append('<p>Kategorie: ' + order.original.category + '</p>');
-                        orderDiv.append('<p>Preis: € ' + order.original.price + '</p>');
-                        orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
-
-                        orderDiv.append('<p>Total: ' + order.total + '</p>');
-                        $('#ordersList').append(orderDiv);
-                    });
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching orders:', xhr, status, error);
-            },
-        });
-    });
 </script>
 <script>
-    //////////////////////////////////////////////////////////////
-    ////////////// PRODUCTS /////////////////////
-    //////////////////////////////////////////////////////////////
-
-    $(document).ready(function () {
-
-
-        var localStorageToken = localStorage.getItem("localStorageToken");
-
-
-        //////////////////////////////////////////////////////////////
-        ////////////// GET ALL PRODUCTS /////////////////////
-        //////////////////////////////////////////////////////////////
-
-        $.ajax({
-            url: 'http://localhost:8080/original',
-            method: 'GET',
-            dataType: 'json',
-            success: function (productsData) {
-                if (productsData.length === 0) {
-                    $('#noProductsMessage').show();
-                } else {
-                    console.log(productsData);
-                    $('#productsList').empty();
-
-                    productsData.forEach(function (original) {
-                        var productDiv = $('<div class="cart"></div>');
-
-                        productDiv.append('<p class="id text-center">ID: ' + original.id + '</p>');
-
-                        var imageInput = $('<input type="url" class="edit-url form-control" value="' + original.url + '" readonly>');
-                        productDiv.append(imageInput);
-
-                        productDiv.append('<div class="form-group"><label>Titel</label><input type="text" class="edit-title form-control" value="' + original.title + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Größe</label><input type="text" class="edit-size form-control" value="' + original.size + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Material</label><input type="text" class="edit-material form-control" value="' + original.material + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Description</label><input type="text" class="edit-description form-control" value="' + original.description + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Kategorie</label><input type="text" class="edit-category form-control" value="' + original.category + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Preis</label><input type="number" class="edit-price form-control" value="' + original.price + '" readonly></div>');
-                        productDiv.append('<div class="form-group"><label>Stückzahl</label><input type="text" class="edit-quantity form-control" value="' + original.quantity + '" readonly></div>');
-                        productDiv.append('<div class="register-container"><button class="btn btn-primary edit-product">Bearbeiten</button></div>');
-                        productDiv.append('<div class="register-container"><button class="btn btn-danger delete-product">Löschen</button></div>');
-                        productDiv.append('<div class="register-container"><button class="btn btn-success save-changes" style="display: none;">Änderungen speichern</button></div>');
-                        $('#productsList').append(productDiv);
-                    });
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching orders:', xhr, status, error);
-            },
-        });
-
-        //////////////////////////////////////////////////////////////
-        ////////////// ADD NEW PRODUCT /////////////////////
-        //////////////////////////////////////////////////////////////
-
-
-        $('#productForm').submit(function (event) {
-            event.preventDefault();
-
-            // make an object from the form data
-            var formData = {
-                "id": 0,
-                "title": $("#title").val(),
-                "size": $("#size").val(),
-                "material": $("#material").val(),
-                "description": $("#description").val(),
-                "price": $("#price").val(),
-                "url": $("#url").val(),
-                "category": $('[name="category"]').val(),
-                "quantity": $("#quantity").val()
-            };
-
-            console.log(formData);
-
-            var jsonString = JSON.stringify(formData);
-
-            $.ajax({
-                type: 'POST',
-                url: 'http://localhost:8080/original',
-                data: jsonString,
-                contentType: 'application/json',
-                success: function (response) {
-                    console.log(response);
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
-        });
-
-        //////////////////////////////////////////////////////////////
-        ////////////// EDIT PRODUCT /////////////////////
-        //////////////////////////////////////////////////////////////
-
-        // event handler for edit-button
-        $('#productsList').on('click', '.edit-product', function () {
-            var $productDiv = $(this).closest('.cart');
-            $productDiv.find('.edit-url, .edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-quantity', '.edit-description').prop('readonly', false);
-            $productDiv.find('.edit-product').hide();
-            $productDiv.find('.save-changes').show();
-        });
-
-        // event listener for the Save Changes - Button - with the productList ID to make it work
-        $('#productsList').on('click', '.save-changes', function () {
-            var $productDiv = $(this).closest('.cart');
-            var productId = parseInt($productDiv.find('p:contains("ID:")').text().split(':')[1].trim(), 10);
-            var editedData = {
-                id: productId,
-                url: $productDiv.find('.edit-url').val(),
-                title: $productDiv.find('.edit-title').val(),
-                size: $productDiv.find('.edit-size').val(),
-                material: $productDiv.find('.edit-material').val(),
-                category: $productDiv.find('.edit-category').val(),
-                description: $productDiv.find('.edit-description').val(),
-                price: parseFloat($productDiv.find('.edit-price').val()),
-                quantity: parseInt($productDiv.find('.edit-quantity').val()),
-            };
-            console.log(editedData);
-            var jsonStringEditedData = JSON.stringify(editedData);
-            console.log(jsonStringEditedData);
-
-
-            $.ajax({
-                type: 'PUT',
-                url: 'http://localhost:8080/original/' + productId,
-                data: jsonStringEditedData,
-                contentType: 'application/json',
-                success: function (response) {
-                    // Handle the success response
-                    console.log('Product updated:', response);
-
-                    // disable the other buttons
-                    $productDiv.find('.edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-url, .edit-quantity, .edit-description').prop('readonly', true);
-                    $productDiv.find('.edit-product').show();
-                    $productDiv.find('.save-changes').hide();
-                },
-                error: function (error) {
-                    console.error('Error updating product:', error);
-                }
-            });
-        });
-
-
-        //////////////////////////////////////////////////////////////
-        ////////////// DELETE PRODUCT /////////////////////
-        //////////////////////////////////////////////////////////////
-
-
-        $('#productsList').on('click', '.delete-product', function () {
-            var $productDiv = $(this).closest('.cart');
-            var productId = parseInt($productDiv.find('.id').text().split(':')[1].trim(), 10);
-
-            if (confirm('Are you sure you want to delete this product?')) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: 'http://localhost:8080/original/' + productId,
-                    success: function (response) {
-                        console.log('Product deleted:', response);
-                        $productDiv.remove();
-                    },
-                    error: function (error) {
-                        console.error('Error deleting product:', error);
-                    }
-                });
-            }
-        });
-    });</script>
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         url: 'http://localhost:8080/cart',
+    //         method: 'GET',
+    //         dataType: 'json',
+    //         success: function (ordersData) {
+    //             console.log(ordersData);
+    //             if (ordersData.length === 0) {
+    //                 $('#noOrdersMessage').show();
+    //             } else {
+    //                 $('#ordersList').empty();
+    //
+    //                 ordersData.forEach(function (order) {
+    //                     var orderDiv = $('<div class="cart"></div>');
+    //
+    //                     orderDiv.append('<p>Rechnungsnummer: ' + order.id + '</p>');
+    //                     orderDiv.append('<p>Kunde: ' + order.user.name + ' ' + order.user.surname + '</p>');
+    //
+    //                     // produkte anzeigen
+    //                     orderDiv.append('<img src="original.url" alt="product-picture">');
+    //                     orderDiv.append('<p>Produkttitel: ' + order.original.title + '</p>');
+    //                     orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+    //                     orderDiv.append('<p>Material: ' + order.original.material + '</p>');
+    //                     orderDiv.append('<p>Kategorie: ' + order.original.category + '</p>');
+    //                     orderDiv.append('<p>Preis: € ' + order.original.price + '</p>');
+    //                     orderDiv.append('<p>Größe: ' + order.original.size + '</p>');
+    //
+    //                     orderDiv.append('<p>Total: ' + order.total + '</p>');
+    //                     $('#ordersList').append(orderDiv);
+    //                 });
+    //             }
+    //         },
+    //         error: function (xhr, status, error) {
+    //             console.error('Error fetching orders:', xhr, status, error);
+    //         },
+    //     });
+    // });
+</script>
+<script>
+    // //////////////////////////////////////////////////////////////
+    // ////////////// PRODUCTS /////////////////////
+    // //////////////////////////////////////////////////////////////
+    //
+    // $(document).ready(function () {
+    //
+    //
+    //     var localStorageToken = localStorage.getItem("localStorageToken");
+    //
+    //
+    //     //////////////////////////////////////////////////////////////
+    //     ////////////// GET ALL PRODUCTS /////////////////////
+    //     //////////////////////////////////////////////////////////////
+    //
+    //     $.ajax({
+    //         url: 'http://localhost:8080/original',
+    //         method: 'GET',
+    //         dataType: 'json',
+    //         success: function (productsData) {
+    //             if (productsData.length === 0) {
+    //                 $('#noProductsMessage').show();
+    //             } else {
+    //                 console.log(productsData);
+    //                 $('#productsList').empty();
+    //
+    //                 productsData.forEach(function (original) {
+    //                     var productDiv = $('<div class="cart"></div>');
+    //
+    //                     productDiv.append('<p class="id text-center">ID: ' + original.id + '</p>');
+    //
+    //                     var imageInput = $('<input type="url" class="edit-url form-control" value="' + original.url + '" readonly>');
+    //                     productDiv.append(imageInput);
+    //
+    //                     productDiv.append('<div class="form-group"><label>Titel</label><input type="text" class="edit-title form-control" value="' + original.title + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Größe</label><input type="text" class="edit-size form-control" value="' + original.size + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Material</label><input type="text" class="edit-material form-control" value="' + original.material + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Description</label><input type="text" class="edit-description form-control" value="' + original.description + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Kategorie</label><input type="text" class="edit-category form-control" value="' + original.category + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Preis</label><input type="number" class="edit-price form-control" value="' + original.price + '" readonly></div>');
+    //                     productDiv.append('<div class="form-group"><label>Stückzahl</label><input type="text" class="edit-quantity form-control" value="' + original.quantity + '" readonly></div>');
+    //                     productDiv.append('<div class="register-container"><button class="btn btn-primary edit-product">Bearbeiten</button></div>');
+    //                     productDiv.append('<div class="register-container"><button class="btn btn-danger delete-product">Löschen</button></div>');
+    //                     productDiv.append('<div class="register-container"><button class="btn btn-success save-changes" style="display: none;">Änderungen speichern</button></div>');
+    //                     $('#productsList').append(productDiv);
+    //                 });
+    //             }
+    //         },
+    //         error: function (xhr, status, error) {
+    //             console.error('Error fetching orders:', xhr, status, error);
+    //         },
+    //     });
+    //
+    //     //////////////////////////////////////////////////////////////
+    //     ////////////// ADD NEW PRODUCT /////////////////////
+    //     //////////////////////////////////////////////////////////////
+    //
+    //
+    //     $('#productForm').submit(function (event) {
+    //         event.preventDefault();
+    //
+    //         // make an object from the form data
+    //         var formData = {
+    //             "id": 0,
+    //             "title": $("#title").val(),
+    //             "size": $("#size").val(),
+    //             "material": $("#material").val(),
+    //             "description": $("#description").val(),
+    //             "price": $("#price").val(),
+    //             "url": $("#url").val(),
+    //             "category": $('[name="category"]').val(),
+    //             "quantity": $("#quantity").val()
+    //         };
+    //
+    //         console.log(formData);
+    //
+    //         var jsonString = JSON.stringify(formData);
+    //
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'http://localhost:8080/original',
+    //             data: jsonString,
+    //             contentType: 'application/json',
+    //             success: function (response) {
+    //                 console.log(response);
+    //             },
+    //             error: function (error) {
+    //                 console.error(error);
+    //             }
+    //         });
+    //     });
+    //
+    //     //////////////////////////////////////////////////////////////
+    //     ////////////// EDIT PRODUCT /////////////////////
+    //     //////////////////////////////////////////////////////////////
+    //
+    //     // event handler for edit-button
+    //     $('#productsList').on('click', '.edit-product', function () {
+    //         var $productDiv = $(this).closest('.cart');
+    //         $productDiv.find('.edit-url, .edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-quantity', '.edit-description').prop('readonly', false);
+    //         $productDiv.find('.edit-product').hide();
+    //         $productDiv.find('.save-changes').show();
+    //     });
+    //
+    //     // event listener for the Save Changes - Button - with the productList ID to make it work
+    //     $('#productsList').on('click', '.save-changes', function () {
+    //         var $productDiv = $(this).closest('.cart');
+    //         var productId = parseInt($productDiv.find('p:contains("ID:")').text().split(':')[1].trim(), 10);
+    //         var editedData = {
+    //             id: productId,
+    //             url: $productDiv.find('.edit-url').val(),
+    //             title: $productDiv.find('.edit-title').val(),
+    //             size: $productDiv.find('.edit-size').val(),
+    //             material: $productDiv.find('.edit-material').val(),
+    //             category: $productDiv.find('.edit-category').val(),
+    //             description: $productDiv.find('.edit-description').val(),
+    //             price: parseFloat($productDiv.find('.edit-price').val()),
+    //             quantity: parseInt($productDiv.find('.edit-quantity').val()),
+    //         };
+    //         console.log(editedData);
+    //         var jsonStringEditedData = JSON.stringify(editedData);
+    //         console.log(jsonStringEditedData);
+    //
+    //
+    //         $.ajax({
+    //             type: 'PUT',
+    //             url: 'http://localhost:8080/original/' + productId,
+    //             data: jsonStringEditedData,
+    //             contentType: 'application/json',
+    //             success: function (response) {
+    //                 // Handle the success response
+    //                 console.log('Product updated:', response);
+    //
+    //                 // disable the other buttons
+    //                 $productDiv.find('.edit-title, .edit-size, .edit-material, .edit-category, .edit-price, .edit-url, .edit-quantity, .edit-description').prop('readonly', true);
+    //                 $productDiv.find('.edit-product').show();
+    //                 $productDiv.find('.save-changes').hide();
+    //             },
+    //             error: function (error) {
+    //                 console.error('Error updating product:', error);
+    //             }
+    //         });
+    //     });
+    //
+    //
+    //     //////////////////////////////////////////////////////////////
+    //     ////////////// DELETE PRODUCT /////////////////////
+    //     //////////////////////////////////////////////////////////////
+    //
+    //
+    //     $('#productsList').on('click', '.delete-product', function () {
+    //         var $productDiv = $(this).closest('.cart');
+    //         var productId = parseInt($productDiv.find('.id').text().split(':')[1].trim(), 10);
+    //
+    //         if (confirm('Are you sure you want to delete this product?')) {
+    //             $.ajax({
+    //                 type: 'DELETE',
+    //                 url: 'http://localhost:8080/original/' + productId,
+    //                 success: function (response) {
+    //                     console.log('Product deleted:', response);
+    //                     $productDiv.remove();
+    //                 },
+    //                 error: function (error) {
+    //                     console.error('Error deleting product:', error);
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+</script>

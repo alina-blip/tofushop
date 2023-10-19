@@ -82,7 +82,7 @@ $(document).ready(function() {
 
 
 
-    
+
     $("#all").click(function () {
         displayProducts(allProducts); // Zeige alle Produkte an
     });
@@ -112,17 +112,22 @@ $(document).ready(function() {
 
     function displayProducts(products) {
         productContainer.empty();
+        console.log("display products wird ausgefüht1");
 
         // Füge die Produkte dem jetzt leeren productContainer hinzu ...
         $.each(products, function(index, product) {
-            if (product.imageId) {
+            console.log("display products wird ausgefüht2");
+console.log(product);
+            if (product) {
                 console.log("imageId is valid")
                 $.ajax({
                     type: 'GET',
                     url: 'http://localhost:8080/images/' + product.imageId,
                     success: function (imageData) {
+                        console.log("success!");
+console.log(imageData.path);
                         if (imageData && imageData.path) {
-                            var imageElement = $('<img src="images/upload-images/' + imageData.path + '" class="nyx">');
+                            var imageElement = $('<img src=".././Backend/uploads/' + imageData.path + '" class="nyx">');
 
                             var productHTML = `
                             <div class="col-lg-4 col-md-6 col-sm-12">

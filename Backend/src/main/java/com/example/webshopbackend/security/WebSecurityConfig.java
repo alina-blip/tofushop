@@ -36,6 +36,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/secured").permitAll()
                                 .requestMatchers("/uploads/panda-4.jpg").permitAll()
                                 .requestMatchers("/images/**").permitAll()
+                                .requestMatchers("/images/all").permitAll()
                                 .requestMatchers("/original/**").permitAll()
                                 .requestMatchers("/cart/**").permitAll()
                                 .requestMatchers("/uploads/**").permitAll()

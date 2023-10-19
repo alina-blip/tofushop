@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('#uploadImageBtn').click(function () {
         var formData = new FormData();
         formData.append('imageFile', $('#imageFile')[0].files[0]);
-
+console.log("Button is clicked");
         $.ajax({
             type: 'POST',
             url: 'http://localhost:8080/images',
@@ -145,13 +145,13 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response);
                 window.alert("Produkt erfolgreich hinzugefügt!!");
+                window.location.reload();
             },
             error: function (error) {
                 console.error(error);
             }
         });
     });
-
 
 
     //////////////////////////////////////////////////////////////
