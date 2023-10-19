@@ -7,6 +7,7 @@ import com.example.webshopbackend.model.UserRole;
 import com.example.webshopbackend.repository.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,13 +26,26 @@ import java.util.stream.Collectors;
 
         @Override
         public UserDTO save(UserDTO userDTO) {
-            String hashedPassword = BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt());
-            userDTO.setPassword(hashedPassword);
+//            String hashedPassword = BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt());
+//            userDTO.setPassword(hashedPassword);
+//
+//            User user = convertToEntity(userDTO);
+//            User savedUser = repository.save(user);
+//
+//            return convertToDTO(savedUser);
 
-            User user = convertToEntity(userDTO);
-            User savedUser = repository.save(user);
+            try {
+                String hashedPassword = BCrypt.hashpw(userDTO.getPassword(), BCrypt.gensalt());
+                userDTO.setPassword(hashedPassword);
 
-            return convertToDTO(savedUser);
+                User user = convertToEntity(userDTO);
+                User savedUser = repository.save(user);
+
+                return convertToDTO(savedUser);
+            } catch (DataAccessException ex) {
+                // Handle the exception, log, and possibly rethrow a custom exception.
+                throw new RuntimeException("Failed to save User", ex);
+            }
         }
 
         @Override

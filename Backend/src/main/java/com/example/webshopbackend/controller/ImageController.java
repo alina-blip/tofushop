@@ -23,7 +23,6 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.example.webshopbackend.service.StorageServiceImpl.uploadDir;
 
 @RestController
 @RequestMapping("/images")
@@ -33,6 +32,9 @@ public class ImageController {
     private final StorageService storageService;
     private final ImageRepository imageRepository;
     private final Logger logger = LoggerFactory.getLogger(ImageController.class);
+
+    @Value("${file.upload-dir}")
+    public String uploadDir;
 
     @Autowired
     public ImageController(StorageService storageService, ImageRepository imageRepository) {
