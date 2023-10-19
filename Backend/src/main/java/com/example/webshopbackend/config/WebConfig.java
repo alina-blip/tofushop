@@ -18,7 +18,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/Frontend/images/upload-images/**")
-                .addResourceLocations("file:Users/alinasorger/Projects/tofushop/Backend/src/main/resources/static/img");
+        registry.addResourceHandler("")
+                .addResourceLocations("");
     }
 }

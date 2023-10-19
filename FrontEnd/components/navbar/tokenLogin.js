@@ -1,23 +1,10 @@
 $(document).ready(function () {
 
-  var localStorageToken = localStorage.getItem("localStorageToken");
-  if (localStorageToken) {
-
-
-    /////Der Token besteht normalerweise aus einem Header, Payload und einer Signatur, die durch Punkte voneinander getrennt sind.//////
-    //// [1] gibt den zweiten Teil an, der das Payload enthält.////////
-    // Den Token decodieren, um die Informationen zu erhalten///////
-    var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
-    var role = tokenData.a;
-    if(role === "ADMIN"){
-      $("#dashboard").show();
-    }
-    else{
-      $("#dashboard").hide();
-    }
-
-  }
+ 
+ 
     var localStorageToken = localStorage.getItem("localStorageToken");
+  
+    
 
     ////// beim ausloggen wird der Token gelöscht
     $("#logoutButton").click(function () {
@@ -26,8 +13,10 @@ $(document).ready(function () {
       $("#loginForm").show();
       $("#loginFo").show();
       $("#logoutBut").hide();
+      $("#dashboard").hide();
+      $("#dashboardPhone").hide();
       $(this).hide();
-
+      location.reload();
     });
 
 
@@ -37,6 +26,7 @@ $(document).ready(function () {
       $("#logoutButton").show();
       $("#loginFo").hide();
       $("#logoutBut").show();
+      
       // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
       $.ajax({
         type: "GET",
@@ -49,7 +39,25 @@ $(document).ready(function () {
           console.log(
             "Erfolgreich angemeldet nachdem die seite refresht wurde " +
               localStorageToken
+              
           );
+
+           /////Der Token besteht normalerweise aus einem Header, Payload und einer Signatur, die durch Punkte voneinander getrennt sind.//////
+      //// [1] gibt den zweiten Teil an, der das Payload enthält.////////
+      // Den Token decodieren, um die Informationen zu erhalten///////
+      
+          var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
+          var role = tokenData.a;
+          console.log("Benutzer-Rolle " + role);
+          if(role == "ADMIN"){
+          $("#dashboard").show();
+          $("#dashboardPhone").show();
+          
+          }
+          else{
+            $("#dashboard").hide();
+            $("#dashboardPhone").show();
+          }
         },
         error: function (error) {
           // Fehlerbehandlung
@@ -88,6 +96,7 @@ $(document).ready(function () {
               // Verarbeite die Antwort vom geschützten Endpunkt
               console.log("erfolgreich angemeldet  " + token);
               localStorage.setItem("localStorageToken", token);
+              window.location.href = "Warenkorb.html";
             },
             error: function (error) {
               // Fehlerbehandlung
