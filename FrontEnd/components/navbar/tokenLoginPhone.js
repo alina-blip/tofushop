@@ -10,8 +10,10 @@ $(document).ready(function () {
       $("#loginForm").show();
       $("#loginFo").show();
       $("#logoutButton").hide();
+      $("#dashboardPhone").hide();
+      $("#dashboard").hide();
       $(this).hide();
-
+      location.reload();
     });
 
     /////// die benachrichtigung das der token noch da ist nachdem die Seite neu geladen wurde
@@ -33,6 +35,22 @@ $(document).ready(function () {
             "Erfolgreich angemeldet nachdem die seite refresht wurde " +
               localStorageToken
           );
+
+          /////Der Token besteht normalerweise aus einem Header, Payload und einer Signatur, die durch Punkte voneinander getrennt sind.//////
+      //// [1] gibt den zweiten Teil an, der das Payload enthält.////////
+      // Den Token decodieren, um die Informationen zu erhalten///////
+      
+      var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
+      var role = tokenData.a;
+      console.log("Benutzer-Rolle " + role);
+      if(role == "ADMIN"){
+      $("#dashboard").show();
+      $("#dashboardPhone").show();
+      }
+      else{
+        $("#dashboard").hide();
+        $("#dashboardPhone").hide();
+      }
         },
         error: function (error) {
           // Fehlerbehandlung
@@ -70,6 +88,7 @@ $(document).ready(function () {
               // Verarbeite die Antwort vom geschützten Endpunkt
               console.log("erfolgreich angemeldet  " + token);
               localStorage.setItem("localStorageToken", token);
+              window.location.href = "Warenkorb.html";
             },
             error: function (error) {
               // Fehlerbehandlung
