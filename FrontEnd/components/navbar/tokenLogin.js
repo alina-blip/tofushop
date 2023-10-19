@@ -84,7 +84,9 @@ $(document).ready(function () {
         success: function (response) {
           // Hier wird der Token aus der Serverantwort extrahiert
           var token = response.accessToken;
+                        
 
+          
           // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
           $.ajax({
             type: "GET",
