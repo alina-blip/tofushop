@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -142,153 +142,166 @@
     <!--          ////////////// ADD PRODUCT FORM /////////////////////-->
     <!--          //////////////////////////////////////////////////////////////-->
 
+
     <div id="addNewProduct">
       <div class="container">
-        <form id="productForm" action="http://localhost:8080/original" method="POST">
-          <div class="mb-3">
-            <label for="title" class="form-label">Titel</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              name="title"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Grösse"
-              id="size"
-              name="size"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Material"
-              id="material"
-              name="material"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Beschreibung</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Das ist ein Bild von einem ..."
-              id="description"
-              name="description"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="quantity" class="form-label">Quantität</label>
-            <input
-              type="number"
-              class="form-control"
-              placeholder="25"
-              id="quantity"
-              name="quantity"
-              required
-            />
-          </div>
 
+
+        <form id="imageUploadForm">
           <div class="mb-3">
-            <label class="form-label">Kategorie</label>
-            <div class="form-check">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="category"
-                value="ORIGINAL"
-                required
-              />
-              <label class="form-check-label">Original</label>
-            </div>
-            <div class="form-check">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="category"
-                value="STICKER"
-                required
-              />
-              <label class="form-check-label">Sticker</label>
-            </div>
-            <div class="form-check">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="category"
-                value="PRINT"
-                required
-              />
-              <label class="form-check-label">Print</label>
-            </div>
+            <input type="file" id="imageFile" name="imageFile" accept="image/*">
           </div>
           <div class="mb-3">
-            <label for="price" class="form-label">Preis in €</label>
-            <input
-              type="number"
-              class="form-control"
-              placeholder="Preis in €"
-              id="price"
-              name="price"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="url" class="form-label">URL</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="URL"
-              id="url"
-              name="url"
-            />
-          </div>
-          <div class="mb-3">
-            <button type="submit" class="btn btn-dark">Produkt hinzufügen</button>
+            <button type="button" id="uploadImageBtn" class="btn btn-dark">Upload Image</button>
           </div>
         </form>
+        
+
+    <form id="productForm" action="http://localhost:8080/original" method="POST">
+      <div class="mb-3">
+        <label for="title" class="form-label">Titel</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          required
+        />
       </div>
-    </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Grösse"
+          id="size"
+          name="size"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Material"
+          id="material"
+          name="material"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Beschreibung</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Das ist ein Bild von einem ..."
+          id="description"
+          name="description"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantität</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="25"
+          id="quantity"
+          name="quantity"
+          required
+        />
+      </div>
 
-    <!--          //////////////////////////////////////////////////////////////-->
-    <!--          ////////////// BESTELLUNGEN /////////////////////-->
-    <!--          //////////////////////////////////////////////////////////////-->
-
-    <!--          <div class="col-lg-6 col-md-6 col-sm-12 ">-->
-    <!--            <div class="cart-container">-->
-    <!--              <h2>Bestellungen</h2>-->
-    <!--              <div class="cart">-->
-    <!--                <div class="register-container">-->
-    <!--                  <button>Change Status</button>-->
-    <!--                </div>-->
-    <!--                <p>Status: Sent</p>-->
-    <!--                <p>Rechnungsnummer: 3330004999</p>-->
-    <!--                <p>Kunde: Alina Sorger</p>-->
-    <!--                <div class="cart-item">-->
-    <!--                  <img src="product1.jpg" alt="Product 1">-->
-    <!--                  <p>Product 1</p>-->
-    <!--                  <p>$19.99</p>-->
-    <!--                  <p>1 Stk</p>-->
-    <!--                </div>-->
-    <!--                <div class="cart-item">-->
-    <!--                  <img src="product2.jpg" alt="Product 2">-->
-    <!--                  <p>Product 2</p>-->
-    <!--                  <p>$24.99</p>-->
-    <!--                  <p>5 Stk</p>-->
-    <!--                </div>-->
-    <!--                <p>Total: 330,00</p>-->
-    <!--              </div>-->
-
+      <div class="mb-3">
+        <label class="form-label">Kategorie</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="category"
+            value="ORIGINAL"
+            required
+          />
+          <label class="form-check-label">Original</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="category"
+            value="STICKER"
+            required
+          />
+          <label class="form-check-label">Sticker</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            name="category"
+            value="PRINT"
+            required
+          />
+          <label class="form-check-label">Print</label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Preis in €</label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Preis in €"
+          id="price"
+          name="price"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="url" class="form-label">URL</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="URL"
+          id="url"
+          name="url"
+        />
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-dark">Produkt hinzufügen</button>
+      </div>
+    </form>
   </div>
+</div>
+
+<!--          //////////////////////////////////////////////////////////////-->
+<!--          ////////////// BESTELLUNGEN /////////////////////-->
+<!--          //////////////////////////////////////////////////////////////-->
+
+<!--          <div class="col-lg-6 col-md-6 col-sm-12 ">-->
+<!--            <div class="cart-container">-->
+<!--              <h2>Bestellungen</h2>-->
+<!--              <div class="cart">-->
+<!--                <div class="register-container">-->
+<!--                  <button>Change Status</button>-->
+<!--                </div>-->
+<!--                <p>Status: Sent</p>-->
+<!--                <p>Rechnungsnummer: 3330004999</p>-->
+<!--                <p>Kunde: Alina Sorger</p>-->
+<!--                <div class="cart-item">-->
+<!--                  <img src="product1.jpg" alt="Product 1">-->
+<!--                  <p>Product 1</p>-->
+<!--                  <p>$19.99</p>-->
+<!--                  <p>1 Stk</p>-->
+<!--                </div>-->
+<!--                <div class="cart-item">-->
+<!--                  <img src="product2.jpg" alt="Product 2">-->
+<!--                  <p>Product 2</p>-->
+<!--                  <p>$24.99</p>-->
+<!--                  <p>5 Stk</p>-->
+<!--                </div>-->
+<!--                <p>Total: 330,00</p>-->
+<!--              </div>-->
+
+</div>
 
 <footer class="footer">
   <div class="footer-element">
@@ -314,6 +327,7 @@
         // Initial state:  "Registrierte Benutzer"
         // $('#userList').show();
         showUsers();
+
         function showUsers() {
             $('#userList').show();
             $('#ordersList').hide();
@@ -321,6 +335,7 @@
             $('#addNewProduct').hide();
             $('.cart-container h2').text('Registrierte Benutzer');
         }
+
         function showOrders() {
             $('#userList').hide();
             $('#ordersList').show();
@@ -329,6 +344,7 @@
             $('.cart-container h2').text('Bestellungen');
 
         }
+
         function showProducts() {
             $('#userList').hide();
             $('#ordersList').hide();
@@ -337,6 +353,7 @@
             $('.cart-container h2').text('Produkte');
 
         }
+
         function showNewProductForm() {
             $('#userList').hide();
             $('#ordersList').hide();
@@ -344,6 +361,7 @@
             $('#addNewProduct').show();
             $('.cart-container h2').text('Produkt hinzufügen');
         }
+
         $('#showUsersButton').click(showUsers);
         $('#showOrdersButton').click(showOrders);
         $('#showProductsButton').click(showProducts);
@@ -545,9 +563,9 @@
     $(document).ready(function () {
 
 
-  var localStorageToken = localStorage.getItem("localStorageToken");
-  
-  
+        var localStorageToken = localStorage.getItem("localStorageToken");
+
+
         //////////////////////////////////////////////////////////////
         ////////////// GET ALL PRODUCTS /////////////////////
         //////////////////////////////////////////////////////////////

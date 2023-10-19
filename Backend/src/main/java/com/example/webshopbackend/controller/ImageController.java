@@ -33,7 +33,7 @@ public class ImageController {
     private final ImageRepository imageRepository;
     private final Logger logger = LoggerFactory.getLogger(ImageController.class);
 
-    @Value("${file.upload-dir}")
+   @Value("${file.upload-dir}")
     public String uploadDir;
 
     @Autowired

@@ -26,23 +26,21 @@ import java.util.Optional;
 @Service
 public class StorageServiceImpl implements StorageService {
 
-    private final Path storageDirectory;
+    private Path storageDirectory = null;
 
     private final ImageRepository repository;
 
-<<<<<<< HEAD
-      @Value("${file.upload-dir}") // Use a configuration property
-    public String uploadDir;
-
-=======
     @Value("${file.upload-dir}") // Use a configuration property
     public String uploadDir;
->>>>>>> 57c3633fc76e76b5a1975c7a5514d9bd78a2df49
+
     @Autowired
     public StorageServiceImpl(ImageRepository repository) {
         this.repository = repository;
-        this.storageDirectory = Paths.get(uploadDir);
-        init();
+        if (uploadDir != null) {
+            this.storageDirectory = Paths.get(uploadDir);
+            init();
+        }
+
     }
 
     private void init() {
