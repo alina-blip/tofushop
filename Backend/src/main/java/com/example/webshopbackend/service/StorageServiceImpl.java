@@ -29,7 +29,8 @@ public class StorageServiceImpl implements StorageService {
 
     private final ImageRepository repository;
 
-    public static String uploadDir = "";
+      @Value("${file.upload-dir}") // Use a configuration property
+    public String uploadDir;
 
     @Autowired
     public StorageServiceImpl(ImageRepository repository) {
