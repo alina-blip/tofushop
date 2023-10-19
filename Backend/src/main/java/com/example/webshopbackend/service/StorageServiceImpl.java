@@ -7,6 +7,7 @@ import com.example.webshopbackend.model.Image;
 import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,10 @@ public class StorageServiceImpl implements StorageService {
 
     private final ImageRepository repository;
 
-    public static String uploadDir = "/Users/alinasorger/Projects/tofushop/Frontend/images/upload-images";
+//    public static String uploadDir = "/Users/alinasorger/Projects/tofushop/Frontend/images/upload-images";
 
+    @Value("${file.upload-dir}") // Use a configuration property
+    public String uploadDir;
     @Autowired
     public StorageServiceImpl(ImageRepository repository) {
         this.repository = repository;
