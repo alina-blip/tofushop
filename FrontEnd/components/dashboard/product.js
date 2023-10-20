@@ -83,7 +83,8 @@ console.log("Button is clicked");
                                     console.log("imageId and imageDatapath is there and success")
                                     console.log(imageData);
                                     imageName = imageData.path;
-                                    imageDiv.append('<img src="images/upload-images/' + imageData.path + '" height="250px" width="250px" style="border: 1px solid lightgrey">');
+
+                                    imageDiv.append('<img src=".././Backend/uploads/' + imageData.path + '" height="250px" width="250px" style="border: 1px solid lightgrey">');
                                 }
                             },
                             error: function (error) {
