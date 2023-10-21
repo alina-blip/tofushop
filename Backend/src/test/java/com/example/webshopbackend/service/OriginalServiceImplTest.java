@@ -1,13 +1,8 @@
 package com.example.webshopbackend.service;
-
 import com.example.webshopbackend.dto.OriginalDTO;
-import com.example.webshopbackend.dto.UserDTO;
 import com.example.webshopbackend.model.Category;
 import com.example.webshopbackend.model.Original;
-import com.example.webshopbackend.model.User;
-import com.example.webshopbackend.model.UserRole;
 import com.example.webshopbackend.repository.OriginalRepository;
-import com.example.webshopbackend.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -71,5 +66,4 @@ public class OriginalServiceImplTest {
         assertEquals(originalDTO.getUrl(), savedOriginalDTO.getUrl());
 
     }
-
 }

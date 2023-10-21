@@ -91,6 +91,7 @@ $(document).ready(function () {
                     error: function (error) {
                         // Fehlerbehandlung
                         console.log("anmeldung hat nicht funktioniert");
+                        window.alert("Anmeldung fehlgeschlagen. Versuche es erneut mit der korrekten Emailadresse und Passwort.")
                     },
                 });
             },

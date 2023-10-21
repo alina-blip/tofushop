@@ -26,7 +26,7 @@ import java.util.Optional;
 @Service
 public class StorageServiceImpl implements StorageService {
 
-    private Path storageDirectory = null;
+    private Path storageDirectory;
 
     private final ImageRepository repository;
 

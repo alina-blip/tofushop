@@ -129,29 +129,35 @@ $(document).ready(function () {
             "description": $("#description").val(),
             "price": $("#price").val(),
             "url": $("#url").val(),
-            "category": $('[name="category"]').val(),
+            "category": $('[name="category"]:checked').val(),
             "quantity": $("#quantity").val(),
             "imageId": $("#imageId").val()
         };
 
         console.log(formData);
+        console.log(formData.imageId);
 
         var jsonString = JSON.stringify(formData);
 
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:8080/original',
-            data: jsonString,
-            contentType: 'application/json',
-            success: function (response) {
-                console.log(response);
-                window.alert("Produkt erfolgreich hinzugefügt!!");
-                window.location.reload();
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
+        if (formData.imageId === "") {
+            // Display a window alert and return early to prevent the AJAX request
+            window.alert("ImageId darf nicht leer sein. Press 'Upload Image' first before saving the product.");
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:8080/original',
+                data: jsonString,
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log(response);
+                    window.alert("Produkt erfolgreich hinzugefügt!!");
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
     });
 
 

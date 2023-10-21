@@ -15,7 +15,7 @@ public class Cart {
     @ManyToOne
     private User user;
 
-    @OneToMany
+    @ManyToMany
     private List<Original> originals;
 
     private LocalDate date;
