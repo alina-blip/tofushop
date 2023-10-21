@@ -1,8 +1,10 @@
 package com.example.webshopbackend.service;
 
 import com.example.webshopbackend.dto.CartDTO;
+import com.example.webshopbackend.dto.OriginalDTO;
 import com.example.webshopbackend.exception.StorageException;
 import com.example.webshopbackend.model.Cart;
+import com.example.webshopbackend.model.Original;
 import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.CartRepository;
 import com.example.webshopbackend.repository.UserRepository;
@@ -46,6 +48,12 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    public Optional<CartDTO> findById(long id) {
+        Optional<Cart> cart = repository.findById(id);
+        return cart.map(this::convertToDTO);
+    }
+
+    @Override
     public CartDTO save(CartDTO cartDTO) {
         // Check if the user with the provided userId exists in your user database
         Optional<User> userOptional = userRepository.findById(cartDTO.getUserId());
@@ -69,7 +77,7 @@ public class CartServiceImpl implements CartService {
         return cartList.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
-    private Cart convertToEntity(CartDTO cartDTO) {
+     Cart convertToEntity(CartDTO cartDTO) {
         Cart cart = new Cart();
         cart.setCart_id(cartDTO.getCart_id());
         cart.setOriginals(cartDTO.getOriginals());

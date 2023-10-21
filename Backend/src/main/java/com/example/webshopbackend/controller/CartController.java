@@ -1,9 +1,12 @@
 package com.example.webshopbackend.controller;
 import com.example.webshopbackend.dto.CartDTO;
+import com.example.webshopbackend.dto.OriginalDTO;
+import com.example.webshopbackend.model.Cart;
 import com.example.webshopbackend.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cart")
@@ -26,6 +29,11 @@ public class CartController {
     @GetMapping("")
     public List<CartDTO> all() {
         return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<CartDTO> one (@PathVariable long id) {
+        return service.findById(id);
     }
 
 

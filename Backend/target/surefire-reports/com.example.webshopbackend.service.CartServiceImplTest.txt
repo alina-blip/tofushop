@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.webshopbackend.service.CartServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.example.webshopbackend.service.CartServiceImplTest
+testFindAll  Time elapsed: 0.031 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.webshopbackend.model.User.getId()" because the return value of "com.example.webshopbackend.model.Cart.getUser()" is null
+	at com.example.webshopbackend.service.CartServiceImplTest.testFindAll(CartServiceImplTest.java:53)
+
