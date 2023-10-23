@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="styles-rest.css" />
     <link rel="stylesheet" href="https://use.typekit.net/tju5ord.css" />
     <link rel="stylesheet" href="style-shop.css" />
-
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
       integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
@@ -26,6 +25,7 @@
     ></script>
     <script src="components/navbar/loadNavbar.js" defer></script>
     <script src="components/navbarPhone/loadNavbar.js" defer></script>
+    <script src="components/Shop.js"></script>
   </head>
   <body>
     <div id="page-container">
@@ -67,93 +67,5 @@
       crossorigin="anonymous"
     >
   </script>
-<script>
-var allProducts = []; // Initialisiere allProducts als leeres Array
-
-$(document).ready(function() {
-    var productContainer = $("#product-container");
-
-    $.get('http://localhost:8080/original', function (products) {
-        allProducts = products; // Speichere alle Produkte in allProducts
-
-        // Zeige alle Produkte an
-        displayProducts(products);
-    });
-
-
-
-
-    $("#all").click(function () {
-        displayProducts(allProducts); // Zeige alle Produkte an
-    });
-
-////////////// FILTER ///////////////////
-
-    $("#original").click(function () {
-        var filteredProducts = $.grep(allProducts, function (product) {
-            return product.category === 'ORIGINAL';
-        });
-        displayProducts(filteredProducts);
-    });
-
-    $("#sticker").click(function () {
-        var filteredProducts = $.grep(allProducts, function (product) {
-            return product.category === 'STICKER';
-        });
-        displayProducts(filteredProducts);
-    });
-
-    $("#print").click(function () {
-        var filteredProducts = $.grep(allProducts, function (product) {
-            return product.category === 'PRINT';
-        });
-        displayProducts(filteredProducts);
-    });
-
-    function displayProducts(products) {
-        productContainer.empty();
-        console.log("display products wird ausgefüht1");
-
-        // Füge die Produkte dem jetzt leeren productContainer hinzu ...
-        $.each(products, function(index, product) {
-            console.log("display products wird ausgefüht2");
-console.log(product);
-            if (product) {
-                console.log("imageId is valid")
-                $.ajax({
-                    type: 'GET',
-                    url: 'http://localhost:8080/images/' + product.imageId,
-                    success: function (imageData) {
-                        console.log("success!");
-console.log(imageData.path);
-                        if (imageData && imageData.path) {
-                            var imageElement = $('<img src=".././Backend/uploads/' + imageData.path + '" class="nyx">');
-
-                            var productHTML = `
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                            <a href="Detailpage.html?id=${product.id}">
-                                ${imageElement.prop('outerHTML')} <!-- für das HTML -->
-                                <div class="row imagetext">
-                                    <div class="col-lg-4 col-md-4">${product.title}</div>
-                                    <div class="col-lg-4 col-md-4">${product.category}</div>
-                                    <div class="col-lg-4 col-md-4">${product.price}</div>
-                                </div></a>
-                            </div>
-                        `;
-
-                            productContainer.append(productHTML);
-                        }
-                    },
-                    error: function (error) {
-                        console.error('Error fetching image data:', error);
-                    }
-                });
-            }
-        });
-    }
-});
-
-
-</script>
   </body>
 </html>

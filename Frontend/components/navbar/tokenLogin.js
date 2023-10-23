@@ -1,7 +1,8 @@
 $(document).ready(function () {
     var localStorageToken = localStorage.getItem("localStorageToken");
 
-    ////// beim ausloggen wird der Token gelöscht
+
+    //////// beim ausloggen wird der Token gelöscht und die sichtbarkeit von Logoutbutton, Dashboardseite und Loginbutton verändert sich ////////////
     $("#logoutButton").click(function () {
         localStorageToken = localStorage.removeItem("localStorageToken");
         console.log("logout hat funktioniert, Token: " + localStorageToken);
@@ -11,22 +12,23 @@ $(document).ready(function () {
         $("#dashboard").hide();
         $("#dashboardPhone").hide();
         $(this).hide();
-        window.location.replace("Homepage.html");
+        localStorage.removeItem("originals");     ////// löscht Wertvon Warenkorb Array originals beim ausloggen /////
+        window.location.replace("Homepage.html"); ////// wird zur Homepage geleitet nachdem Abmelden /////
     });
 
-    /////// die benachrichtigung das der token noch da ist nachdem die Seite neu geladen wurde
+    /////// die benachrichtigung das der token noch da ist nachdem die Seite neu geladen wurde  ////////////
     if (localStorageToken) {
         $("#loginForm").hide();
         $("#logoutButton").show();
         $("#loginFo").hide();
         $("#logoutBut").show();
 
-        // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
+        /////// Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header ////////
         $.ajax({
             type: "GET",
             url: "http://localhost:8080/secured",
             headers: {
-                Authorization: "Bearer " + localStorageToken, // Hinzufügen des Tokens zum Header
+                Authorization: "Bearer " + localStorageToken,           ///////// Hinzufügen des Tokens zum Header /////////
             },
             success: function (response) {
                 // Verarbeite die Antwort vom geschützten Endpunkt
@@ -42,10 +44,10 @@ $(document).ready(function () {
                 var tokenData = JSON.parse(atob(localStorageToken.split(".")[1]));
                 var role = tokenData.a;
                 console.log("Benutzer-Rolle " + role);
-                if (role == "ADMIN") {
+                if (role == "ADMIN") {              ///////wenn die Benutzerrolle ADMIN korrekt ist zeiche das Dashboard an ////////
                     $("#dashboard").show();
                     $("#dashboardPhone").show();
-                } else {
+                } else {                           ///////////wenn nicht dann nicht //////////
                     $("#dashboard").hide();
                     $("#dashboardPhone").show();
                 }
@@ -56,6 +58,8 @@ $(document).ready(function () {
             },
         });
     }
+    //////////// Loginbutton ///////
+
     $("#loginForm").submit(function (event) {
         event.preventDefault();
 
@@ -72,33 +76,33 @@ $(document).ready(function () {
             data: JSON.stringify(loginData),
             contentType: "application/json",
             success: function (response) {
-                // Hier wird der Token aus der Serverantwort extrahiert
+                ////////// Hier wird der Token aus der Serverantwort extrahiert /////////
                 var token = response.accessToken;
 
-                // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
 
-
+                //////// Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header /////////////
                 $.ajax({
                     type: "GET",
                     url: "http://localhost:8080/secured",
                     headers: {
-                        Authorization: "Bearer " + token, // Hinzufügen des Tokens zum Header
+                        Authorization: "Bearer " + token, ///////////// Hinzufügen des Tokens zum Header ///////////////
                     },
                     success: function (response) {
+
                         // Verarbeite die Antwort vom geschützten Endpunkt
                         console.log("erfolgreich angemeldet  " + token);
                         localStorage.setItem("localStorageToken", token);
-                        window.location.replace("Warenkorb.html");
+                        postCart();                                 ///////// nachdem die Authorisierung durchgeführt wurde mache Postrequest in der Funktion///
+
                     },
                     error: function (error) {
                         // Fehlerbehandlung
                         console.log("anmeldung hat nicht funktioniert");
-                        window.alert("Anmeldung fehlgeschlagen. Versuche es erneut mit der korrekten Emailadresse und Passwort.")
                     },
                 });
             },
             error: function (error) {
-                // Fehlerbehandlung
+                ///////// Fehlerbehandlung /////////
                 console.log("beim extrahieren des Tokens hat etwas nicht funktioniert");
                 $("#logoutButton").hide();
                 $("#logoutBut").hide();
@@ -106,10 +110,13 @@ $(document).ready(function () {
                 $("#loginForm").show();
             },
         });
-
+////////// wenn der button anmelden gedrückt wurde und die funktion hat funnktioniert ändere die Buttonsichtbarkeiten ///////////
         $("#loginForm").hide();
         $("#logoutButton").show();
         $("#loginFo").hide();
         $("#logoutBut").show();
+
+
     });
+
 });

@@ -12,6 +12,7 @@ $(document).ready(function () {
         $("#dashboardPhone").hide();
         $("#dashboard").hide();
         $(this).hide();
+        localStorage.removeItem("originals");
         window.location.replace("Homepage.html");
     });
 
@@ -86,7 +87,7 @@ $(document).ready(function () {
                         // Verarbeite die Antwort vom geschützten Endpunkt
                         console.log("erfolgreich angemeldet  " + token);
                         localStorage.setItem("localStorageToken", token);
-                        window.location.replace("Warenkorb.html");
+                        postCart();
                     },
                     error: function (error) {
                         // Fehlerbehandlung

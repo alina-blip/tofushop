@@ -25,6 +25,7 @@
     crossorigin="anonymous"
   ></script>
   <script src="components/navbar/loadNavbar.js" defer></script>
+  <script src="components/Detailpage.js"></script>
   <script src="components/navbarPhone/loadNavbar.js" defer></script>
 </head>
 <body>
@@ -75,7 +76,7 @@
             </table>
             <div class="d-flex pt-5 pb-5 fw-bold ">
               <button type="button" class="btn btn-outline-secondary" id="addToBag">ADD TO BAG</button>
-              
+
             </div>
           </div>
 
@@ -106,83 +107,5 @@
   integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
   crossorigin="anonymous"
 >
-</script>
-
-<script>
-   $(document).ready(function () {
-    // Die Funktion zum Extrahieren der Produkt-ID aus der URL
-    function getProductIdFromURL() {
-        var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get("id"); // "Id" ist der Parametername in der URL
-    }
-
-    // Produkt-ID aus der URL extrahieren
-    var productId = getProductIdFromURL();
-    console.log(productId);
-
-    $.get(`http://localhost:8080/original/${productId}`, function (productData) {
-        var imgurl = $("#product-title").text(productData.title);
-        $("#product-category").text(productData.category);
-        $("#product-description").text(productData.description);
-        $("#product-price").text(productData.price);
-        $("#product-material").text(productData.material);
-        $("#product-quantity").text(productData.quantity);
-        $("#product-size").text(productData.size);
-        $("#product-url").text(productData.url);
-
-        // Produkt-ID speichern
-        productId = productData.id;
-        console.log(productData);
-    });
-
-    var originalIDs = [];
-     
-    $("#addToBag").click(function () {
-        var localStorageToken = localStorage.getItem("localStorageToken");
-        var userIDStr = localStorage.getItem("UserID");
-        var userID = parseInt(userIDStr);
-        console.log(userID)
-      
-        if (localStorageToken) {
-          var count;
-          var currentDate = new Date(); /////um aktuelles Datum zu erhalten
-            var formattedDate = currentDate.getFullYear() + '-' + 
-                              (currentDate.getMonth() + 1).toString().padStart(2, '0') + '-' + 
-                              currentDate.getDate().toString().padStart(2, '0');
-
-                              originalIDs.push(productId);
-                              console.log(originalIDs)
-          var requestData = {
-                 // Benutzer-ID
-                originalId: productId, 
-                count: 0,
-                date: formattedDate
-          }
-          console.log(requestData);
-            // POST-Anfrage an den "cart"-Endpunkt mit der ausgewählten Produkt-ID
-            event.preventDefault();
-
-            var jsonString = JSON.stringify(requestData);
-
-            $.ajax({
-                type: 'POST',
-                url: 'http://localhost:8080/cart',
-                data: jsonString,
-                contentType: 'application/json',
-                success: function (response) {
-                    console.log(response);
-                    $("#custom-alert").show();
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
-
-        } else {
-          alert("Bitte melde dich an! ");
-        }
-    });
-});
-
 </script>
 </body>
