@@ -14,9 +14,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class WebSecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-
+    /**
+     * Configure security filters and authorization rules for your application.
+     *
+     * @param http The HttpSecurity object to configure.
+     * @return A SecurityFilterChain for your application's security.
+     * @throws Exception If there's an issue with configuration.
+     */
     @Bean
     public SecurityFilterChain applicationSecurity(HttpSecurity http) throws Exception {
+        // Add the custom JWT authentication filter before the UsernamePasswordAuthenticationFilter
+
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         http

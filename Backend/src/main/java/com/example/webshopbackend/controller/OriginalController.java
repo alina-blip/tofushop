@@ -1,11 +1,17 @@
+/**
+ * OriginalController Class
+ *
+ * This class serves as the controller for managing original products in the web application. It provides endpoints for
+ * saving, updating, deleting, and retrieving original product information.
+ *
+ * Originals are the products that are offered in the Webshop.
+ */
 package com.example.webshopbackend.controller;
-import java.awt.*;
+
 import java.util.List;
 import java.util.Optional;
 
 import com.example.webshopbackend.dto.OriginalDTO;
-import com.example.webshopbackend.model.Image;
-import com.example.webshopbackend.repository.ImageRepository;
 import com.example.webshopbackend.service.OriginalService;
 import com.example.webshopbackend.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,22 +31,55 @@ public class OriginalController {
         this.service = service;
         this.storageService = storageService;
     }
+
+    /**
+     * Save an Original Product
+     *
+     * This endpoint allows the user to save a new original product by providing the necessary product information.
+     *
+     * @param originalDTO The OriginalDTO containing product information to be saved.
+     * @return The saved OriginalDTO.
+     */
     @PostMapping("")
     public OriginalDTO save(@RequestBody OriginalDTO originalDTO) {
         return service.save(originalDTO);
     }
 
+    /**
+     * Get All Original Products
+     *
+     * This endpoint retrieves a list of all original products in the database.
+     *
+     * @return List of OriginalDTOs representing all original products.
+     */
     @GetMapping("")
     public List<OriginalDTO> all() {
         List<OriginalDTO> originalDTOs = service.findAll();
         return originalDTOs;
     }
 
+    /**
+     * Get an Original Product by ID
+     *
+     * This endpoint retrieves a specific original product by its unique ID.
+     *
+     * @param id The unique identifier of the original product to retrieve.
+     * @return An Optional containing the OriginalDTO if found, or an empty Optional if not found.
+     */
     @GetMapping("/{id}")
-    public Optional<OriginalDTO> one (@PathVariable long id) {
+    public Optional<OriginalDTO> one(@PathVariable long id) {
         return service.findById(id);
     }
 
+    /**
+     * Update an Original Product
+     *
+     * This endpoint allows the user to update an existing original product by providing the updated product information.
+     *
+     * @param id The unique identifier of the original product to update.
+     * @param updatedOriginalDTO The OriginalDTO containing updated product information.
+     * @return The updated OriginalDTO.
+     */
     @PutMapping("/{id}")
     public OriginalDTO update(@PathVariable long id, @RequestBody OriginalDTO updatedOriginalDTO) {
         Optional<OriginalDTO> originalDTOOptional = service.findById(id);
@@ -61,6 +100,14 @@ public class OriginalController {
         }
     }
 
+    /**
+     * Delete an Original Product
+     *
+     * This endpoint allows the user to delete an existing original product by its unique ID.
+     *
+     * @param id The unique identifier of the original product to delete.
+     * @return ResponseEntity indicating the result of the delete operation.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         Optional<OriginalDTO> originalDTOOptional = service.findById(id);
@@ -71,5 +118,4 @@ public class OriginalController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Original not found with id: " + id);
         }
     }
-
 }

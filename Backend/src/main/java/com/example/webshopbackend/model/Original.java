@@ -2,30 +2,45 @@ package com.example.webshopbackend.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+/**
+ * Original Class
+ *
+ * This class represents an original product available in the webshop. It defines the attributes and properties of an original product, including its title, size, material, description, price, URL, category, quantity, and associated image ID.
+ */
 @Entity
 public class Original {
 
     @Id
     @GeneratedValue
-    private long id;
+    private long id; // Unique identifier for the original product
+
     @NotNull
-    private String title;
+    private String title; // The title or name of the original product
+
     @NotNull
-    private String size;
+    private String size; // The size or dimensions of the original product
+
     @NotNull
-    private String material;
+    private String material; // The material used for the original product
+
     @NotNull
-    private String description;
-    private float price;
+    private String description; // A detailed description of the original product
+
+    private float price; // The price of the original product
+
     @NotNull
-    private String url;
+    private String url; // The URL or path to view the original product
+
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private Category category; // The category of the product (e.g., ORIGINAL, PRINT, STICKER)
 
-    private long quantity;
+    private long quantity; // The available quantity of the original product
 
-    private long imageId;
+    private long imageId; // The ID of the associated image for the original product
 
+    /////////////////////////////////////////////////////////
+    // Getters and setters for the above attributes
+    /////////////////////////////////////////////////////////
 
     public long getId() {
         return id;

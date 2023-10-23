@@ -3,7 +3,6 @@ package com.example.webshopbackend.service;
 import com.example.webshopbackend.dto.OriginalDTO;
 import com.example.webshopbackend.model.Category;
 import com.example.webshopbackend.model.Original;
-import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.OriginalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +11,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Service class for managing Original entities.
+ */
 @Service
 class OriginalServiceImpl implements OriginalService {
     private final OriginalRepository repository;
@@ -21,6 +23,12 @@ class OriginalServiceImpl implements OriginalService {
         this.repository = repository;
     }
 
+    /**
+     * Saves a new Original entity.
+     *
+     * @param originalDTO The DTO representing the Original to be saved.
+     * @return The saved Original as a DTO.
+     */
     @Override
     public OriginalDTO save(OriginalDTO originalDTO) {
         Original original = convertToEntity(originalDTO);
@@ -28,6 +36,12 @@ class OriginalServiceImpl implements OriginalService {
         return convertToDTO(savedOriginal);
     }
 
+    /**
+     * Retrieves a list of all Original entities.
+     *
+     * @return A list of OriginalDTOs representing the Original entities.
+     */
+    @Override
     public List<OriginalDTO> findAll() {
         List<Original> originals = repository.findAll();
         return originals.stream()
@@ -35,11 +49,23 @@ class OriginalServiceImpl implements OriginalService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Retrieves an Original entity by its ID.
+     *
+     * @param id The ID of the Original to retrieve.
+     * @return An Optional containing the OriginalDTO if found, or empty if not.
+     */
     @Override
     public Optional<OriginalDTO> findById(Long id) {
         Optional<Original> original = repository.findById(id);
         return original.map(this::convertToDTO);
     }
+
+    /**
+     * Deletes an Original entity.
+     *
+     * @param originalDTO The DTO representing the Original to be deleted.
+     */
     @Override
     public void delete(OriginalDTO originalDTO) {
         Original original = convertToEntity(originalDTO);
@@ -75,6 +101,4 @@ class OriginalServiceImpl implements OriginalService {
         originalDTO.setImageId(original.getImageId());
         return originalDTO;
     }
-
-
 }

@@ -22,25 +22,37 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtToPrincipalConverter jwtToPrincipalConverter;
 
-//wird aufgerufen wenn http andfrage verarbeitet wird
+    /**
+     * This method is called when processing an HTTP request. It extracts the JWT token from the request header,
+     * decodes it, and sets the authentication in the security context.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        // Step 1: Extract the JWT token from the request
         extractTokenFromRequest(request)
-                .map(jwtDecoder::decode)        // method reference  from .map(str -> jwtDecoder.decode(str)) //methode decode von jwtDecoder wird aufgerufen
+                // Step 2: Decode the JWT token into a claim set (possibly verifying the signature)
+                .map(jwtDecoder::decode)
+                // Step 3: Convert the JWT claim set into a user principal
                 .map(jwtToPrincipalConverter::convert)
-                .map(UserPrincipalAuthenticationToken::new)//erstellt neues Objekt mit dem zuvor erstellten UserPrincipal
+                // Step 4: Construct a UserPrincipalAuthenticationToken with the user principal
+                .map(UserPrincipalAuthenticationToken::new)
+                // Step 5: Set the authentication in the SecurityContextHolder
                 .ifPresent(authentication -> SecurityContextHolder.getContext().setAuthentication(authentication));
 
-        filterChain.doFilter(request,response);
+        // Continue processing the request
+        filterChain.doFilter(request, response);
     }
-    //wird aufgerufen, um das JWT aus dem Request-Header zu extrahieren
-    private Optional<String> extractTokenFromRequest(HttpServletRequest request) {
 
+    /**
+     * This method is called to extract the JWT token from the request header.
+     * It checks the "Authorization" header and removes the "Bearer " prefix if present.
+     */
+    private Optional<String> extractTokenFromRequest(HttpServletRequest request) {
+        // Get the token from the "Authorization" header and remove the "Bearer " prefix if present
         var token = request.getHeader("Authorization");
         if (StringUtils.hasText(token) && token.startsWith("Bearer ")) {
-            return Optional.of(token.substring(7));         //Bearer has 7 characters with the space
+            return Optional.of(token.substring(7)); // "Bearer " has 7 characters (including the space)
         }
-
         return Optional.empty();
     }
 }

@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    // Initial state:  "Registrierte Benutzer"
-    // $('#userList').show();
     showUsers();
     function showUsers() {
         $('#userList').show();
