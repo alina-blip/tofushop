@@ -20,7 +20,7 @@ public class UserTest {
         user.setPassword("securePassword");
         user.setRole(UserRole.USER);
 
-        // You can write assertions to check various properties of the user
+        //  check properties of the user
         assertEquals(1L, user.getId());
         assertEquals("John", user.getName());
         assertEquals("Doe", user.getSurname());
@@ -54,7 +54,6 @@ public class UserTest {
     public void testUserEmail() {
         User user = new User();
         user.setEmail("jane.smith@example.com");
-
         assertEquals("jane.smith@example.com", user.getEmail());
     }
 
@@ -62,7 +61,7 @@ public class UserTest {
     public void testUserRole() {
         User user = new User();
         user.setRole(UserRole.USER);
-
+        //assert the right user role
         assertEquals(UserRole.USER, user.getRole());
     }
 }

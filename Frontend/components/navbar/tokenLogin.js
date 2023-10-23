@@ -76,6 +76,8 @@ $(document).ready(function () {
                 var token = response.accessToken;
 
                 // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
+
+
                 $.ajax({
                     type: "GET",
                     url: "http://localhost:8080/secured",

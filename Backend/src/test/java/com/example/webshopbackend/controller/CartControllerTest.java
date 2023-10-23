@@ -1,6 +1,5 @@
 package com.example.webshopbackend.controller;
 
-import com.example.webshopbackend.dto.OriginalDTO;
 import com.example.webshopbackend.dto.UserDTO;
 import com.example.webshopbackend.model.Category;
 import com.example.webshopbackend.model.Original;
@@ -8,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.example.webshopbackend.dto.CartDTO;
 import com.example.webshopbackend.service.CartService;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -19,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -29,15 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.webshopbackend.controller.OriginalControllerTest.asJsonString;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS) // Add this
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class CartControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -84,12 +78,12 @@ public class CartControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
         UserDTO userDTO1 = new UserDTO();
-        userDTO1.setId(1L); // Use the current value of the counter
+        userDTO1.setId(1L);
         userDTO1.setName("John");
         userDTO1.setSurname("Doe");
         userDTO1.setPassword("12345");
         userDTO1.setCountry("Graz");
-        userDTO1.setEmail("John@Doe.com"); // Append counter to make email unique
+        userDTO1.setEmail("John@Doe.com");
         userDTO1.setHousenumber("1A");
         userDTO1.setStreet("Getreidegasse");
         userDTO1.setPostalcode("1030");
@@ -101,12 +95,12 @@ public class CartControllerTest {
 
         // Create and add the second user
         UserDTO userDTO2 = new UserDTO();
-        userDTO2.setId(2L); // Use the current value of the counter
+        userDTO2.setId(2L);
         userDTO2.setName("Alina");
         userDTO2.setSurname("Sorger");
         userDTO2.setPassword("Passwort");
         userDTO2.setCountry("Wien");
-        userDTO2.setEmail("alina@sorger.com"); // Append counter to make email unique
+        userDTO2.setEmail("alina@sorger.com");
         userDTO2.setHousenumber("1");
         userDTO2.setStreet("Wiengasse");
         userDTO2.setPostalcode("1020");
@@ -125,7 +119,6 @@ public class CartControllerTest {
 
         cartDTO.setOriginals(originalList);
 
-        // Serialize the CartDTO to JSON using the configured ObjectMapper
         String cartJson = objectMapper.writeValueAsString(cartDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/cart")
@@ -146,7 +139,6 @@ public class CartControllerTest {
 
         cartDTO.setOriginals(originalList);
 
-        // Serialize the CartDTO to JSON using the configured ObjectMapper
         String cartJson = objectMapper.writeValueAsString(cartDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/cart")
@@ -165,18 +157,16 @@ public class CartControllerTest {
 
         List<Original> originalList = new ArrayList<>();
 
-        // Add existing original items to the list
         Original original1 = new Original();
-        original1.setId(1L); // The ID of the existing original
+        original1.setId(1L);
         originalList.add(original1);
 
         Original original2 = new Original();
-        original2.setId(2L); // The ID of the existing original
+        original2.setId(2L);
         originalList.add(original2);
         updateCartDTO.setOriginals(originalList);
 
 
-        // Serialize the CartDTO to JSON using the configured ObjectMapper
         String cartJson = objectMapper.writeValueAsString(updateCartDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.put("/cart/1")
@@ -196,17 +186,13 @@ public class CartControllerTest {
 
         List<Original> originalList = new ArrayList<>();
 
-        // Add existing original items to the list
         Original original1 = new Original();
-        original1.setId(1L); // The ID of the existing original
+        original1.setId(1L);
         originalList.add(original1);
-
-        // dont add original 2
 
         updateCartDTO.setOriginals(originalList);
 
 
-        // Serialize the CartDTO to JSON using the configured ObjectMapper
         String cartJson = objectMapper.writeValueAsString(updateCartDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.put("/cart/1")
@@ -216,7 +202,6 @@ public class CartControllerTest {
 
     }
 
-    //IntegrationTest
     @Test
     void testGetCartEndpoint() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/cart")

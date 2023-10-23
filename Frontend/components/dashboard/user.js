@@ -1,15 +1,25 @@
 $(document).ready(function () {
+    // Perform an AJAX GET request to retrieve user data from a local server
+
+    //////////////////////////////////////////////////////////////
+    ////////////// GET USER /////////////////////
+    //////////////////////////////////////////////////////////////
     $.ajax({
         url: 'http://localhost:8080/user',
         method: 'GET',
         dataType: 'json',
         success: function (data) {
             if (data.length === 0) {
+                // If there are no users, display a message
                 $('#noUsersMessage').show();
             } else {
                 console.log(data);
+                // Iterate through each user in the data
                 data.forEach(function (user) {
+
                     var userDiv = $('<div class="cart"></div>');
+
+                    // Create elements to display user information
                     userDiv.append('<p>ID: ' + user.id + '</p>');
                     userDiv.append('<p>Rolle: ' + user.role + '</p>');
                     userDiv.append('<p>Nachname: <span class="user-name">' + user.name + '</span></p>');
@@ -20,18 +30,26 @@ $(document).ready(function () {
                     userDiv.append('<p>Ort: ' + user.country + '</p>');
                     userDiv.append('<p>E-mail: ' + user.email + '</p>');
 
+                    // Create buttons for user actions
                     var changePasswordButton = $('<div class="register-container" id="changePasswordButton"><button>Passwort ändern</button></div>');
                     var deactivateButton = $('<div class="register-container"><button>Deaktivieren</button></div>');
                     var changeRoleButton = $('<div class="register-container"><button>Rolle ändern</button></div>');
                     var editButton = $('<div class="register-container"><button>Benutzer bearbeiten</button></div>');
+
+                    // Append action buttons to the userDiv
                     userDiv.append('').append(editButton);
                     userDiv.append('').append(changeRoleButton);
                     userDiv.append('').append(changePasswordButton);
                     userDiv.append('').append(deactivateButton);
 
+                    // Append the userDiv to the '#userList' element
                     $('#userList').append(userDiv);
 
 
+                    //////////////////////////////////////////////////////////////
+                    ////////////// EDIT USER /////////////////////
+                    //////////////////////////////////////////////////////////////
+                    // Event listener for editing user information
                     editButton.click(function () {
                         // Replace the user information with input fields for editing
                         var nameInput = $('<input type="text" value="' + user.name + '">');
@@ -63,7 +81,9 @@ $(document).ready(function () {
                         var saveButton = $('<button>Speichern</button>');
                         userDiv.append(saveButton);
 
+                        // Event listener for saving changes to user information
                         saveButton.click(function () {
+                            // Handle user information update
                             var newName = nameInput.val();
                             var newSurname = surnameInput.val();
                             var newStreet = streetInput.val();
@@ -103,9 +123,13 @@ $(document).ready(function () {
                         });
                     });
 
+                    //////////////////////////////////////////////////////////////
+                    ////////////// CHANGE ROLE /////////////////////
+                    //////////////////////////////////////////////////////////////
 
-
+                    // Event listener for changing user role
                     changeRoleButton.click(function () {
+                        // Prompt for a new role (USER or ADMIN)
                         var newRole = prompt("Neue Rolle eingeben (USER oder ADMIN):");
                         if (newRole === "USER" || newRole === "ADMIN") {
                             var newUserData = {
@@ -141,29 +165,45 @@ $(document).ready(function () {
                         }
                     });
 
+                    //////////////////////////////////////////////////////////////
+                    ////////////// DEACTIVATE USER /////////////////////
+                    //////////////////////////////////////////////////////////////
 
 
+                    // Event listener for deactivating a user
                     deactivateButton.click(function () {
+                        // Handle user deactivation
                         var newUserData = {
                             id: user.id,
                         };
-
                         console.log(newUserData);
+
+                        var authToken = localStorage.getItem("localStorageToken");
 
                         $.ajax({
                             url: 'http://localhost:8080/user/' + user.id,
                             method: 'DELETE',
-                            success: function (response) {
+                            headers: {
+                                'Authorization': 'Bearer ' + authToken // Modify this as per your token format
+                            },
+                            success: function () {
                                 console.log('User deleted successfully');
+                                window.alert('User deleted successfully');
                                 location.reload();
                             },
                             error: function (xhr, status, error) {
                                 console.error('Error deleting user:', xhr, status, error);
-                                window.alert("Login as Admin to delete user.")
                             }
                         });
                     });
+
+                    //////////////////////////////////////////////////////////////
+                    ////////////// CHANGE PASSWORD /////////////////////
+                    //////////////////////////////////////////////////////////////
+
+                    // Event listener for changing the user's password
                     changePasswordButton.click(function () {
+                        // Replace user information with a password input field
                         var passwordInput = $('<input type="password">');
                         var savePasswordButton = $('<div class="register-container"><button>Speichern</button></div>');
 
@@ -180,6 +220,7 @@ $(document).ready(function () {
                             .append(passwordInput)
                             .append(savePasswordButton);
 
+                        // Event listener for saving the new password
                         savePasswordButton.click(function () {
                             var newPassword = passwordInput.val();
                             var newUserData = {
