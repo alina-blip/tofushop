@@ -4,34 +4,50 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-
+/**
+ * User Class
+ *
+ * This class represents a user in the webshop system. It stores user-related information, including name, surname, address (street, house number, postal code, and country), email, password, and user role.
+ */
 @Entity
 public class User {
+
     @Id
     @GeneratedValue
-    private long id;
+    private long id; // Unique identifier for the user
+
     @NotBlank
-    private String name;
+    private String name; // The user's first name
+
     @NotBlank
-    private String surname;
+    private String surname; // The user's last name
+
     @NotBlank
-    private String street;
+    private String street; // The street address of the user
+
     @NotBlank
-    private String housenumber;
+    private String housenumber; // The house number of the user's address
+
     @NotBlank
-    private String postalcode;
+    private String postalcode; // The postal code of the user's address
+
     @NotBlank
-    private String country;
+    private String country; // The country of the user's address
+
     @Email
     @NotBlank
     @Column(unique = true)
-    private String email;
+    private String email; // The user's email address, which is unique
+
     @NotBlank(message = "Password must not be blank")
-    private String password;
-   @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private String password; // The user's password
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role; // The role of the user (e.g., USER, ADMIN)
 
+    /////////////////////////////////////////////////////////
+    // Getters and setters for the above attributes
+    /////////////////////////////////////////////////////////
 
     public String getPassword() {
         return password;

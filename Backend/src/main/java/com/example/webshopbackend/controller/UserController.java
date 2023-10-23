@@ -1,4 +1,11 @@
+/**
+ * UserController Class
+ *
+ * This class serves as the controller for managing user-related operations in the web application. It provides endpoints
+ * for retrieving, saving, updating, and deleting user information, as well as user authentication and authorization.
+ */
 package com.example.webshopbackend.controller;
+
 import com.example.webshopbackend.dto.UserDTO;
 import com.example.webshopbackend.model.UserRole;
 import com.example.webshopbackend.security.JwtIssuer;
@@ -19,24 +26,50 @@ import java.util.Optional;
 public class UserController {
     private final JwtIssuer jwtIssuer;
     private final UserService service;
+
     @Autowired
     UserController(JwtIssuer jwtIssuer, UserService service) {
         this.jwtIssuer = jwtIssuer;
         this.service = service;
     }
 
+    /**
+     * Get All Users
+     *
+     * This endpoint retrieves a list of all user profiles in the system.
+     *
+     * @return List of UserDTOs representing all users.
+     */
     @GetMapping("")
     public List<UserDTO> all() {
         List<UserDTO> userDTOs = service.findAll();
         return userDTOs;
     }
 
+    /**
+     * Save a User
+     *
+     * This endpoint allows the user to save a new user profile by providing the necessary user information.
+     * The user is assigned the "USER" role by default.
+     *
+     * @param userDTO The UserDTO containing user information to be saved.
+     * @return The saved UserDTO.
+     */
     @PostMapping("")
     public UserDTO save(@RequestBody UserDTO userDTO) {
         userDTO.setRole(UserRole.USER);
         return service.save(userDTO);
     }
 
+    /**
+     * User Login
+     *
+     * This endpoint handles user authentication and login. Users provide their email and password, and if the
+     * credentials are valid, they receive an access token for future authorization.
+     *
+     * @param userDTO The UserDTO containing login credentials.
+     * @return ResponseEntity containing an access token if authentication is successful, or a 401 Unauthorized response.
+     */
     @PostMapping("/auth/login")
     public ResponseEntity<LoginResponse> login(@RequestBody UserDTO userDTO) {
         UserDTO existingUser = service.findByEmail(userDTO.getEmail());
@@ -58,6 +91,16 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(LoginResponse.builder()
                 .build());
     }
+
+    /**
+     * Update a User
+     *
+     * This endpoint allows the user to update their own profile information or an admin to update any user's profile.
+     *
+     * @param id The unique identifier of the user to update.
+     * @param updatedUserDTO The UserDTO containing updated user information.
+     * @return The updated UserDTO.
+     */
     @PutMapping("/{id}")
     public UserDTO update(@PathVariable long id, @RequestBody UserDTO updatedUserDTO) {
         Optional<UserDTO> userOptional = service.findById(id);
@@ -77,11 +120,18 @@ public class UserController {
             throw new RuntimeException("User not found with id: " + id);
         }
     }
+
+    /**
+     * Delete a User
+     *
+     * This endpoint allows the admin to delete a user profile by its unique ID.
+     *
+     * @param id The unique identifier of the user to delete.
+     * @return ResponseEntity indicating the result of the delete operation.
+     */
     @PreAuthorize("hasAuthority('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
-
-
         Optional<UserDTO> userOptional = service.findById(id);
         if (userOptional.isPresent()) {
             service.delete(userOptional.get());

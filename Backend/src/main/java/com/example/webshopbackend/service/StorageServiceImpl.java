@@ -1,10 +1,14 @@
+/**
+ * StorageServiceImpl Class
+ *
+ * This class provides the implementation for managing and interacting with image files in the web application. It
+ * handles storing, retrieving, and deleting image files, as well as initializing the storage directory.
+ */
 package com.example.webshopbackend.service;
 
-import com.example.webshopbackend.dto.UserDTO;
 import com.example.webshopbackend.exception.StorageException;
 import com.example.webshopbackend.exception.StorageFileNotFoundException;
 import com.example.webshopbackend.model.Image;
-import com.example.webshopbackend.model.User;
 import com.example.webshopbackend.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,7 +46,13 @@ public class StorageServiceImpl implements StorageService {
         }
 
     }
-
+    /**
+     * Initialize the storage directory.
+     *
+     * This method creates the storage directory if it doesn't already exist.
+     *
+     * @throws StorageException if an er ror occurs during directory initialization.
+     */
     private void init() {
         try {
             if (!Files.exists(storageDirectory)) {

@@ -12,9 +12,19 @@ public class JwtDecoder {
 
     private final JwtProperties properties;
 
-    public DecodedJWT decode(String token){
-    return JWT.require(Algorithm.HMAC256(properties.getSecretKey()))//token wird mit HMAC256 verifiziert
-        .build() //erstellt einen JWT-Verifierfür die Verifizierung des Tokens
-        .verify(token); // gibt ein DecodedJWT zurück
+    /**
+     * Decodes a JWT token by verifying its signature with the secret key specified in the application properties.
+     *
+     * @param token The JWT token to decode.
+     * @return DecodedJWT representing the JWT's claim set after successful verification.
+     */
+    public DecodedJWT decode(String token) {
+        // Step 1: Create a JWT verifier with the specified secret key
+        return JWT.require(Algorithm.HMAC256(properties.getSecretKey()))
+                // Step 2: Build a JWT verifier for token verification
+                .build()
+                // Step 3: Verify the token and return a DecodedJWT
+                .verify(token);
     }
 }
+

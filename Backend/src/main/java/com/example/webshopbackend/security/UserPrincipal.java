@@ -7,7 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-//hier wird der authentifizierte  Benutzer dargestellt // passwort bleibt null weil von Jwt Token erstellt wird
+
+/**
+ * Represents an authenticated user.
+ * This class is used for storing user-related data, including their ID, email, and roles.
+ */
 @Getter
 @Builder
 public class UserPrincipal implements UserDetails {
@@ -27,7 +31,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return null; // Password is not stored, as it's provided by the JWT token.
     }
 
     @Override
@@ -37,22 +41,22 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return true; // User account is always considered non-expired.
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return true; // User account is never locked.
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return true; // User's credentials are never considered expired.
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return true; // User is always considered enabled.
     }
 
 }
