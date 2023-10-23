@@ -15,7 +15,7 @@ public class CartTest {
         Cart cart = new Cart();
         User user = new User(); // Create a user object
         cart.setUser(user);
-
+        // Ensure that the User in the Cart is the same as the one set
         assertEquals(user, cart.getUser());
     }
 
@@ -26,7 +26,7 @@ public class CartTest {
         Original original2 = new Original(); // Create another original object
         List<Original> originals = Arrays.asList(original1, original2);
         cart.setOriginals(originals);
-
+        // Ensure that the List of Originals in the Cart is the same as the one set
         assertEquals(originals, cart.getOriginals());
     }
     @Test
@@ -34,7 +34,7 @@ public class CartTest {
         Cart cart = new Cart();
         LocalDate date = LocalDate.now();
         cart.setDate(date);
-
+        // Ensure that the date in the Cart is the same as the one set
         assertEquals(date, cart.getDate());
     }
 

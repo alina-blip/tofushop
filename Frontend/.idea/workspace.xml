@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3ae417-9378-4bd3-82d8-defb0200e953" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/service/StorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/service/StorageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/target/classes/com/example/webshopbackend/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/classes/com/example/webshopbackend/controller/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/target/classes/com/example/webshopbackend/service/StorageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/classes/com/example/webshopbackend/service/StorageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/WebshopBackendApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/WebshopBackendApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/controller/CartControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/controller/CartControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/controller/ImageControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/controller/ImageControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/CartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/CartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/OriginalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/OriginalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/test/java/com/example/webshopbackend/model/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.WebshopBackendApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.WebshopBackendApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.CartControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.CartControllerTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageControllerTest.xml" afterDir="false" />
@@ -26,10 +28,16 @@
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageUnitControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageUnitControllerTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.OriginalControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.OriginalControllerTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.UserControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.UserControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.OriginalServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.OriginalServiceImplTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.UserServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.UserServiceImplTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/service/OriginalServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/service/OriginalServiceImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/service/UserServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/service/UserServiceImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/WebshopBackendApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/WebshopBackendApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/controller/CartControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/test-classes/com/example/webshopbackend/controller/CartControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/dashboard/dashboardNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/dashboardNavigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/navbar/tokenLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/tokenLogin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +95,7 @@
       <workItem from="1697801867808" duration="1565000" />
       <workItem from="1697880005073" duration="2675000" />
       <workItem from="1698049652691" duration="596000" />
+      <workItem from="1698056023425" duration="4133000" />
     </task>
     <servers />
   </component>
