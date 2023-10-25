@@ -22,6 +22,9 @@ $(document).ready(function () {
         $("#logoutButton").show();
         $("#loginFo").hide();
         $("#logoutBut").show();
+        $("#WarenkorbPhone").show();
+        $("#Warenkorb").show();
+        // $("#addToBag").show();
 
         /////// Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header ////////
         $.ajax({
@@ -110,13 +113,5 @@ $(document).ready(function () {
                 $("#loginForm").show();
             },
         });
-////////// wenn der button anmelden gedrückt wurde und die funktion hat funnktioniert ändere die Buttonsichtbarkeiten ///////////
-        $("#loginForm").hide();
-        $("#logoutButton").show();
-        $("#loginFo").hide();
-        $("#logoutBut").show();
-
-
     });
-
 });

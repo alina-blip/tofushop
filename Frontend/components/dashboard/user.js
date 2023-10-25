@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+
+
     // Perform an AJAX GET request to retrieve user data from a local server
 
     //////////////////////////////////////////////////////////////
@@ -260,4 +263,61 @@ $(document).ready(function () {
             console.error(xhr, status, error);
         }
     });
-});
+
+
+checkAccessToDashboard();
+function checkAccessToDashboard() {
+    var authToken = localStorage.getItem("localStorageToken")
+    const headers = {
+        'Authorization': `Bearer ${authToken}`
+    };
+
+    // Make a request to the protected frontend page
+    fetch('/Frontend/Dashboard.html', { headers })
+        .then(response => {
+            if (response.status === 200) {
+                console.log("200");
+                // Access is allowed, continue loading the page
+                loadDashboardPage();
+            } else if (response.status === 403) {
+                console.log("403");
+                // Access is denied, handle accordingly (e.g., show an error message or redirect)
+                handleAccessDenied();
+            } else {
+                // Handle other response status codes
+                console.log("other");
+
+                handleOtherStatusCodes(response.status);
+            }
+        })
+        .catch(error => {
+            // Handle network errors
+            handleNetworkError(error);
+        });
+
+    // Function to load the protected dashboard page
+    function loadDashboardPage() {
+        // Implement logic to load the dashboard page
+        // You can use window.location or other methods to load the page.
+    }
+
+    // Function to handle access denied
+    function handleAccessDenied() {
+        // Implement logic for handling access denied
+        // You can show an error message or redirect the user.
+    }
+
+    // Function to handle other response status codes
+    function handleOtherStatusCodes(statusCode) {
+        // Implement logic for handling other response status codes
+        // You can show an error message or take appropriate action.
+    }
+
+    // Function to handle network errors
+    function handleNetworkError(error) {
+        // Implement logic for handling network errors
+        // You can show an error message or take appropriate action.
+    }
+
+}}
+);

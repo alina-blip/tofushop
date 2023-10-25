@@ -1,6 +1,10 @@
 
 $(document).ready(function() {
 
+    $("#bestellButton").click(function () {
+       window.alert("Vielen Dank für Ihre Bestellung!")
+        });
+
 
     var localStorageToken = localStorage.getItem("localStorageToken");
 
@@ -67,7 +71,7 @@ $(document).ready(function() {
                     var cartItem = $('<div class="cart-item"></div>');
 
                     // Füge den "Remove" Button mit dem eindeutigen Datenattribut hinzu
-                    var removeButton = $('<div id="delete"><button class="btn btn-danger remove-button" data-product-id="' + index + '">x</button>');
+                    var removeButton = $('<div id="delete"><button class="btn remove-button" data-product-id="' + index + '">x</button></div>');
 
                     // Füge das Produktbild hinzu (falls verfügbar)
 
@@ -133,10 +137,7 @@ $(document).ready(function() {
                 },
             });
 
-// Hier ist nur eine Beispielaktion, die du ersetzen musst:
+
         });
-
-
-
     }
 });

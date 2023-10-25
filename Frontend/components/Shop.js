@@ -58,11 +58,10 @@ $(document).ready(function() {
                         console.log(imageData.path);
                         if (imageData && imageData.path) {
                             var imageElement = $('<img src=".././Backend/uploads/' + imageData.path + '" class="nyx">');
-
                             var productHTML = `
                             <div class="col-lg-4 col-md-6 col-sm-12">
                             <a href="Detailpage.html?id=${product.id}">
-                                ${imageElement.prop('outerHTML')} <!-- f端r das HTML -->
+                                ${imageElement.prop('outerHTML')} <!-- fuer das HTML -->
                                 <div class="row imagetext">
                                     <div class="col-lg-4 col-md-4">${product.title}</div>
                                     <div class="col-lg-4 col-md-4">${product.category}</div>

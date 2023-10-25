@@ -10,9 +10,12 @@ $(document).ready(function () {
     var productId = getProductIdFromURL();
     console.log("hier kommts noch hin: " + productId);
 
-    $.get(
-        `http://localhost:8080/original/${productId}`,
-        function (productData) {
+    let imageId = 0;
+
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:8080/original/${productId}`,
+        success: function (productData) {
             var imgurl = $("#product-title").text(productData.title);
             $("#product-category").text(productData.category);
             $("#product-description").text(productData.description);
@@ -21,8 +24,29 @@ $(document).ready(function () {
             $("#product-quantity").text(productData.quantity);
             $("#product-size").text(productData.size);
             $("#product-url").text(productData.url);
+            imageId = productData.imageId;
+
+            // Now, make the request for the image
+            $.ajax({
+                type: 'GET',
+                url: `http://localhost:8080/images/${imageId}`,
+                success: function (imageData) {
+                    console.log("success!");
+                    console.log(imageData.path);
+                    var imageElement = $('<img src=".././Backend/uploads/' + imageData.path + '" class="nyx">');
+                    $("#product-image").append(imageElement);
+                },
+                error: function (error) {
+                    console.error('Error fetching image data:', error);
+                }
+            });
+        },
+        error: function (error) {
+            console.error('Error fetching product data:', error);
         }
-    );
+    });
+
+
 
     var originals = [];
 
@@ -54,7 +78,14 @@ $(document).ready(function () {
         date: currentDate,
     };
 
+
+    var localStorageToken = localStorage.getItem("localStorageToken");
+
+
     $("#addToBag").click(function () {
+
+if (localStorageToken) {
+
         console.log("requestDAta: ");
         console.log(requestData);
 
@@ -78,11 +109,18 @@ $(document).ready(function () {
             success: function (response) {
                 // Handle den Erfolgsfall hier
                 console.log("PUT Request erfolgreich");
+                window.alert("Produkt hinzugefügt!")
             },
             error: function (error) {
                 // Handle den Fehlerfall hier
                 console.error("Fehler beim PUT Request:", error);
             },
         });
+} else {
+    window.alert("Logge dich ein um Produkte zum Warenkorb hinzuzufügen.")
+}
+
+
     });
+
 });

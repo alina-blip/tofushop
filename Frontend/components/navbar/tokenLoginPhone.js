@@ -11,6 +11,7 @@ $(document).ready(function () {
         $("#logoutButton").hide();
         $("#dashboardPhone").hide();
         $("#dashboard").hide();
+
         $(this).hide();
         localStorage.removeItem("originals");
         window.location.replace("Homepage.html");
@@ -22,6 +23,12 @@ $(document).ready(function () {
         $("#logoutButton").show();
         $("#loginFo").hide();
         $("#logoutBut").show();
+        $("#WarenkorbPhone").show();
+        $("#Warenkorb").show();
+        $(".row, .col, #logoutBut").show();
+        // $("#addToBag").show();
+
+
         // Die Anfrage an den Server für andere Operationen (z. B. API-Aufrufe) enthält den Token im "Authorization"-Header
         $.ajax({
             type: "GET",
@@ -104,9 +111,5 @@ $(document).ready(function () {
                 $("#loginForm").show();
             },
         });
-        $("#loginForm").hide();
-        $("#logoutButton").show();
-        $("#loginFo").hide();
-        $("#logoutBut").show();
     });
 });

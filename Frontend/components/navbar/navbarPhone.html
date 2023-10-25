@@ -47,7 +47,7 @@
             <a href="ueber-tofu.html">Über&nbsp;Tofu</a>
           </div>
           <div class="nav-phone">
-            <a href="Warenkorb.html">Warenkorb</a>
+            <a href="Warenkorb.html"><div id="WarenkorbPhone" style="display: none">Warenkorb</div></a>
           </div>
           <div class="nav-phone">
             <a href="Dashboard.html"><div id="dashboardPhone" style="display:none">Dashboard</div></a>
@@ -75,11 +75,24 @@
                     />
                     <button type="submit">Login</button>
                   </form>
-                  <button id="logoutBut" style="display: none">Logout</button>
+                  </div>
+
+
+                <div class="row">
+                  <div class="col" style="display: none">
+                    <div class="login-container">
+                      <button id="logoutBut" style="display: none" class="">Logout</button>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="register-container">
+                      <button id="registrationBut" class="">Registrierung</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="register-container">
-                  <button id="registrationBut">Registrierung</button>
-                </div>
+
+
+
               </div>
             </li>
           </div>
@@ -93,7 +106,7 @@
 <script src="./components/navbar/postCart.js"></script>
 <script>
     document
-        .getElementById("registrationButton")
+        .getElementById("registrationBut")
         .addEventListener("click", function () {
             window.location.href = "Anmeldeformular.html";
         });

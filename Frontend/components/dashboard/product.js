@@ -102,7 +102,7 @@ $(document).ready(function () {
                                     imageName = imageData.path;
 
                                     // Display the product image in the imageDiv
-                                    imageDiv.append('<img src=".././Backend/uploads/' + imageData.path + '" height="250px" width="250px" style="border: 1px solid lightgrey">');
+                                    imageDiv.append('<img src=".././Backend/uploads/' + imageData.path + '" height="250px" width="250px" style="border: 1px solid lightgrey" class="img-fluid mx-auto">');
                                 }
                             },
                             error: function (error) {

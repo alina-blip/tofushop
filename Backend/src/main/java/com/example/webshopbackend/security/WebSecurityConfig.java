@@ -36,6 +36,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(registry -> {
                     try {
                         registry
+                                .requestMatchers("/Frontend/Dashboard.html").hasAuthority("ADMIN")
                                 .requestMatchers("/user/**").permitAll()
                                 .requestMatchers("/cart/**").permitAll()
                                 .requestMatchers("/user/login").permitAll()

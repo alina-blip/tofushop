@@ -5,18 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3ae417-9378-4bd3-82d8-defb0200e953" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Detailpage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Shop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Warenkorb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/navbar/postCart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/uploads/bild-07-ivy-STICKER.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/uploads/bild-10-leya-mockup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/uploads/bild-14-lima-and-rio-mockup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Backend/uploads/bild-14-lima-and-rio.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/example/webshopbackend/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.WebshopBackendApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.WebshopBackendApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.CartControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.CartControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageUnitControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.ImageUnitControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.OriginalControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.OriginalControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.UserControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.controller.UserControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.CartTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.CartTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.OriginalTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.OriginalTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.UserTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.model.UserTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.service.OriginalServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.service.OriginalServiceImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.service.UserServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/TEST-com.example.webshopbackend.service.UserServiceImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.WebshopBackendApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.WebshopBackendApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.CartControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.CartControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageUnitControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.ImageUnitControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.OriginalControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.OriginalControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.UserControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.controller.UserControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.model.UserTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.model.UserTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.OriginalServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.OriginalServiceImplTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.UserServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/surefire-reports/com.example.webshopbackend.service.UserServiceImplTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-09-luca.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-10-leya.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-12-rio.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-16-muriel.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-18-bob-mockup.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-18-bob.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-19-mia.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/bild-20-senegal-mockup.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/dragon-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/octo-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/panda-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/panda-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/panda.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/pande-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/sample.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/uploads/unicorn-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Detailpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/Detailpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hilfe.html" beforeDir="false" afterPath="$PROJECT_DIR$/Hilfe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Warenkorb.html" beforeDir="false" afterPath="$PROJECT_DIR$/Warenkorb.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Detailpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Detailpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Shop.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Shop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Warenkorb.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Warenkorb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/navbar/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/navbar/navbarPhone.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/navbarPhone.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/navbar/tokenLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/tokenLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/navbar/tokenLoginPhone.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/navbar/tokenLoginPhone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style-nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style-shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/style-shop.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +119,8 @@
       <workItem from="1697880005073" duration="2675000" />
       <workItem from="1698049652691" duration="596000" />
       <workItem from="1698056023425" duration="5383000" />
-      <workItem from="1698062194911" duration="531000" />
+      <workItem from="1698062194911" duration="5270000" />
+      <workItem from="1698130581512" duration="6189000" />
     </task>
     <servers />
   </component>
